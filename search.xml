@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>VirtualBox常见问题</title>
+    <url>/post/77ec75ad.html</url>
+    <content><![CDATA[<h1 id="不能分配USB设备xxx到虚拟电脑xxx"><a href="#不能分配USB设备xxx到虚拟电脑xxx" class="headerlink" title="不能分配USB设备xxx到虚拟电脑xxx:"></a>不能分配USB设备xxx到虚拟电脑xxx:</h1><p>1.进入<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">vBox官网</a>, 按下图提示找到VirtualBox 6.1.2 Oracle VM VirtualBox Extension Pack一栏,然后点击All supported platforms下载, 下载之前请确保vbox是最新版本, 否则可能出现不适配的问题.<a id="more"></a><br><img src="https://i.imgur.com/URFX7UH.png" alt=""><br><br>2.下载好后, 双击便可以进行自动安装.<br><br>3.进到vBox软件中, 点击 设置-USB设置,<br>点击右边第二个新建筛选器, 选择自己的u盘<br><img src="https://i.imgur.com/eZ3qyMP.jpg" alt=""><br>4.进入虚拟机系统, </p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/post/16107.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If <a id="more"></a>you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>hexo测试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo博客主页分页问题</title>
+    <url>/post/c075794d.html</url>
+    <content><![CDATA[<p>今天看了一下自己的博客发现连续二十篇文章都没有分页. 看了下配置文件, 发现是在站点配置文件(就是博客根目录下的config.yml文件)下, per_page的选项, 更改后面的数字即可. <font color="red">注意冒号后面的空格</font></p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">index_generator:</span><br><span class="line">  path: ''</span><br><span class="line">  per_page: 10</span><br><span class="line">  order_by: -date</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计算机网络--网络篇</title>
+    <url>/post/f61c8a6d.html</url>
+    <content><![CDATA[<p>做了一个简单的思维导图</p>
+<p><img src="https://img-blog.csdnimg.cn/20200524202823193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="计算机网络-网络层"></p>
+<a id="more"></a>
+
+<p>PDF文件请戳<a href="https://pan.baidu.com/s/1YOdFmrvPbw388tbw-9dPBw" target="_blank" rel="noopener">https://pan.baidu.com/s/1YOdFmrvPbw388tbw-9dPBw</a><br><br>提取码：zcke</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>shell编程(三)</title>
+    <url>/post/47b27393.html</url>
+    <content><![CDATA[<h2 id="shell中的数值处理"><a href="#shell中的数值处理" class="headerlink" title="shell中的数值处理"></a>shell中的数值处理</h2><p>Linux中bash的变量值是以字符串的形式存储的，所以如果想当作数字使用的话需要进行转换．（前面已经用到了一些，但没有系统的总结）<br><br>此外，Shell中所有的算术运算都被当作整数运算，所以在有浮点数参与时要特别处理.<a id="more"></a></p>
+<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>计算算式的值，使用shell变量的值的时候不用$</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line">x=5 y=6</span><br><span class="line">let t=x*y</span><br><span class="line">echo $t</span><br><span class="line"><span class="meta">#</span><span class="bash">运行结果为11</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="expression"><a href="#expression" class="headerlink" title="$((expression))"></a>$((expression))</h2><p>用于计算expression的值</p>
+<h2 id="expr"><a href="#expr" class="headerlink" title="expr"></a>expr</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">expr args</span><br></pre></td></tr></tbody></table></figure>
+<p>将它的参数当作表达式求值,  这里注意参数间的空格<br><br>例如<br></p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">a =$(expr $x+1)</span><br><span class="line">或</span><br><span class="line">a=`expr $x+1`</span><br></pre></td></tr></tbody></table></figure>
+<br>
+args可以是数值计算也可以是逻辑判断<br>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">/#</span><span class="bash">! /bin/bash</span></span><br><span class="line">a=5</span><br><span class="line">b=6</span><br><span class="line">expr  $a \&gt; $b</span><br><span class="line">\#判断式为真则输1, 否则输出0</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="shell中的数组"><a href="#shell中的数组" class="headerlink" title="shell中的数组"></a>shell中的数组</h2><h3 id="声明方式"><a href="#声明方式" class="headerlink" title="声明方式"></a>声明方式</h3><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">\#一</span><br><span class="line">array_name[num]=value</span><br><span class="line">array[1]="Hello"</span><br><span class="line">array[2]="Giao"</span><br><span class="line">\#二</span><br><span class="line">array=(value1 value2 [num]=value)</span><br><span class="line">array=(Hello  Giao [4]=World)</span><br><span class="line">\#三</span><br><span class="line">declare -a arr=(1 2 3 4)</span><br></pre></td></tr></tbody></table></figure>
+<p><br><br></p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">\#输出所有的非空元素</span><br><span class="line"><span class="meta">$</span><span class="bash">{array_name [*]}</span></span><br><span class="line"></span><br><span class="line">\#输出已赋值的元素个数(空也算)</span><br><span class="line"><span class="meta">$</span><span class="bash">{<span class="comment">#array_name [@]}</span></span></span><br><span class="line">\#或</span><br><span class="line"><span class="meta">$</span><span class="bash">{<span class="comment">#array_name [*]}</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">\#key对应的元素长度</span><br><span class="line"><span class="meta">$</span><span class="bash">{<span class="comment">#array_name[key]}</span></span></span><br></pre></td></tr></tbody></table></figure>
+<p>具体如下图<br><img src="https://img-blog.csdnimg.cn/20200325172702168.png" alt="alt=&quot;数组元素长度&quot;"></p>
+<h3 id="shell中数组的删除方式"><a href="#shell中数组的删除方式" class="headerlink" title="shell中数组的删除方式"></a>shell中数组的删除方式</h3><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">declare -a arr=(1 2 3)#声明arr数组</span><br><span class="line">unset arr[0]#删除arr的第零个元素</span><br><span class="line">unset arr#删除数组arr</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="shell数组的复制"><a href="#shell数组的复制" class="headerlink" title="shell数组的复制"></a>shell数组的复制</h3><p> 因为要复制全部元素，参照上面就知道需要用到<code>arr[*]</code>和<code>arr[@]</code>了，在前面的演示中，知道他们都可以表示全部元素．而它们的区别也类似于$*与$@加不加双引号的区别了.</p>
+<p>首先<code>b=${arr[*}</code>就是表示将a复制给b.</p>
+<p>同样的b都会得到a的全部元素,  而如果加上双引号变成<code>b=${"arr[*]"}</code>的话,  无论a中有多少元素,  都将被看做一个元素复制给b,    也就是说b只有一个元素.</p>
+<h2 id="shell函数"><a href="#shell函数" class="headerlink" title="shell函数"></a>shell函数</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">func_name(pare)</span><br><span class="line">{</span><br><span class="line"> 	comamand_list</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>在函数体内声明的局部变量需要用<code>local</code>修饰,  表明那是局部变量,    局部变量在函数调用结束后销毁. </p>
+<p><br><br><br></p>
+<h3 id="Here"><a href="#Here" class="headerlink" title="Here!"></a><font color="red">Here!</font></h3><p><font color="red">shell中的shift命令:  将脚本传入的参数左移一位,  即: 原来的让第n+1位参数变成第n位</font></p><font color="red">
+</font><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>shell编程(二)</title>
+    <url>/post/394153b8.html</url>
+    <content><![CDATA[<h1 id="控制结构语句"><a href="#控制结构语句" class="headerlink" title="控制结构语句"></a>控制结构语句</h1><p>主要内容</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">if</span><br><span class="line">case if</span><br><span class="line">for</span><br><span class="line">while </span><br><span class="line">until</span><br></pre></td></tr></tbody></table></figure>
+<a id="more"></a>
+<br>
+
+<h2 id="if的基本用法"><a href="#if的基本用法" class="headerlink" title="if的基本用法"></a>if的基本用法</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">if a</span><br><span class="line">then </span><br><span class="line">	b</span><br><span class="line">fi</span><br><span class="line">------------</span><br><span class="line">if a</span><br><span class="line">then </span><br><span class="line">	b</span><br><span class="line">else</span><br><span class="line">	c</span><br><span class="line">fi</span><br><span class="line">-----------</span><br><span class="line">if a</span><br><span class="line">then</span><br><span class="line">	b</span><br><span class="line">elif a2</span><br><span class="line">then </span><br><span class="line">	b2</span><br><span class="line">else </span><br><span class="line">	c</span><br><span class="line">fi</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="shell编程中的判等"><a href="#shell编程中的判等" class="headerlink" title="shell编程中的判等"></a>shell编程中的判等</h2><p><font color="red">注意空格!!!!!</font><br> |      |判等| 不等| 为空(空为真)| 非空(非空为真)|<br> |—–| —– |——-|——-|—-|<br>|字符串  | str1 = str2 |str1 != str2| -z str|-n str|</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">判等</th>
+<th>不等</th>
+<th>大于</th>
+<th>大于等于</th>
+<th>小于</th>
+<th>小于等于</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">算术</td>
+<td align="center">form1 -eq form2</td>
+<td>-ne</td>
+<td>-gt</td>
+<td>-ge</td>
+<td>-lt</td>
+<td>-le</td>
+</tr>
+<tr>
+<td align="center">(<strong>注:算术运算的后五种使用方法同第一个</strong>)</td>
+<td align="center"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>这里添加两个if判断条件<br><img src="https://img-blog.csdnimg.cn/20200323115342836.png" alt="在这里插入图片描述"></p>
+<h2 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">for varieble in argument-list</span><br><span class="line">do</span><br><span class="line">	command_list</span><br><span class="line">done</span><br></pre></td></tr></tbody></table></figure>
+<p>还有最经典的for循环!!</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">注意这里是两层括号</span></span><br><span class="line">for((num=1;num&lt;n;num++));do</span><br><span class="line">	command_list</span><br><span class="line">done</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<p>du -sh filename 显示文件大小及名称<br>eval 二次扫描</p>
+<hr>
+<p>小tip:  在shell编程中,  如果给一个变量赋值 如 :  a=5;<br><br>那么echo a得到的就是5;<br>echo $a 得到的也是5;<br>区别是,  $a可以当作数字看待<br>所以输出的第一个是字符串的5,  第二个是数字5</p>
+<h2 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">while expression</span><br><span class="line">do </span><br><span class="line">	command_list</span><br><span class="line">done</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="until"><a href="#until" class="headerlink" title="until"></a>until</h2><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">until expression</span><br><span class="line">do </span><br><span class="line">	command_list</span><br><span class="line">done</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="case"><a href="#case" class="headerlink" title="case"></a>case</h1><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">case variable in</span><br><span class="line">	pattern1)  command_list1</span><br><span class="line">		;;</span><br><span class="line">	pattern2)  command_list2</span><br><span class="line">		;;</span><br><span class="line">	pattern3)  command_list3</span><br><span class="line">		;;</span><br><span class="line">esac</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="简单计算"><a href="#简单计算" class="headerlink" title="简单计算"></a>简单计算</h2><p>在做计算时，如果是浮点数计算，一定要用scale指明保留小数位数.<br>使用<em>进行乘法计算时应注意避免歧义,  尽量使用    \\</em> ．</p>
+<h2 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h2><p>类似于C语言中的用法，continue用于结束当前次循环，break用于跳出循环.</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>shell编程</title>
+    <url>/post/e5954c2f.html</url>
+    <content><![CDATA[<h1 id="Shell程序的的变量及参数"><a href="#Shell程序的的变量及参数" class="headerlink" title="Shell程序的的变量及参数"></a>Shell程序的的变量及参数</h1><p>在shell程序中，数据用变量来存储，使用变量时不需要声明，默认所有变量类型为字符串类型．<a id="more"></a><br><img src="https://img-blog.csdnimg.cn/20200311165844920.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="shell程序的参数及变量"><br>这里$*,”$@”和$@的效果是一样的.</p>
+<blockquote>
+<p>使用<strong>set</strong>设置位置参数.<br>形如</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">&gt;<span class="built_in">set</span> $(ls -l)</span><br></pre></td></tr></tbody></table></figure>
+<p>这样的命令则会把ls -l的结果以此作为他的参数.</p>
+</blockquote>
+<h1 id="常见的环境变量"><a href="#常见的环境变量" class="headerlink" title="常见的环境变量"></a>常见的环境变量</h1><table>
+<thead>
+<tr>
+<th align="center">环境变量</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$HOME</td>
+<td align="center">当前用户主目录</td>
+</tr>
+<tr>
+<td align="center">$PATH</td>
+<td align="center">用以搜索命令的目录列表,用:分隔</td>
+</tr>
+<tr>
+<td align="center">$PS1</td>
+<td align="center">命令提示符，通常是用＄．root用户则是#</td>
+</tr>
+<tr>
+<td align="center">$PS2</td>
+<td align="center">二级提示符，用来提示后需输入，通常是＞</td>
+</tr>
+<tr>
+<td align="center">$IFS</td>
+<td align="center">内部与分隔符</td>
+</tr>
+</tbody></table>
+<h1 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h1><p>在shell中，使用一般变量可以不用声明，可对于一些特殊变量需要声明．<br>声明格式：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">declare</span> [options] [name=[value]]</span><br><span class="line"><span class="built_in">typeset</span> [options] [name=[value]]</span><br><span class="line"><span class="comment">#unset用于删除shell变量</span></span><br><span class="line"><span class="built_in">unset</span> name</span><br></pre></td></tr></tbody></table></figure>
+<p>常用选项options:<br>-a  声明一个数组array<br>-f   声明一个函数function<br>-i   声明一个整数integer<br>-r   声明只读变量readonly<br>-x   声明全局变量,可供子进程使用</p>
+<p><strong>*<font color="red" size="5">注：赋值语句中，等号前后不能有空格．<br>　　整型变量不可以被赋非整型的值</font>*</strong><br>　　<br>set用于查看本地定义的shell变量</p>
+<h1 id="变量引用"><a href="#变量引用" class="headerlink" title="变量引用"></a>变量引用</h1><p>echo　$ {name:－string}<br>当变量(name)存在时，显示变量的值，否则显示string<br>echo　$ {name:＝string}<br>当变量(name)存在时，显示变量的值，否则把string赋给name，并输出<br>echo　$ {name:?string}<br>当变量(name)存在时，显示变量的值，否则显示name：string<br>echo　$ {name:=string}<br>当变量(name)存在时，显示变量的值，否则显示空</p>
+<ul>
+<li>用单引号将值括起来，则不允许对括号中的变量进行替换，且不做shell解释，即屏蔽了括号中特殊字符的含义<br>例如:<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">j@Ubuntu:~/pro_shell$ x='$PATH'</span><br><span class="line">j@Ubuntu:~/pro_shell$ echo $x</span><br><span class="line"><span class="meta">$</span><span class="bash">PATH</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li>‘\‘在Bash中被解释为转义字符，用于去除一个单个字符的特殊意义，保留跟随在之后的字符的字面值．</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>-Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于雅克比迭代, 高斯塞德尔迭代以及SOR迭代的C++实现</title>
+    <url>/post/95445e9a.html</url>
+    <content><![CDATA[<p>算法不难，只要理解Jacobi的算法另外两种就很简单了，因为他们都是建立在Jacobi迭代的基础上．<br>首先讲一下程序，主要是由输入功能，和迭代方式调用功能实现块构成的．</p>
+<a id="more"></a>
+
+<p>点击<a href="https://pan.baidu.com/s/1Blf6Y-OaYJQZLLWBwZQUBw" target="_blank" rel="noopener">这里</a>下载源码.<br>提取码：mlpb </p>
+<h1 id="程序变量"><a href="#程序变量" class="headerlink" title="程序变量"></a>程序变量</h1><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> m; <span class="comment">//m*n的系数矩阵</span></span><br><span class="line"><span class="keyword">int</span> max_times;<span class="comment">// z最大迭代次数</span></span><br><span class="line"><span class="keyword">int</span> times = <span class="number">0</span>;<span class="comment">//当前迭代次数</span></span><br><span class="line"><span class="comment">//int mx_mis = 99999999;</span></span><br><span class="line"><span class="built_in">string</span> choice;<span class="comment">//功能选择</span></span><br><span class="line"><span class="keyword">double</span> mis;<span class="comment">//误差范围</span></span><br><span class="line"><span class="keyword">double</span> mtrx[sz][sz];<span class="comment">//系数矩阵</span></span><br><span class="line"><span class="keyword">double</span> b[sz];<span class="comment">//常数矩阵</span></span><br><span class="line"><span class="keyword">double</span> init[sz];<span class="comment">//初始向量</span></span><br><span class="line"><span class="keyword">double</span> ans[sz];<span class="comment">//答案</span></span><br><span class="line"><span class="comment">//double max_mis[sz];//</span></span><br></pre></td></tr></tbody></table></figure>
+<h1 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h1><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    input();</span><br><span class="line"></span><br><span class="line">    func();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="输入功能"><a href="#输入功能" class="headerlink" title="输入功能"></a>输入功能</h1><p>这里就是输入计算需要的系数矩阵,常数矩阵等基本条件.</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">input</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"请输入迭代方式(J,GS,SOR)"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;choice;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入m"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入系数矩阵m*n(m)"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++ )</span><br><span class="line">        {</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; mtrx[i][j];</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入常数矩阵b:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; b[i];</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入初始向量"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; init[i];</span><br><span class="line">        ans[i] = init[i];</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入最大迭代次数:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; max_times;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    cout &lt;&lt; endl &lt;&lt; "请输入最大误差:"&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">//         cin&gt;&gt;mis;</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="输出功能"><a href="#输出功能" class="headerlink" title="输出功能"></a>输出功能</h1><p>迭代结束后进行输出</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"迭代"</span> &lt;&lt; times+<span class="number">1</span> &lt;&lt; <span class="string">"次,答案是"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">    {</span><br><span class="line"><span class="comment">//        cout &lt;&lt; init[i] &lt;&lt; endl;</span></span><br><span class="line">        <span class="built_in">printf</span> ( <span class="string">"%.4f\t"</span>, init[i] );</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">printf</span> ( <span class="string">"\n"</span> );</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="迭代调用功能"><a href="#迭代调用功能" class="headerlink" title="迭代调用功能"></a>迭代调用功能</h1><p>为了main函数里干净点，把功能函数统统放进func里</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span>(choice==<span class="string">"J"</span>)</span><br><span class="line">        Jacobi();</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(choice==<span class="string">"GS"</span>)</span><br><span class="line">        GS();</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        SOR();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="Jacobi迭代"><a href="#Jacobi迭代" class="headerlink" title="Jacobi迭代"></a>Jacobi迭代</h1><p><img src="https://img-blog.csdnimg.cn/20200526224928180.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="数值分析,雅克比迭代"></p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Jacobi</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    {</span><br><span class="line">        mx_mis = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//根据初始向量进行向量乘法．求出每一行对应的解</span></span><br><span class="line">        <span class="comment">//把结果放在ans中</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++ )</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> ( j != i )</span><br><span class="line">                {</span><br><span class="line">                    sum += init[j] * mtrx[i][j];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            ans[i] = ( b[i] - sum  ) / mtrx[i][i];</span><br><span class="line">            <span class="comment">//            if ( i &gt; 0 )</span></span><br><span class="line">            <span class="keyword">if</span> ( <span class="built_in">fabs</span> ( init[i] - ans[i] ) &gt; mx_mis )</span><br><span class="line">                mx_mis = <span class="built_in">fabs</span> ( init[i] - ans[i] );</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//迭代完成一次, 就更新一次init数组,以便下一次迭代</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">        {</span><br><span class="line">            init[i] = ans[i];</span><br><span class="line">        }</span><br><span class="line"><span class="comment">//        mx_mis=max_mis[0];</span></span><br><span class="line"><span class="comment">//        for(int i=0;i&lt;m;i++)</span></span><br><span class="line"><span class="comment">//        {</span></span><br><span class="line"><span class="comment">//            if(max_mis[i]&gt;mx_mis)</span></span><br><span class="line"><span class="comment">//                mx_mis= max_mis[i];</span></span><br><span class="line"><span class="comment">//        }</span></span><br><span class="line">        output();</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> ( ( times++ &lt; max_times ) &amp;&amp; ( mis_range &lt; mx_mis ) );</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="GS迭代"><a href="#GS迭代" class="headerlink" title="GS迭代"></a>GS迭代</h1><p>迭代格式是$$x_i^{k+1}=  \frac {1} {a_{ii}} \left(d_i-  \sum_{j=1}^{i-1}a_{ij}^{k}-\sum_{j=i+1}^{n}a_{ij}^{k+1} \right)$$<br>对比Jacobi迭代，在代码上的实现区别就是不需要ans数组暂存，直接将新的$x_i^{k+1}$赋给init[i]．自然也不需要init和ans的同步．</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GS</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">double</span> temp;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    {</span><br><span class="line">        mx_mis = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//根据初始向量进行向量乘法．求出每一行对应的解</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++ )</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> ( j != i )</span><br><span class="line">                {</span><br><span class="line">                    sum += init[j] * mtrx[i][j];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            temp = init[i];</span><br><span class="line">            init[i] = ( b[i] - sum  ) / mtrx[i][i];</span><br><span class="line">            <span class="keyword">if</span> ( <span class="built_in">fabs</span> ( init[i] - temp ) &gt; mx_mis )</span><br><span class="line">                mx_mis = <span class="built_in">fabs</span> ( init[i] - temp );</span><br><span class="line">        }</span><br><span class="line">        output();</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> ( (  times++ &lt; max_times ) &amp;&amp; ( mx_mis &gt; mis_range ) );</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="SOR迭代"><a href="#SOR迭代" class="headerlink" title="SOR迭代"></a>SOR迭代</h1><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SOR</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">double</span> w;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入松弛因子ｗ:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; w;</span><br><span class="line">    <span class="keyword">double</span> temp;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    {</span><br><span class="line">        mx_mis = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//根据初始向量进行向量乘法．求出每一行对应的解</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++ )</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> ( j != i )</span><br><span class="line">                {</span><br><span class="line">                    sum += init[j] * mtrx[i][j];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            temp = init[i];</span><br><span class="line">            init[i] = init[i] + w * ( ( b[i] - sum  ) / mtrx[i][i]  - init[i] );</span><br><span class="line">            <span class="keyword">if</span> ( <span class="built_in">fabs</span> ( init[i] - temp ) &gt; mx_mis )</span><br><span class="line">                mx_mis = <span class="built_in">fabs</span> ( init[i] - temp );</span><br><span class="line">        }</span><br><span class="line">        output();</span><br><span class="line">    }<span class="keyword">while</span> ( (  times++ &lt; max_times ) &amp;&amp; ( mx_mis &gt; mis_range ) );</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面是注意分析，下面是源代码.<br>如有错误请多指正.</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> sz 10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*****************************</span></span><br><span class="line"><span class="comment">@Jacobi迭代解线性方程组</span></span><br><span class="line"><span class="comment">@author:jawi</span></span><br><span class="line"><span class="comment">@date:2020/03/03</span></span><br><span class="line"><span class="comment">@tip:本程序默认输入矩阵均为理想矩阵</span></span><br><span class="line"><span class="comment">*****************************/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Jacobi</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GS</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SOR</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m; <span class="comment">//m*n的系数矩阵</span></span><br><span class="line"><span class="keyword">int</span> max_times;<span class="comment">// z最大迭代次数</span></span><br><span class="line"><span class="keyword">int</span> times = <span class="number">0</span>;<span class="comment">//当前迭代次数</span></span><br><span class="line"><span class="keyword">double</span> mx_mis = <span class="number">0</span>;<span class="comment">//当前最大误差</span></span><br><span class="line"><span class="built_in">string</span> choice;<span class="comment">//功能选择</span></span><br><span class="line"><span class="keyword">double</span> mis;<span class="comment">//误差范围</span></span><br><span class="line"><span class="keyword">double</span> mtrx[sz][sz];<span class="comment">//系数矩阵</span></span><br><span class="line"><span class="keyword">double</span> b[sz];<span class="comment">//常数矩阵</span></span><br><span class="line"><span class="keyword">double</span> init[sz];<span class="comment">//初始向量</span></span><br><span class="line"><span class="keyword">double</span> ans[sz];<span class="comment">//答案</span></span><br><span class="line"><span class="keyword">double</span> mis_range;<span class="comment">//最大误差范围</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    input();</span><br><span class="line"></span><br><span class="line">    func();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> ( choice == <span class="string">"J"</span> )</span><br><span class="line">        Jacobi();</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( choice == <span class="string">"GS"</span> )</span><br><span class="line">        GS();</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        SOR();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">input</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入迭代方式(J,GS,SOR)"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; choice;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入m"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入系数矩阵m*n(m)"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++ )</span><br><span class="line">        {</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; mtrx[i][j];</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入常数矩阵b:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; b[i];</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入初始向量"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; init[i];</span><br><span class="line">        ans[i] = init[i];</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入最大迭代次数:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; max_times;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入最大误差范围:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; mis_range;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    cout &lt;&lt; endl &lt;&lt; "请输入最大误差:"&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">//         cin&gt;&gt;mis;</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Jacobi</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    {</span><br><span class="line">        mx_mis = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//根据初始向量进行向量乘法．求出每一行对应的解</span></span><br><span class="line">        <span class="comment">//把结果放在ans中</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++ )</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> ( j != i )</span><br><span class="line">                {</span><br><span class="line">                    sum += init[j] * mtrx[i][j];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            ans[i] = ( b[i] - sum  ) / mtrx[i][i];</span><br><span class="line">            <span class="comment">//            if ( i &gt; 0 )</span></span><br><span class="line">            <span class="keyword">if</span> ( <span class="built_in">fabs</span> ( init[i] - ans[i] ) &gt; mx_mis )</span><br><span class="line">                mx_mis = <span class="built_in">fabs</span> ( init[i] - ans[i] );</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//迭代完成一次, 就更新一次init数组,以便下一次迭代</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">        {</span><br><span class="line">            init[i] = ans[i];</span><br><span class="line">        }</span><br><span class="line"><span class="comment">//        mx_mis=max_mis[0];</span></span><br><span class="line"><span class="comment">//        for(int i=0;i&lt;m;i++)</span></span><br><span class="line"><span class="comment">//        {</span></span><br><span class="line"><span class="comment">//            if(max_mis[i]&gt;mx_mis)</span></span><br><span class="line"><span class="comment">//                mx_mis= max_mis[i];</span></span><br><span class="line"><span class="comment">//        }</span></span><br><span class="line">        output();</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> ( ( times++ &lt; max_times ) &amp;&amp; ( mis_range &lt; mx_mis ) );</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">GS</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">double</span> temp;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    {</span><br><span class="line">        mx_mis = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//根据初始向量进行向量乘法．求出每一行对应的解</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++ )</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> ( j != i )</span><br><span class="line">                {</span><br><span class="line">                    sum += init[j] * mtrx[i][j];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            temp = init[i];</span><br><span class="line">            init[i] = ( b[i] - sum  ) / mtrx[i][i];</span><br><span class="line">            <span class="keyword">if</span> ( <span class="built_in">fabs</span> ( init[i] - temp ) &gt; mx_mis )</span><br><span class="line">                mx_mis = <span class="built_in">fabs</span> ( init[i] - temp );</span><br><span class="line">        }</span><br><span class="line">        output();</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span> ( (  times++ &lt; max_times ) &amp;&amp; ( mx_mis &gt; mis_range ) );</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SOR</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">double</span> w;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"请输入松弛因子ｗ:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; w;</span><br><span class="line">    <span class="keyword">double</span> temp;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    {</span><br><span class="line">        mx_mis = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//根据初始向量进行向量乘法．求出每一行对应的解</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++ )</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> ( j != i )</span><br><span class="line">                {</span><br><span class="line">                    sum += init[j] * mtrx[i][j];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            temp = init[i];</span><br><span class="line">            init[i] = init[i] + w * ( ( b[i] - sum  ) / mtrx[i][i]  - init[i] );</span><br><span class="line">            <span class="keyword">if</span> ( <span class="built_in">fabs</span> ( init[i] - temp ) &gt; mx_mis )</span><br><span class="line">                mx_mis = <span class="built_in">fabs</span> ( init[i] - temp );</span><br><span class="line">        }</span><br><span class="line">        output();</span><br><span class="line">    }<span class="keyword">while</span> ( (  times++ &lt; max_times ) &amp;&amp; ( mx_mis &gt; mis_range ) );</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"迭代"</span> &lt;&lt; times+<span class="number">1</span> &lt;&lt; <span class="string">"次,答案是"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++ )</span><br><span class="line">    {</span><br><span class="line"><span class="comment">//        cout &lt;&lt; init[i] &lt;&lt; endl;</span></span><br><span class="line">        <span class="built_in">printf</span> ( <span class="string">"%.4f\t"</span>, init[i] );</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">printf</span> ( <span class="string">"\n"</span> );</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Linux 入门命令</title>
+    <url>/post/f69fadb0.html</url>
+    <content><![CDATA[<h1 id="Linux常用指令"><a href="#Linux常用指令" class="headerlink" title="Linux常用指令"></a>Linux常用指令</h1><h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><blockquote>
+<p>常用来<font color="red">临时</font>修改、新增、删除环境变量。<br><br>语法:<br><a id="more"></a></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">export [变量名称]=[变量设置值]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="pwd-print-work-directory"><a href="#pwd-print-work-directory" class="headerlink" title="pwd(print work directory)"></a>pwd(print work directory)</h2><blockquote>
+<p>显示当前工作目录</p>
+</blockquote>
+<h2 id="cd-change-directory"><a href="#cd-change-directory" class="headerlink" title="cd(change directory)"></a>cd(change directory)</h2><blockquote>
+<p>切换目录<br>语法:<br></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">cd [目录名]</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>切换到上级目录:  <code>cd ..</code><br><br>切换到根目录:   <code>cd \</code></p>
+</blockquote>
+<h2 id="ls-list-files"><a href="#ls-list-files" class="headerlink" title="ls (list files)"></a>ls (list files)</h2><blockquote>
+<p>用于显示目录内容，它的使用权限是所有用户。<br>语法:<br></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">ls [options] 文件名</span><br></pre></td></tr></tbody></table></figure>
+<p> <strong>ls -F</strong></p>
+<blockquote>
+<p>在每一个文件的末尾加上一个字符说明该文件的类型，例如：<br></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">/     表示目录&lt;br&gt;</span><br><span class="line">*     表示可执行文件&lt;br&gt;</span><br><span class="line">@     表示符号链接&lt;br&gt;</span><br><span class="line">|     表示管道文件&lt;br&gt;</span><br><span class="line">=     表示socket文件&lt;br&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p> <strong>ls-a(all)</strong></p>
+<blockquote>
+<p>列出所有的文件，包括以’ . ’开头的隐藏文件<br><br>刚刚测试了一下, 所有目录的文件中都有<code>. (当前目录)</code>以及<code>..(父目录)</code>,以便随时进行目录的返回<br><strong>ls-l(long)与ls -lh(human)</strong><br>列出文件的详细信息，如创建者、创建时间、文件的读写权限等。<br><br>与ls -l不同的是<code>ls -lh</code>现实的文件大小是转化唯有单位的易读的数据, 而<code>ls -l</code>则直接显示字节数.<br>而ls -l得到的结果如下<br>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-Eqv82uIv-1583418710740)(<a href="https://i.imgur.com/reARS6E.png)]" target="_blank" rel="noopener">https://i.imgur.com/reARS6E.png)]</a><br>上图中, 第一组数的第一位标识文件类型. 后九位(xwr-组成)分三组, 每组三位分别表示<code>文件所有者</code>, <code>所有者所在的组</code>以及<code>其他用户</code>对该文件的权限. (可读, 可写, 可执行)<br><br>如果不同字母表示权限, 还可以用0~7的数字标识每组的权限.<br><br>这样的话, 777 就对应于rwx, 000 对应于—.<br><br>这点后面命令要用到.</p>
+</blockquote>
+<p><strong>ls -t</strong> </p>
+<blockquote>
+<p>按时间进行文件的排序</p>
+</blockquote>
+<p><strong>ls -R(recurse)</strong></p>
+<blockquote>
+<p>递归地列出所有的子目录及子目录中的文件。 </p>
+</blockquote>
+<p><strong>ls -S</strong>   </p>
+<blockquote>
+<p>以文件的大小进行降序排序</p>
+</blockquote>
+<h2 id="rm-或rmdir"><a href="#rm-或rmdir" class="headerlink" title="rm(或rmdir)"></a>rm(或rmdir)</h2><blockquote>
+<p>语法</p>
+<figure class="highlight plain"><figcaption><span>[options] [file name]```</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">**rm -r**</span><br><span class="line">&gt;递归删除文件夹</span><br><span class="line"></span><br><span class="line">**rm -rf**</span><br><span class="line">&gt;强制删除</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 切换root/切换用户</span><br><span class="line">&gt;方法一: ```su root </span><br></pre></td></tr></tbody></table></figure>
+<p>这样的话需要输入root密码, 很多人并没有设置过. 因为linux在安装时会自动生成一个默认密码.所以在使用前需要先重新设定密码:<br>执行<code>sudo passwd</code>,输入两次密码,enter就可以了.<br>方法二:<code>sudo -i</code><br>这时候可能要你输入密码, 只要输入你当前用户的登录密码就好了.<br></p>
+</blockquote>
+<blockquote>
+<p>异同: 相同之处很明显, 都可以以管理员身份操作.<br>而不同之处在于su仅仅取得root权限, 工作环境不变，而sudo是取得root的权限后进入root工作环境. 这个从英文命名上理解比较好</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">su</span><br><span class="line">switch user</span><br></pre></td></tr></tbody></table></figure>
+<p>而sudo则是</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">sudo</span><br><span class="line">super-user-do</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="chmod-change-mode"><a href="#chmod-change-mode" class="headerlink" title="chmod (change-mode)"></a>chmod (change-mode)</h2><blockquote>
+<p>语法:</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">chmod [options] [权限数值] [文件名]</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>options当然可有可无.<br><br>还可以<code>mkdir -m [权限数值] [file name]</code><br>这里说一下, 系统默认新建文件夹的权限是775, 新建文件的权限是664</p>
+</blockquote>
+<blockquote>
+<p>chmod 的操作是只针对所描述的对象的.<br>例如: 之前 a.txt的属性是777<br>chmod o=x a.txt后, 它的权限是771</p>
+</blockquote>
+<h2 id="chown-change-owner"><a href="#chown-change-owner" class="headerlink" title="chown(change-owner)"></a>chown(change-owner)</h2><p>更改用户群组</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">chown owner::group filelist</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="usermod-user-modify"><a href="#usermod-user-modify" class="headerlink" title="usermod(user-modify)"></a>usermod(user-modify)</h2><blockquote>
+<p>设置用户相关<br>更改用户shell的时候可用usermod -s, 前提是你当前用户有root权限</p>
+</blockquote>
+<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><blockquote>
+<p>两个功能:<br>1.重命名</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>[filename] [newname]```</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">2.移动文件</span><br><span class="line">```mv [file name] [new path]</span><br></pre></td></tr></tbody></table></figure>
+<p>在使用其移动功能时, 注意../的使用</p>
+<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><p>复制文件</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">cp [file name] [new path]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果要将一个子目录copy到另一个目录下时, 需要加上 -r 选项;<br><br>使用cp命令时, 如不特殊指定, 那么文件的更改时间是最新一次的改动时间, 而文件夹则不会改变</p>
+<blockquote>
+<p>这里关于<code>cp -r</code>举个栗子,  pic1所描述的系统是文件<code>/dir1/dir2</code>, <code>/dir1/test.txt</code>, 以及<code>/dir3</code>.<br>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-Yd4q1fkj-1583418710747)(<a href="https://i.imgur.com/Q1tddNr.png)]" target="_blank" rel="noopener">https://i.imgur.com/Q1tddNr.png)]</a><br>此时如果执行<code>cp /dir1/* /dir2</code>的话,只有<code>test.txt</code>copy到了dir3<br>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-vDkCKOg5-1583418710749)(<a href="https://i.imgur.com/lKnOwuV.png)]" target="_blank" rel="noopener">https://i.imgur.com/lKnOwuV.png)]</a><br>而<code>cp -r /dir1/* /dir2</code>则会将dir1<font color="red">中</font>的内容全都copy.<br>而<code>cp /dir1 /dir2</code>则会直接提示操作失败, 因为这里cp的对象是整个/dir1文件夹. 而之前的cp操作对象是/dir1<font color="red">下</font>的所有文件及目录, 所以即使不加 -r 也可以把非目录文件copy到对应目录下.</p>
+<p>Over~<br></p>
+</blockquote>
+<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><blockquote>
+<p>在指定文件中搜索特定的内容，并将含有这些内容的行输出.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">&gt;grep [options] [关键字] [搜索目标]</span><br></pre></td></tr></tbody></table></figure>
+<p><font color="red"><strong>tips:</strong></font>这里的搜索目标应该是普通文本.</p>
+</blockquote>
+<p><strong>grep -n</strong></p>
+<blockquote>
+<p>显示搜索的关键字在文本中对应的行数</p>
+</blockquote>
+<p><strong>grep -v</strong></p>
+<blockquote>
+<p>显示文本所有内容,除了[关键字]</p>
+</blockquote>
+<p><strong>grep -c</strong></p>
+<blockquote>
+<p>显示关键字出现的次数</p>
+</blockquote>
+<h2 id="find-默认递归"><a href="#find-默认递归" class="headerlink" title="find(默认递归)"></a>find(默认递归)</h2><p>查找文件</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">find [path] [options] [file name]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>  <strong>find [path] -name</strong></p>
+<blockquote>
+<p>后接指定的文件名，支持通配符</p>
+</blockquote>
+<p> <strong>find [path] -user</strong></p>
+<blockquote>
+<p>后接所要查找的文件的归属者（用户）</p>
+</blockquote>
+<p> <strong>find [path] -size</strong> </p>
+<blockquote>
+<p>后接文件大小, 形如<br></p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>. -size +4k```就是在当前路径下递归查找大于4k的文件</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">## sed</span><br><span class="line">&gt;编辑文本, 显示指定行数的内容</span><br><span class="line">&gt;```cpp</span><br><span class="line">&gt;sed -n 'x,yp' filename</span><br><span class="line">&gt;//用以显示x,y行的内容</span><br><span class="line">&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><blockquote>
+<figure class="highlight plain"><figcaption><span>-m```查看内存<br></span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">&gt;```fdisk -l ```查看系统物理内存&lt;br&gt; </span><br><span class="line">查看硬盘和分区的详细信息（需要root或超级用户的权限）  </span><br><span class="line">           </span><br><span class="line">&gt;```df -h```查看磁盘分区的总容量、已用容量等信息</span><br><span class="line"></span><br><span class="line">&gt;```du -sh```查看磁盘文件已用容量，以指定目录下的子目录为单位，显示每个子目录内所有档案所占用的磁盘空间大小。</span><br><span class="line"></span><br><span class="line">&gt;```lsblk```查看硬盘和分区分布</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## head &amp; tail</span><br><span class="line">```head(tail) -n filelist </span><br></pre></td></tr></tbody></table></figure>
+<p>查看一个或多个文件的首(末)n行</p>
+</blockquote>
+<h2 id="ps-process-status"><a href="#ps-process-status" class="headerlink" title="ps(process-status)"></a>ps(process-status)</h2><p>查看执行ps命令的那个时刻的那些进程．</p>
+<p>如果想要动态的显示进程信息，就可以使用top命令。</p>
+<p>ps -l查看详细信息<br><img src="https://img-blog.csdnimg.cn/20200313220907920.png" alt="在这里插入图片描述"><br>S的标识符 | 含义<br>— | —<br>D  | 不可中断<br>R(Runable) | 正在运行<br>S(Sleeping) | 正在休眠<br>T(trance) | 停止<br>Z(Zombie) | 僵尸进程</p>
+<h2 id="文件压缩"><a href="#文件压缩" class="headerlink" title="文件压缩"></a>文件压缩</h2><table>
+<thead>
+<tr>
+<th>压缩</th>
+<th>解压</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gzip</td>
+<td>gzip -d 或gunzip</td>
+</tr>
+<tr>
+<td>bzip2</td>
+<td>bzip2 -d</td>
+</tr>
+<tr>
+<td>tar -zcvf</td>
+<td>tar -zxvf (.gz)</td>
+</tr>
+<tr>
+<td>tar -jcvf</td>
+<td>tar -jxvf (.bz2)</td>
+</tr>
+<tr>
+<td>tar -c</td>
+<td>tar -x</td>
+</tr>
+<tr>
+<td>-k可以保留原文件压缩</td>
+<td></td>
+</tr>
+<tr>
+<td>- 解压后的文件最后更改日期是和原文件相同的, 和解压时间无关</td>
+<td></td>
+</tr>
+<tr>
+<td>- tar解压后原文件存在</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="vim小tips"><a href="#vim小tips" class="headerlink" title="vim小tips"></a>vim小tips</h1><ul>
+<li>x 也是剪切，使用后p命令可以粘贴出最近一次删除的内容。<br>目前接触到的x，d命令都是剪切，好像没有直接删除的，猜想删除就是在剪切的基础上实现的（类似于cp和mv的关系）；</li>
+</ul>
+<ul>
+<li>除:wq外，ZZ也可以实现保存并退出的功能。（具体区目前别没有查到）；</li>
+</ul>
+<ul>
+<li>:w是当前路径保存，后面还可以加上新路径， 实现“另存为”的功能；</li>
+</ul>
+<ul>
+<li>vim 可以连续打开多个文件：vim file1 file2，然后使用命令:bn和:bp进行切换。或者vim打开后，使用:open filename来打开另一个文件；</li>
+</ul>
+<ul>
+<li>移动光标时，<br>G按行移动：nG是到n行，G到末行，gg到首行；<br>w按单词移动（以空格为区分）：w到达下一个词首，e到达下个词尾；</li>
+</ul>
+<ul>
+<li>%进行括号匹配（当前光标必须在括号的一端上，否则无意义）；</li>
+</ul>
+<ul>
+<li>*和#，快速匹配全文中当前光标所在的单词，n是下一个,N上一个（对，类似于/pattern查找）；</li>
+</ul>
+<ul>
+<li>/key\c不区分大小写，key、KeY都可以被匹配<br>/key\C区分大小写；</li>
+</ul>
+<ul>
+<li><p>:s（substitute）命令用来查找和替换字符串。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">:[range] s/before/after/tag</span><br></pre></td></tr></tbody></table></figure>
+<p>ranges填写查找范围．1,7 s/mian/main/g就是把mian替换为．</p>
+</li>
+<li><p>: set nu可产生编号</p>
+</li>
+</ul>
+<h1 id="更改shell"><a href="#更改shell" class="headerlink" title="更改shell"></a>更改shell</h1><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi /etc/passwd</span><br><span class="line">或</span><br><span class="line">sudo usermod -s /bin/bash</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="增删su角色"><a href="#增删su角色" class="headerlink" title="增删su角色"></a>增删su角色</h1><p>增:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">sudo adduser username sudo</span><br></pre></td></tr></tbody></table></figure>
+<p>删:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">sudo deluser username sudo</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="增加用户"><a href="#增加用户" class="headerlink" title="增加用户"></a>增加用户</h1><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">supo useradd [-g group] newuser  -m</span><br><span class="line">或</span><br><span class="line">adduser</span><br></pre></td></tr></tbody></table></figure>
+<p>-g 组</p>
+<p>-m /home下生成newuser的家目录~</p>
+<h1 id="xdg-open"><a href="#xdg-open" class="headerlink" title="xdg-open"></a>xdg-open</h1><p> 以默认方式打开文件</p>
+<h1 id="swp-文件"><a href="#swp-文件" class="headerlink" title="swp 文件"></a>swp 文件</h1><blockquote>
+<p>刚刚执行 ls -a 看到的, 网上查了一下, 就大概说一下<br><br>这个是在使用vim编辑文本然后非正常退出后产生的备份文件. 严格地说是在你一打开vim, 这额文件就产生了, 如果你正常退出, 它是不会保存的.<br><br>所以这个文件算是vim比较人性化的地方吧.<br>具体恢复方法如下<br><code>vi -r [file name]</code></p>
+</blockquote>
+<h1 id="一些小知识"><a href="#一些小知识" class="headerlink" title="一些小知识"></a>一些小知识</h1><ul>
+<li><p>usr是Unix System Resource的简称, <font color="red">不是什么user</font></p>
+</li>
+<li><p>linux用户目录一般在 /home/下</p>
+</li>
+<li><p>R一般表示递归(目录下所有文件及子目录)   recursion</p>
+</li>
+<li><p>r一般表示逆序   reverse</p>
+</li>
+<li><p>ls -ld显示自身信息<br>ls -l(long)<br><br>ls -rt(r= reverse t = time)</p>
+</li>
+</ul>
+<blockquote>
+<p><font color="blue," size="15"> 注意各种命令配合管道操作!</font></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux中inode的含义及理解</title>
+    <url>/post/79549cdf.html</url>
+    <content><![CDATA[<blockquote><p>理解inode，要从文件储存说起。</p>
+<p>文件储存在硬盘上，硬盘的最小存储单位叫做”扇区”（Sector）。每个扇区储存512字节（相当于0.5KB）。</p>
+<p>操作系统读取硬盘的时候，不会一个个扇区地读取，这样效率太低，而是一次性连续读取多个扇区，即一次性读取一个”块”（block）。这种由多个扇区组成的”块”，是文件存取的最小单位。”块”的大小，最常见的是4KB，即连续八个 sector组成一个 block。</p>
+<footer><strong>《理解inode》</strong><cite>阮一峰</cite></footer></blockquote><a id="more"></a>
+
+
+
+<p>不知道是巧合还是规定，一个空文件夹的占用内存刚好是4KB<br><br>基本上就可以把inode理解为文件索引, inode里记载了所有除了文件内容和文件名以外地信息（例如文件所在块的位置，文件大小，文件改动时间等），这些inode都是由系统自己分配好的．在我们以文件名进行操作时，系统会找到文件名对应的inode，然后找到inode里的信息，到对应的块中去找到文件，然后进行操作．inode其实才是文件的＂真名＂，但不便于我们使用，所以才有我们自定义的文件名．<br>顺带一提，使用ｌｓ　－ｌ命令时，首行出现的ｔｏｔａｌ　ｘｘ，ｘｘ这个数值就是你所浏览的全部内容的每一个文件占用的块数（就是有多少个4096KB，不足4096也算一个）的和乘以４．</p>
+<p>参考信息:<br><a href="http://www.ruanyifeng.com/blog/2011/12/inode.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/12/inode.html</a><br><br><a href="https://www.cnblogs.com/Harley-Quinn/p/6591450.html" target="_blank" rel="noopener">https://www.cnblogs.com/Harley-Quinn/p/6591450.html</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux常用命令</title>
+    <url>/post/d0edc1ed.html</url>
+    <content><![CDATA[<h1 id="Linux常用指令"><a href="#Linux常用指令" class="headerlink" title="Linux常用指令"></a>Linux常用指令</h1><h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><blockquote>
+<p>常用来<font color="red">临时</font>修改、新增、删除环境变量。<br><br>语法:<br><a id="more"></a></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">export [变量名称]=[变量设置值]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h2><blockquote>
+<p>显示当前工作目录</p>
+</blockquote>
+<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><blockquote>
+<p>切换目录<br>语法:<br></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">cd [目录名]</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>切换到上级目录:  <code>cd ..</code><br><br>切换到根目录:   <code>cd \</code></p>
+</blockquote>
+<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><blockquote>
+<p>用于显示目录内容，它的使用权限是所有用户。<br>语法:<br></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">ls [options] 文件名</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="ls-F"><a href="#ls-F" class="headerlink" title="ls -F"></a>ls -F</h3><blockquote>
+<p>在每一个文件的末尾加上一个字符说明该文件的类型，例如：<br></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示目录&lt;br&gt;</span><br><span class="line">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示可执行文件&lt;br&gt;</span><br><span class="line">@&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示符号链接&lt;br&gt;</span><br><span class="line">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示管道文件&lt;br&gt;</span><br><span class="line">=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示socket文件&lt;br&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="ls-a-ls-–all"><a href="#ls-a-ls-–all" class="headerlink" title="ls-a(== ls –all)"></a>ls-a(== ls –all)</h3><blockquote>
+<p>列出所有的文件，包括以’ . ’开头的隐藏文件<br><br>刚刚测试了一下, 所有目录的文件中都有<code>. (当前目录)</code>以及<code>..(父目录)</code>,以便随时进行目录的返回</p>
+</blockquote>
+<h3 id="ls-l与ls-lh"><a href="#ls-l与ls-lh" class="headerlink" title="ls-l与ls -lh"></a>ls-l与ls -lh</h3><blockquote>
+<p>列出文件的详细信息，如创建者、创建时间、文件的读写权限等。<br><br>与ls -l不同的是<code>ls -lh</code>现实的文件大小是转化唯有单位的易读的数据, 而<code>ls -l</code>则直接显示字节数.<br>而ls -l得到的结果如下<br><img src="https://i.imgur.com/reARS6E.png" alt=""><br>上图中, 第一组数的第一位标识文件类型. 后九位(xwr-组成)分三组, 每组三位分别表示<code>文件所有者</code>, <code>所有者所在的组</code>以及<code>其他用户</code>对该文件的权限. (可读, 可写, 可执行)<br><br>如果不同字母表示权限, 还可以用0~7的数字标识每组的权限.<br><br>这样的话, 777 就对应于rwx, 000 对应于—.<br><br>这点后面命令要用到.</p>
+</blockquote>
+<h3 id="ls-t"><a href="#ls-t" class="headerlink" title="ls-t"></a>ls-t</h3><blockquote>
+<p>按时间进行文件的排序</p>
+</blockquote>
+<h3 id="ls-R"><a href="#ls-R" class="headerlink" title="ls-R"></a>ls-R</h3><blockquote>
+<p>递归地列出所有的子目录及子目录中的文件。 </p>
+</blockquote>
+<h3 id="ls-S"><a href="#ls-S" class="headerlink" title="ls-S"></a>ls-S</h3><blockquote>
+<p>以文件的大小进行降序排序</p>
+</blockquote>
+<h2 id="rm-或rmdir"><a href="#rm-或rmdir" class="headerlink" title="rm(或rmdir)"></a>rm(或rmdir)</h2><blockquote>
+<p>语法</p>
+<figure class="highlight plain"><figcaption><span>[options] [file name]```</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">### rm -r</span><br><span class="line">&gt;递归删除文件夹</span><br><span class="line">### rm -rf</span><br><span class="line">&gt;强制删除</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 切换root/切换用户</span><br><span class="line">&gt;方法一:&nbsp;``` su root </span><br></pre></td></tr></tbody></table></figure>
+<p>这样的话需要输入root密码, 很多人并没有设置过. 因为linux在安装时会自动生成一个默认密码.所以在使用前需要先重新设定密码:<br>执行<code>sudo passwd</code>,输入两次密码,enter就可以了.<br>方法二:<code>sudo -i</code><br>这时候可能要你输入密码, 只要输入你当前用户的登录密码就好了.<br></p>
+</blockquote>
+<blockquote>
+<p>异同: 相同之处很明显, 都可以以管理员身份操作.<br>而不同之处在于su仅仅取得root权限, 工作环境不变，而sudo是取得root的权限后进入root工作环境. 这个从英文命名上理解比较好</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">su</span><br><span class="line">switch user</span><br></pre></td></tr></tbody></table></figure>
+<p>而sudo则是</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">sudo</span><br><span class="line">super-user-do</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="chmod-change-mode"><a href="#chmod-change-mode" class="headerlink" title="chmod (change-mode)"></a>chmod (change-mode)</h2><blockquote>
+<p>语法:</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">chmod [options] [权限数值] [文件名]</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>options当然可有可无.<br><br>还可以<code>mkdir -m [权限数值] [file name]</code><br>这里说一下, 系统默认新建文件夹的权限是775, 新建文件的权限是664</p>
+</blockquote>
+<blockquote>
+<p>chmod 的操作是只针对所描述的对象的.<br>例如: 之前 a.txt的属性是777<br>chmod o=x a.txt后, 它的权限是771</p>
+</blockquote>
+<h2 id="chown-change-owner"><a href="#chown-change-owner" class="headerlink" title="chown(change-owner)"></a>chown(change-owner)</h2><p>更改用户群组</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">chown owner::group filelist</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h2><p>增加sudoer,</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">sudo adduser username sudo</span><br><span class="line">``` </span><br><span class="line">删除</span><br></pre></td></tr></tbody></table></figure>
+<p>sudo userdel username sudo</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">## usermod(user-modify)</span><br><span class="line">设置用户相关</span><br><span class="line">更改用户shell的时候可用usermod -s, 前提是你当前用户有root权限</span><br><span class="line"></span><br><span class="line">## mv</span><br><span class="line">两个功能:</span><br><span class="line">1.重命名</span><br><span class="line">```mv [filename] [newname]</span><br></pre></td></tr></tbody></table></figure>
+<p>2.移动文件</p>
+<figure class="highlight plain"><figcaption><span>[file name] [new path]```</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">在使用其移动功能时, 注意../的使用</span><br><span class="line"></span><br><span class="line">## cp</span><br><span class="line">复制文件</span><br></pre></td></tr></tbody></table></figure>
+<p>cp [file name] [new path]</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">如果要将一个子目录copy到另一个目录下时, 需要加上 -r 选项;&lt;br&gt;</span><br><span class="line">使用cp命令时, 如不特殊指定, 那么文件的更改时间是最新一次的改动时间, 而文件夹则不会改变</span><br><span class="line">&gt;这里关于```cp -r```举个栗子,  pic1所描述的系统是文件``` /dir1/dir2```, ```/dir1/test.txt```, 以及```/dir3```. </span><br><span class="line">&gt;![pic1](https://i.imgur.com/Q1tddNr.png)</span><br><span class="line">&gt;此时如果执行```cp /dir1/* /dir2```的话,只有```test.txt``` copy到了dir3</span><br><span class="line">&gt;![](https://i.imgur.com/lKnOwuV.png)</span><br><span class="line">&gt;而```cp -r /dir1/* /dir2```则会将dir1&lt;font color= red&gt;中&lt;/font&gt;的内容全都copy.</span><br><span class="line">&gt;而```cp /dir1 /dir2```则会直接提示操作失败, 因为这里cp的对象是整个/dir1文件夹. 而之前的cp操作对象是/dir1&lt;font color=red&gt;下&lt;/font&gt;的所有文件及目录, 所以即使不加 -r 也可以把非目录文件copy到对应目录下.</span><br><span class="line">&gt; </span><br><span class="line">&gt;Over~&lt;br&gt;</span><br><span class="line">&gt;</span><br><span class="line">## grep</span><br><span class="line">在指定文件中搜索特定的内容，并将含有这些内容的行输出.</span><br></pre></td></tr></tbody></table></figure>
+<p>grep [options] [关键字] [搜索目标]</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">&lt;font color=red&gt;**tips:**&lt;/font&gt;这里的搜索目标应该是普通文本.</span><br><span class="line"></span><br><span class="line">### grep -n</span><br><span class="line">显示搜索的关键字在文本中对应的行数</span><br><span class="line"></span><br><span class="line">### grep -v</span><br><span class="line">显示文本所有内容,除了[关键字]</span><br><span class="line"></span><br><span class="line">### grep -c</span><br><span class="line">显示关键字出现的次数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## find(默认递归)</span><br><span class="line">查找文件</span><br></pre></td></tr></tbody></table></figure>
+<p>find [path] [options] [file name]</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">### find [path] -name</span><br><span class="line">后接指定的文件名，支持通配符</span><br><span class="line"></span><br><span class="line">### find [path] -user</span><br><span class="line">后接所要查找的文件的归属者（用户）</span><br><span class="line"></span><br><span class="line">### find [path] -size </span><br><span class="line">后接文件大小, 形如&lt;br&gt;</span><br><span class="line">```find . -size +4k```就是在当前路径下递归查找大于4k的文件</span><br><span class="line"></span><br><span class="line">### sed</span><br><span class="line">编辑文本, 显示指定行数的内容</span><br></pre></td></tr></tbody></table></figure>
+<p>sed -n ‘x,yp’ filename<br>//用以显示x,y行的内容</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">## 内存</span><br><span class="line"></span><br><span class="line">```free -m``` 查看内存</span><br><span class="line"></span><br><span class="line">```fdisk -l ``` 查看系统物理内存&lt;br&gt; </span><br><span class="line">查看硬盘和分区的详细信息（需要root或超级用户的权限）  </span><br><span class="line">            </span><br><span class="line">```df -h``` 查看磁盘分区的总容量、已用容量等信息</span><br><span class="line"></span><br><span class="line">```du -sh``` 查看磁盘文件已用容量，以指定目录下的子目录为单位，显示每个子目录内所有档案所占用的磁盘空间大小。</span><br><span class="line"></span><br><span class="line">```lsblk``` 查看硬盘和分区分布</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## head &amp; tail</span><br><span class="line">```head(tail) -**n** filelist</span><br></pre></td></tr></tbody></table></figure>
+<p>查看一个或多个文件的首(末)n行</p>
+<h2 id="ps-process-status"><a href="#ps-process-status" class="headerlink" title="ps(process-status)"></a>ps(process-status)</h2><p>查看执行ps命令的那个时刻的那些进程．</p>
+<p>如果想要动态的显示进程信息，就可以使用top命令。</p>
+<p>ps -l查看详细信息<br><img src="./blog_pic/Linux_cmd/ps-l2.png" alt="执行ps -l的类似效果图"><br><img src="./blog_pic/Linux_cmd/ps-l.png" alt="各字段的含义"><br>S的标识符 | 含义<br>— | —<br>D  | 不可中断<br>R(Runable) | 正在运行<br>S(Sleeping) | 正在休眠<br>T(trance) | 停止<br>Z(Zombie) | 僵尸进程</p>
+<h2 id="文件压缩"><a href="#文件压缩" class="headerlink" title="文件压缩"></a>文件压缩</h2><table>
+<thead>
+<tr>
+<th>压缩</th>
+<th>解压</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gzip</td>
+<td>gzip -d 或gunzip</td>
+</tr>
+<tr>
+<td>bzip2</td>
+<td>bzip2 -d</td>
+</tr>
+<tr>
+<td>tar -zcvf</td>
+<td>tar -zxvf (.gz)</td>
+</tr>
+<tr>
+<td>tar -jcvf</td>
+<td>tar -jxvf (.bz2)</td>
+</tr>
+<tr>
+<td>tar -c</td>
+<td>tar -x</td>
+</tr>
+<tr>
+<td>-k可以保留原文件压缩</td>
+<td></td>
+</tr>
+<tr>
+<td>- 解压后的文件最后更改日期是和原文件相同的, 和解压时间无关</td>
+<td></td>
+</tr>
+<tr>
+<td>- tar解压后原文件存在</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="vim小tips"><a href="#vim小tips" class="headerlink" title="vim小tips"></a>vim小tips</h1><ul>
+<li>x 也是剪切，使用后p命令可以粘贴出最近一次删除的内容。<br>目前接触到的x，d命令都是剪切，好像没有直接删除的，猜想删除就是在剪切的基础上实现的（类似于cp和mv的关系）；</li>
+</ul>
+<ul>
+<li>除:wq外，ZZ也可以实现保存并退出的功能。（具体区目前别没有查到）；</li>
+</ul>
+<ul>
+<li>:w是当前路径保存，后面还可以加上新路径， 实现“另存为”的功能；</li>
+</ul>
+<ul>
+<li>vim 可以连续打开多个文件：vim file1 file2，然后使用命令:bn和:bp进行切换。或者vim打开后，使用:open filename来打开另一个文件；</li>
+</ul>
+<ul>
+<li>移动光标时，<br>G按行移动：nG是到n行，G到末行，gg到首行；<br>w按单词移动（以空格为区分）：w到达下一个词首，e到达下个词尾；</li>
+</ul>
+<ul>
+<li>%进行括号匹配（当前光标必须在括号的一端上，否则无意义）；</li>
+</ul>
+<ul>
+<li>*和#，快速匹配全文中当前光标所在的单词，n是下一个,N上一个（对，类似于/pattern查找）；</li>
+</ul>
+<ul>
+<li>/key\c不区分大小写，key、KeY都可以被匹配<br>/key\C区分大小写；</li>
+</ul>
+<ul>
+<li><p>:s（substitute）命令用来查找和替换字符串。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">:[range] s/before/after/tag</span><br></pre></td></tr></tbody></table></figure>
+<p>ranges填写查找范围．1,7 s/mian/main/g就是把mian替换为．</p>
+</li>
+<li><p>: set nu可产生编号</p>
+</li>
+</ul>
+<h1 id="更改shell"><a href="#更改shell" class="headerlink" title="更改shell"></a>更改shell</h1><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">sudo vi /etc/passwd</span><br><span class="line">或</span><br><span class="line">sudo usermod -s /bin/bash</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="增删su角色"><a href="#增删su角色" class="headerlink" title="增删su角色"></a>增删su角色</h1><p>增:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">sudo adduser username sudo</span><br><span class="line">``` </span><br><span class="line">删:</span><br></pre></td></tr></tbody></table></figure>
+<p>sudo deluser username sudo</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"># 增加用户</span><br></pre></td></tr></tbody></table></figure>
+<p>supo useradd [-g group] newuser  -m<br>或<br>adduser</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">-g 组</span><br><span class="line"></span><br><span class="line">-m /home下生成newuser的家目录~</span><br><span class="line"># xdg-open</span><br><span class="line"> 以默认方式打开文件</span><br><span class="line"># swp 文件</span><br><span class="line">&gt;刚刚执行 ls -a 看到的, 网上查了一下, 就大概说一下&lt;br&gt;</span><br><span class="line">这个是在使用vim编辑文本然后非正常退出后产生的备份文件. 严格地说是在你一打开vim, 这额文件就产生了, 如果你正常退出, 它是不会保存的.&lt;br&gt;</span><br><span class="line">所以这个文件算是vim比较人性化的地方吧.</span><br><span class="line">具体恢复方法如下</span><br><span class="line">```vi -r [file name]</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="一些小知识"><a href="#一些小知识" class="headerlink" title="一些小知识"></a>一些小知识</h1><ul>
+<li><p>usr是Unix System Resource的简称, <font color="red">不是什么user</font></p>
+</li>
+<li><p>linux用户目录一般在 /home/下</p>
+</li>
+<li><p>R一般表示递归(目录下所有文件及子目录)   recursion</p>
+</li>
+<li><p>r一般表示逆序   reverse</p>
+</li>
+<li><p>ls -ld显示自身信息<br>ls -l(long)<br><br>ls -rt(r= reverse t = time)</p>
+</li>
+</ul>
+<blockquote>
+<p><font color="red," size="15"> 注意各种命令配合管道操作</font></p>
+</blockquote>
+<h1 id="有点想不通"><a href="#有点想不通" class="headerlink" title="有点想不通"></a>有点想不通</h1><p>mv * ../.<br>为is和没那么是移动到上一目录<br><br>明白了 ../代表的是父目录, 而../.就代表父目录里. 没什么好疑问的</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Web 初学(1)</title>
+    <url>/post/e67612e4.html</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>html</td>
+<td>structure</td>
+</tr>
+<tr>
+<td>css</td>
+<td>presentation</td>
+</tr>
+<tr>
+<td>js</td>
+<td>behavior</td>
+</tr>
+</tbody></table>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
+    <title>图论基础</title>
+    <url>/post/54576.html</url>
+    <content><![CDATA[<p><font size="4">这几天在复习(学习)图论方面的知识，把网课上老师讲的，自己查的，零零散散做个汇总．</font><a id="more"></a></p>
+<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>G=(V;E)<br>n= |V|;  e= |E|</p>
+<p>顶点与边的关系.</p>
+<p>邻接关系：顶点~顶点，顶点和顶点的关系</p>
+<p>关联关系：顶点～边，边和组成边的顶点的关系</p>
+<p>线性表：互为直接前驱和直接后继的元素才能定义邻接关系<br><br>树：互为父子的节点才能被定义为邻接关系<br><br>线性表和树是特殊的图<br>图的要求更宽泛</p>
+<h2 id="有向图-amp-无向图"><a href="#有向图-amp-无向图" class="headerlink" title="有向图&amp;无向图"></a>有向图&amp;无向图</h2><p><strong>无向边(undirected graph)</strong>：构成边的顶点Ｕ和Ｖ无序，则<br>边（U，V）称为无向边</p>
+<p><strong>无向图（undigraph)</strong>：构成图的边全是无向边.(关系也是无向的)<br><br><img src="https://i.imgur.com/5gP53Lr.png" alt="无向图"></p>
+<p><strong>有向图(digraph)</strong>：构成图的各个边都是有向边.(关系也是有向的)<br><br><img src="https://i.imgur.com/8fiPQ06.png" alt="有向图"></p>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p><strong>概念(path)</strong>：一系列的顶点按照邻接关系构成的序列.</p>
+<p><strong>简单路径(simple path)</strong>:一条不含重复节点的路径.</p>
+<p><strong>环路(circle)</strong>：起点和重点相同的路径/<br>简单环路(simple path)：除起点、终点外,一条不含重复节点的环路.</p>
+<h2 id="有向无环图-DAG"><a href="#有向无环图-DAG" class="headerlink" title="有向无环图(DAG)"></a>有向无环图(DAG)</h2><p><strong>概念</strong>：一个有向图中不包含任何环路.</p>
+<h2 id="欧拉图-Eulerian-graph-—–一笔画问题"><a href="#欧拉图-Eulerian-graph-—–一笔画问题" class="headerlink" title="欧拉图(Eulerian graph)—–一笔画问题"></a>欧拉图(Eulerian graph)—–一笔画问题</h2><p><strong>欧拉路径</strong>：通过图中所有边一次且仅一次行遍所有顶点的通路称为欧拉路径.<br><br><strong>欧拉回路</strong>：通过图中所有边一次且仅一次经过所有顶点的回路称为欧拉回路.<br></p>
+<p><strong>欧拉图</strong>：具有欧拉回路的图称为欧拉图.<br><br><strong>半欧拉图</strong>：具有欧拉通路的图称为半欧拉图.<br><br><strong>性质</strong>：(半)欧拉图中所有顶点的度数都是(两个奇数度顶点)偶数。<br></p>
+<h2 id="哈密尔顿图"><a href="#哈密尔顿图" class="headerlink" title="哈密尔顿图"></a>哈密尔顿图</h2><p><strong>哈密尔顿回路</strong>:通过图中所有顶一次且仅一次的回路为哈密尔顿回路.<br><br><strong>哈密尔顿图</strong>：具有哈密尔顿回路的图.<br></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>图</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>图论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>列车调度</title>
+    <url>/post/36741.html</url>
+    <content><![CDATA[<h1 id="列车调度"><a href="#列车调度" class="headerlink" title="列车调度"></a>列车调度</h1><p>题目详见: <a href="https://dsa.cs.tsinghua.edu.cn/oj/problem.shtml?id=1145" target="_blank" rel="noopener">https://dsa.cs.tsinghua.edu.cn/oj/problem.shtml?id=1145</a><br><br><font size="5"><strong>描述</strong></font><br><br>某列车调度站的铁道联接结构如Figure 1所示。<a id="more"></a><br><img src="https://img-blog.csdnimg.cn/2020021121313473.png" alt="figure 1"></p>
+<p>其中，A为入口，B为出口，S为中转盲端。所有铁道均为单轨单向式：列车行驶的方向只能是从A到S，再从S到B；另外，不允许超车。因为车厢可在S中驻留，所以它们从B端驶出的次序，可能与从A端驶入的次序不同。不过S的容量有限，同时驻留的车厢不得超过m节。</p>
+<p>设某列车由编号依次为{1, 2, …, n}的n节车厢组成。调度员希望知道，按照以上交通规则，这些车厢能否以{a1, a2, …, an}的次序，重新排列后从B端驶出。如果可行，应该以怎样的次序操作?</p>
+<p><font size="5"><strong>输入</strong></font><br><br>共两行。<br>第一行为两个整数n，m。<br>第二行为以空格分隔的n个整数，保证为{1, 2, …, n}的一个排列，表示待判断可行性的驶出序列{a1，a2，…，an}。</p>
+<p><font size="5"><strong>输出</strong></font><br><br>若驶出序列可行，则输出操作序列，其中push表示车厢从A进入S，pop表示车厢从S进入B，每个操作占一行。</p>
+<p>若不可行，则输出No。</p>
+<p><font size="5"><strong>样例</strong></font><br><br><strong>example 1</strong><br><br>Input<br></p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">5 2</span><br><span class="line">1 2 3 5 4</span><br><span class="line">```&lt;br&gt;</span><br><span class="line">Output&lt;br&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>push<br>pop<br>push<br>pop<br>push<br>pop<br>push<br>push<br>pop<br>pop</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">**example 2**&lt;br&gt;</span><br><span class="line">Input&lt;br&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>5 5<br>3 1 2 4 5</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">Output&lt;br&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>No</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">限制</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1 ≤ n ≤ 1,600,000</span><br><span class="line"></span><br><span class="line">0 ≤ m ≤ 1,600,000</span><br><span class="line"></span><br><span class="line">时间：2 sec</span><br><span class="line"></span><br><span class="line">空间：256 MB</span><br><span class="line"># 思路</span><br><span class="line">这道题其实按我理解，很类似出栈序列的合法性，当然算法很不一样。我说类似判断类似出栈合法性是因为第一次看到题的时候，以为是给你一个乱序序列（12354），让你借助栈，以升序（12345）序列输出。</span><br><span class="line"></span><br><span class="line">然而并不是啊！！！所以一直看不懂样例2的no是怎么来的。</span><br><span class="line"></span><br><span class="line">纠结了好久，网上看了之后才发现问题所在。然后也发现，这种问题其实叫"栈混洗问题"。</span><br><span class="line"></span><br><span class="line">解决方法呢主要是两个一维数组，一个int栈。一维数组seq用来存储待检验的序列。另一个一维数组ans用来存储操作（因为该题如果结果为“No”是不需要输出操作的，所以要先把操作存储，然后根据最后结果判断是否输出），1代表“push",2代表"pop"。</span><br><span class="line"></span><br><span class="line">首先搞清楚输出"No"的判断条件：</span><br><span class="line">case1:栈容量溢出。</span><br><span class="line">case2:栈顶元素大于待检测序列的第一位.</span><br><span class="line"></span><br><span class="line">然后在n个循环中和seq的元素依次进行比对，若seq的元素大于循环i，那么把i入栈，ans数组增加元素1，直到他俩相等。</span><br><span class="line">如果栈顶元素等于当前seq[i]的元素，那么pop，然后ans数组增加元素0.</span><br><span class="line"># 代码</span><br><span class="line">如有错误，请多指正</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">/**********************************</span><br><span class="line">输出NO:</span><br><span class="line">case1:栈容量溢出</span><br><span class="line">case2:栈顶元素大于待检测序列的第一位</span><br><span class="line">**********************************/</span><br><span class="line"></span><br><span class="line">template&lt;typename T&gt;</span><br><span class="line">class stack</span><br><span class="line">{</span><br><span class="line">private:</span><br><span class="line">    T* data;</span><br><span class="line">    T top;</span><br><span class="line">    int maxsize;</span><br><span class="line">public:</span><br><span class="line">    stack ( int _max )</span><br><span class="line">    {</span><br><span class="line">        maxsize = _max;</span><br><span class="line">        data = new T[maxsize];</span><br><span class="line">        top = -1;</span><br><span class="line">    }</span><br><span class="line">    void expand()</span><br><span class="line">    {</span><br><span class="line">        int newsize = maxsize * 2;</span><br><span class="line">        T *newdata = new T[newsize];</span><br><span class="line">        for ( int i = 0; i &lt; maxsize; i++ )</span><br><span class="line">            newdata[i] = data[i];</span><br><span class="line">        maxsize = maxsize * 2;</span><br><span class="line">        data = newdata;</span><br><span class="line">    }</span><br><span class="line">    void push ( T x )</span><br><span class="line">    {</span><br><span class="line">        if ( top == maxsize - 1 )</span><br><span class="line">            expand();</span><br><span class="line">        data[++top] = x;</span><br><span class="line">    }</span><br><span class="line">    void pop ()</span><br><span class="line">    {</span><br><span class="line">        if ( top &gt; 0 )</span><br><span class="line">        {</span><br><span class="line">            top--;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    bool empty()</span><br><span class="line">    {</span><br><span class="line">        return top == -1 ? true : false;</span><br><span class="line">    }</span><br><span class="line">    T gettop()</span><br><span class="line">    {</span><br><span class="line">        if ( top != -1 )</span><br><span class="line">            return data[top];</span><br><span class="line">        return -1;</span><br><span class="line">    }</span><br><span class="line">    int size()</span><br><span class="line">    {</span><br><span class="line">        return top + 1;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">{</span><br><span class="line">    int m;//序列个数</span><br><span class="line">    int n;//栈容量</span><br><span class="line">    int j = 0;</span><br><span class="line">    int k = 0;//ans的下标</span><br><span class="line">    cin &gt;&gt; m &gt;&gt; n;</span><br><span class="line">    int seq[m];</span><br><span class="line">    int ans[2*m] ;//操作最大为2m</span><br><span class="line">    stack&lt;int&gt; s ( 100 );</span><br><span class="line"></span><br><span class="line">    for ( int i = 1; i &lt; m+1; i++ )</span><br><span class="line">        scanf ( "%d", &amp;seq[i] );</span><br><span class="line"></span><br><span class="line">    for ( int i = 1; i &lt; m+1; i++ )</span><br><span class="line">    {</span><br><span class="line">        //case2</span><br><span class="line">        if ( seq[i] &lt; s.gettop() &amp;&amp; !s.empty())</span><br><span class="line">        {</span><br><span class="line">            printf ( "No\n" );</span><br><span class="line">            return 0;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        if ( seq[i] &gt; j )</span><br><span class="line">        {</span><br><span class="line">            while ( seq[i] != j )</span><br><span class="line">            {</span><br><span class="line">                s.push ( ++j );</span><br><span class="line">                ans[k++] = 1;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        //case1</span><br><span class="line">        if ( s.size() &gt; m )</span><br><span class="line">        {</span><br><span class="line">            printf ( "No\n" );</span><br><span class="line">            return 0;</span><br><span class="line">        }</span><br><span class="line">        if ( s.gettop() == seq[i] )</span><br><span class="line">        {</span><br><span class="line">            s.pop();</span><br><span class="line">            ans[k++] = 0;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    for(int i= 0;i&lt;k;i++)</span><br><span class="line">    {</span><br><span class="line">        if(ans[i])</span><br><span class="line">            printf("push\n");</span><br><span class="line">        else</span><br><span class="line">            printf("pop\n");</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>二叉树</category>
+        <category>oj</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于virtual box 6.x.x安装Ubuntu操作系统图文教程</title>
+    <url>/post/36742.html</url>
+    <content><![CDATA[<h1 id="安装工具准备"><a href="#安装工具准备" class="headerlink" title="安装工具准备"></a>安装工具准备</h1><p>1.点击这里<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">这里</a>下载virtual box。我现在下载的是最新版本6.1.2，日后可能会有更新，但应该改动不大。<br><br>2.点击<a href="https://ubuntu.com/download/desktop" target="_blank" rel="noopener">这里</a>下载Ubuntu，同上下载的最新版本18.04.3。<a id="more"></a><br></p>
+<h1 id="配置virtual-box"><a href="#配置virtual-box" class="headerlink" title="配置virtual box"></a>配置virtual box</h1><h2 id="1-先启动virtual-box，界面如下图："><a href="#1-先启动virtual-box，界面如下图：" class="headerlink" title="1.先启动virtual box，界面如下图："></a>1.先启动virtual box，界面如下图：</h2><p><img src="https://img-blog.csdnimg.cn/20200211135042830.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图一"></p>
+<h2 id="2-选择虚拟主机路径"><a href="#2-选择虚拟主机路径" class="headerlink" title="2.选择虚拟主机路径"></a>2.选择虚拟主机路径</h2><p>点击左上角的管理-全局-常规，修改”默认虚拟电脑位置”为自己设置的文件夹中.<br><br>不设置也是ok的,不过默认在c盘,你懂得~<br><img src="https://img-blog.csdnimg.cn/20200211135109139.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图二"></p>
+<h2 id="3-新建虚拟机"><a href="#3-新建虚拟机" class="headerlink" title="3.新建虚拟机"></a>3.新建虚拟机</h2><p>点击标注的新建<br><img src="https://img-blog.csdnimg.cn/202002111355250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图三"></p>
+<p>输入虚拟机名称,电脑类型以及型号.按照下图设置即可(名称可以不一样),完成后点击下一步<br><img src="https://img-blog.csdnimg.cn/20200211135545823.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图四"></p>
+<h2 id="4-设置内存大小"><a href="#4-设置内存大小" class="headerlink" title="4.设置内存大小"></a>4.设置内存大小</h2><p>这里根据自身电脑情况来配置吧.<br><br>我电脑比较老了,所以给2G够用就行.<br><img src="https://img-blog.csdnimg.cn/20200211140045179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图五"></p>
+<h2 id="5-创建虚拟机硬盘"><a href="#5-创建虚拟机硬盘" class="headerlink" title="5.创建虚拟机硬盘"></a>5.创建虚拟机硬盘</h2><p>这里一直点next就行<br><img src="https://img-blog.csdnimg.cn/20200211140326664.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图六"><br><img src="https://img-blog.csdnimg.cn/20200211140346734.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图七"><br>到了这里，分匹配虚拟机硬盘。还是那句话，<font color="red" size="5">根据自身需要配置。</font>我只需要进行linux的一些练习，所以20g足矣。<br><br>憨憨同学搞了100G.HHHHHH<br><img src="https://img-blog.csdnimg.cn/20200211140410663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图八"></p>
+<h1 id="安装并配置Ubuntu"><a href="#安装并配置Ubuntu" class="headerlink" title="安装并配置Ubuntu"></a>安装并配置Ubuntu</h1><h2 id="1-添加虚拟光盘文件"><a href="#1-添加虚拟光盘文件" class="headerlink" title="1.添加虚拟光盘文件"></a>1.添加虚拟光盘文件</h2><p>打开virtual box.设置-存储<br>点击下图标注的”没有光盘”,然后点击最右面的蓝色光盘图标<br><img src="https://img-blog.csdnimg.cn/20200211140929414.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图九"><br>点击第二个”Choose a disk file”<br>然后选择一开始下载好的镜像文件(xxxxx.iso)<br><img src="https://img-blog.csdnimg.cn/20200211141246861.jpg" alt="图十"><br>成功添加之后就是这样<br><img src="https://img-blog.csdnimg.cn/20200211141222815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图十一"></p>
+<h2 id="2-安装Ubuntu"><a href="#2-安装Ubuntu" class="headerlink" title="2.安装Ubuntu"></a>2.安装Ubuntu</h2><h3 id="语言设置"><a href="#语言设置" class="headerlink" title="语言设置"></a>语言设置</h3><p>回到软件的初始界面,选中刚刚添加的镜像文件,点击右上角的启动,然后进入下图的界面,双击选择中文<br><img src="https://img-blog.csdnimg.cn/20200211141649435.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图十二"><br>然后键盘布局，选择英语(美国) - 英语(美国)，点击继续<br><img src="https://img-blog.csdnimg.cn/20200211142022900.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图十三"></p>
+<h3 id="更新和其他软件"><a href="#更新和其他软件" class="headerlink" title="更新和其他软件"></a>更新和其他软件</h3><p>这里<font color="red">不要勾选</font>“安装Ubuntu时下载更新”，太费时间了，点击继续<br><img src="https://img-blog.csdnimg.cn/2020021114220757.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图十四"></p>
+<h3 id="安装类型"><a href="#安装类型" class="headerlink" title="安装类型"></a>安装类型</h3><p>点击安装<br><img src="https://img-blog.csdnimg.cn/20200211142518936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图十五"></p>
+<h3 id="虚拟机登录信息"><a href="#虚拟机登录信息" class="headerlink" title="虚拟机登录信息"></a>虚拟机登录信息</h3><p>这里大家可以自己输入，然后点击继续。<br>接着就是等待安装结束了（时间可能较长）。<br><img src="https://img-blog.csdnimg.cn/20200211142557614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNzczMTY0,size_16,color_FFFFFF,t_70" alt="图十六"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>重构真二叉树</title>
+    <url>/post/54549.html</url>
+    <content><![CDATA[<p>原题是Tsinghua OJ：真二叉树重构(Proper Rebuild)<br><br><a href="https://dsa.cs.tsinghua.edu.cn/oj/course.shtml?courseid=58" target="_blank" rel="noopener">https://dsa.cs.tsinghua.edu.cn/oj/course.shtml?courseid=58</a></p>
+<p><font size="5">Description</font><br><br><font size="3"><br>In general, given the preorder traversal sequence and postorder traversal sequence of a binary tree, we cannot determine the binary tree.<br></font><br><a id="more"></a></p>
+<p><img src="https://i.loli.net/2020/02/09/TBAio8wzcephqm3.png" alt=""></p>
+<p>Figure 1</p>
+<p>In Figure 1 for example, although they are two different binary tree, their preorder traversal sequence and postorder traversal sequence are both of the same.</p>
+<p>But for one proper binary tree, in which each internal node has two sons, we can uniquely determine it through its given preorder traversal sequence and postorder traversal sequence.</p>
+<p>Label n nodes in one binary tree using the integers in [1, n], we would like to output the inorder traversal sequence of a binary tree through its preorder and postorder traversal sequence.</p>
+<p><font size="5">Input</font><br><br><font size="3">The 1st line is an integer n, i.e., the number of nodes in one given binary tree,<br>The 2nd and 3rd lines are the given preorder and postorder traversal sequence respectively.</font><br></p>
+<p><font size="5">Output</font><br><br><font size="3">The inorder traversal sequence of the given binary tree in one line.</font><br></p>
+<p><font size="5">Example</font><br><br>Input</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">5</span><br><span class="line">1 2 4 5 3</span><br><span class="line">4 5 2 3 1</span><br></pre></td></tr></tbody></table></figure>
+<p>Output</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">4 2 5 1 3</span><br></pre></td></tr></tbody></table></figure>
+
+<p><font size="5">Restrictions</font><br><br>For 95% of the estimation, 1 &lt;= n &lt;= 1,000,00</p>
+<p>For 100% of the estimation, 1 &lt;= n &lt;= 4,000,000</p>
+<p>The input sequence is a permutation of {1,2…n}, corresponding to a legal binary tree.</p>
+<p>Time: 2 sec</p>
+<p>Memory: 256 MB</p>
+<p><font size="5">Hints</font></p>
+<p><img src="https://i.loli.net/2020/02/09/ToPIS9rKYNxEMuH.png" alt=""></p>
+<p>Figure 2</p>
+<p>In Figure 2, observe the positions of the left and right children in preorder and postorder traversal sequence.</p>
+<p><font size="5"><strong>描述</strong></font><br><br>一般来说，给定二叉树的先序遍历序列和后序遍历序列，并不能确定唯一确定该二叉树。</p>
+<p><img src="https://i.loli.net/2020/02/09/TBAio8wzcephqm3.png" alt=""></p>
+<p>（图一）</p>
+<p>比如图一中的两棵二叉树，虽然它们是不同二叉树，但是它们的先序、后序遍历序列都是相同的。</p>
+<p>但是对于“真二叉树”（每个内部节点都有两个孩子的二叉树），给定它的先序、后序遍历序列足以完全确定它的结构。</p>
+<p>将二叉树的n个节点用[1, n]内的整数进行编号，输入一棵真二叉树的先序、后序遍历序列，请输出它的中序遍历序列。</p>
+<p><font size="5"><strong>描述</strong></font><br><br>第一行为一个整数n，即二叉树中节点的个数。</p>
+<p>第二、三行为已知的先序、后序遍历序列。</p>
+<p><font size="5"><strong>描述</strong></font><br><br>仅一行，给定真二叉树的中序遍历序列。</p>
+<p><font size="5"><strong>描述</strong></font><br><br>见英文题面</p>
+<p><font size="5"><strong>描述</strong></font><br><br>对于95%的测例：1 ≤ n ≤ 1,000,000</p>
+<p>对于100%的测例：1 ≤ n ≤ 4,000,000</p>
+<p>输入的序列是{1,2…n}的排列，且对应于一棵合法的真二叉树</p>
+<p>时间：2 sec</p>
+<p>空间：256 MB</p>
+<p>提示<br><img src="https://i.loli.net/2020/02/09/ToPIS9rKYNxEMuH.png" alt=""></p>
+<p>观察左、右孩子在先序、后序遍历序列中的位置</p>
+<hr>
+<p>　　本来昨天在mooc上看到了邓俊辉老师的数据结构课程，本来只前面讲的（前序|后序）和中序的二叉树重构在课上也听到一些，理解起来不是太难，但是这个，前后序重构真二叉树着实有点傻。<br></p>
+<h2 id="重构真二叉树"><a href="#重构真二叉树" class="headerlink" title="重构真二叉树"></a>重构真二叉树</h2><p>　　<strong>真二叉树</strong>(proper binary tree)： 每个节点的度都为<strong>偶数</strong>(2|0)，<br>所以不存在左空右不空的情形，从而无法判断节点位置。根据前后遍历序列,可以重构二叉树，下面借邓俊辉老师的课件插图说明（感兴趣的可点击<a href="https://bilibili.com/video/av49361421/" target="_blank" rel="noopener">这里</a>看一看）：<br><img src="https://i.loli.net/2020/02/09/EM7FyLuraWnBQYi.jpg" alt="真二叉树的前后序遍历"><br>　　如上图，前序遍历的第一个节点必然是根节点，跟随其后的也必然是根节点的左孩子,可以在后序遍历序列中找到它的位置；同理后序遍历序列中最后一个元素必然是根节点，跟随其后的也是根节点的右孩子，可在前序遍历序列中找到位置。<br><br>　　这样，我们就分别划分出了前后遍历序列中左右字数的分界。再通过递归的方法就可以重构二叉树。</p>
+<p>　　<del><font size="5">下面是<font color="red">错误代码</font>，还没有改过来。<br></font></del><br>喜大普奔啊，<br>晚上又看了一下网上各位大佬的的方案，总算是解决了。下面是个95分的答案，case20 (runtime error)总是过不去，等有思路了再改吧，</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">/**************</span></span><br><span class="line"><span class="comment">7</span></span><br><span class="line"><span class="comment">1 2 4 5 3 6 7</span></span><br><span class="line"><span class="comment">4 5 2 6 7 3 1</span></span><br><span class="line"><span class="comment">**************/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BinNode</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="keyword">int</span> data;<span class="comment">//数据</span></span><br><span class="line">    BinNode *lc;<span class="comment">//左孩子</span></span><br><span class="line">    BinNode *rc;<span class="comment">//右孩子</span></span><br><span class="line">    BinNode() : lc ( <span class="literal">NULL</span> ), rc ( <span class="literal">NULL</span> ) {}</span><br><span class="line">    BinNode ( <span class="keyword">int</span> _data ) : data ( _data ), lc ( <span class="literal">NULL</span> ), rc ( <span class="literal">NULL</span> ) {}</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function">BinNode* <span class="title">rebuild</span> <span class="params">( <span class="keyword">int</span> length, <span class="keyword">int</span> *pre, <span class="keyword">int</span> *post )</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	BinNode* root = <span class="keyword">new</span> BinNode;<span class="comment">//创建一个新节点</span></span><br><span class="line">    root-&gt;data = pre[<span class="number">0</span>];<span class="comment">//以新节点为根,数据域为pre序列的第一个数</span></span><br><span class="line">    <span class="keyword">if</span> (length &lt; <span class="number">2</span>)<span class="comment">//递归结束</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> mid_left;<span class="comment">//记录左子树根节点在postOrder中的位置</span></span><br><span class="line">    <span class="keyword">for</span> ( mid_left = <span class="number">0</span>; mid_left &lt; length; mid_left++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> ( pre[<span class="number">1</span>] == post[mid_left] )</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//左子树节点个数为mid_left+1</span></span><br><span class="line">    <span class="comment">//右子树节点个数为length-1-(mid_left+1)</span></span><br><span class="line">    root-&gt;lc = rebuild ( mid_left + <span class="number">1</span>, pre + <span class="number">1</span>, post );</span><br><span class="line">    root-&gt;rc = rebuild ( length - mid_left - <span class="number">2</span>, pre + mid_left + <span class="number">2</span>, post + mid_left + <span class="number">1</span> );</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//中序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inOrder</span><span class="params">(BinNode *root)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;lc)</span><br><span class="line">        inOrder ( root-&gt;lc );</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;root-&gt;data;</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;rc)</span><br><span class="line">        inOrder ( root-&gt;rc );</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> length;<span class="comment">//节点个数</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; length;</span><br><span class="line">    <span class="keyword">int</span> pre[length], post[length];</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; pre[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; post[i];</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    BinNode* root;</span><br><span class="line">    root = rebuild ( length, pre, post );</span><br><span class="line"></span><br><span class="line">    inOrder ( root );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>二叉树</category>
+        <category>oj</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
+        <tag>重构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记录一下自己的蠢事</title>
+    <url>/post/21442.html</url>
+    <content><![CDATA[<p>先看一下原题:<br>pta 7-2<br>给定一棵二叉树的中序遍历和前序遍历，请你先将树做个镜面反转，再输出反转后的层序遍历的序列。所谓镜面反转，是指将所有非叶结点的左右孩子对换。这里假设键值都是互不相等的正整数。<a id="more"></a></p>
+<p>输入格式：<br>输入第一行给出一个正整数N（≤30），是二叉树中结点的个数。第二行给出其中序遍历序列。第三行给出其前序遍历序列。数字间以空格分隔。</p>
+<p>输出格式：<br>在一行中输出该树反转后的层序遍历的序列。数字间以1个空格分隔，行首尾不得有多余空格。</p>
+<p>输入样例：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">7</span><br><span class="line">1 2 3 4 5 6 7</span><br><span class="line">4 1 3 2 6 5 7</span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>输出样例：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">4 6 1 7 5 3 2</span><br></pre></td></tr></tbody></table></figure>
+
+<p>题目并不难,buuuuuuuuuuut 我蠢啊<br><br>用char数组存储了前中遍历序列,<br>然后把值赋给了int类型的data<br><br>debug半天特别懵<br>唉,浪费我上分的时间了<br><br>下面给出AC代码</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BinNode</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    BinNode* lc;</span><br><span class="line">    BinNode* rc;</span><br><span class="line">    BinNode() : lc ( <span class="literal">NULL</span> ), rc ( <span class="literal">NULL</span> ) {}</span><br><span class="line">    BinNode ( <span class="keyword">int</span> _data ) : data ( _data ), lc ( <span class="literal">NULL</span> ), rc ( <span class="literal">NULL</span> ) {}</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function">BinNode* <span class="title">rebuild</span> <span class="params">( <span class="keyword">int</span> length, <span class="keyword">int</span> *pre, <span class="keyword">int</span>*in )</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> ( length == <span class="number">0</span> )</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    BinNode *r = <span class="keyword">new</span> BinNode;</span><br><span class="line">    r-&gt;data = pre[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; length; i ++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> ( pre[<span class="number">0</span>] == in[i] )</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//cout&lt;&lt;r-&gt;data&lt;&lt;" ";</span></span><br><span class="line">    r-&gt;lc = rebuild ( i, pre + <span class="number">1</span>, in );</span><br><span class="line">    r-&gt;rc = rebuild ( length - i - <span class="number">1</span>, pre + i + <span class="number">1</span>, in + i + <span class="number">1</span> );</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">levelTran</span> <span class="params">( BinNode* root )</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">queue</span>&lt;BinNode* &gt; q;</span><br><span class="line">    q.push ( root );</span><br><span class="line">    <span class="keyword">while</span> ( !q.empty() )</span><br><span class="line">    {</span><br><span class="line">        BinNode* temp = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; temp-&gt;data&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        <span class="keyword">if</span> ( temp-&gt;rc )</span><br><span class="line">            q.push ( temp-&gt;rc );</span><br><span class="line">        <span class="keyword">if</span> ( temp-&gt;lc )</span><br><span class="line">            q.push ( temp-&gt;lc );</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; length;</span><br><span class="line">    <span class="keyword">if</span> ( length &gt; <span class="number">30</span> )</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> in[length];</span><br><span class="line">    <span class="keyword">int</span> pre[length];</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; in[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++ )</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; pre[i];</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    BinNode* root;</span><br><span class="line">    root = rebuild ( length, pre, in );</span><br><span class="line"></span><br><span class="line">    levelTran(root);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>二叉树</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>二叉树高度</title>
+    <url>/post/42727.html</url>
+    <content><![CDATA[<h1 id="求二叉树高度"><a href="#求二叉树高度" class="headerlink" title="求二叉树高度"></a>求二叉树高度</h1><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归<a id="more"></a></h2><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">height</span><span class="params">(BinNode* root)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span>(!root)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> m= height(root-&gt;lc);</span><br><span class="line">	<span class="keyword">int</span> n= height(root-&gt;rc);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> m &gt; n ? m+<span class="number">1</span> : n+<span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>2333,目前就会看课本上的这一种方法,以后见到了在更吧.</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>二叉树</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>二叉树遍历</title>
+    <url>/post/29933.html</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">在一棵树中,顶点p是顶点v的父亲,则它们的高度的关系是height(v) &lt; height(p)</span><br></pre></td></tr></tbody></table></figure>
+<br>
+今天的内容主要有二叉树节点BinNode的建立,二叉树的前,中,层次遍历.
+主要参照邓俊辉老师的讲解.<a id="more"></a>
+
+<h1 id="BinNode"><a href="#BinNode" class="headerlink" title="BinNode"></a>BinNode</h1><p>我这里用到的是结构体,其他也可以.</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BinNode</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    T data;</span><br><span class="line">    BinNode&lt;T&gt;* parent;</span><br><span class="line">    BinNode&lt;T&gt;* lc;<span class="comment">//左孩子</span></span><br><span class="line">    BinNode&lt;T&gt;* rc;<span class="comment">//右孩子</span></span><br><span class="line">    <span class="keyword">int</span> height;</span><br><span class="line">    <span class="comment">//构造函数</span></span><br><span class="line">    BinNode():parent(<span class="literal">NULL</span>),lc(<span class="literal">NULL</span>),rc(<span class="literal">NULL</span>),height(<span class="number">0</span>){}</span><br><span class="line">    BinNode(T _data,BinNode&lt;T&gt;* _parent):data(_data),parent(_parent){}</span><br><span class="line">    <span class="comment">//把e当作当前节点的左孩子插入(默认左孩子为空)</span></span><br><span class="line">    <span class="function">BinNode&lt;T&gt;* <span class="title">InsAslc</span><span class="params">(T <span class="keyword">const</span>&amp; e)</span></span>;</span><br><span class="line">    <span class="comment">//把e当作当前节点的右孩子插入(默认you孩子为空)</span></span><br><span class="line">    <span class="function">BinNode&lt;T&gt;* <span class="title">InsAsrc</span><span class="params">(T <span class="keyword">const</span>&amp; e)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">preOrder</span><span class="params">(BinNode&lt;T&gt;* x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">inOrder</span><span class="params">(BinNode&lt;T&gt;* x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">levelOrder</span><span class="params">(BinNode&lt;T&gt;* x)</span></span>;</span><br><span class="line">};</span><br><span class="line"><span class="comment">//把e当作当前节点的左孩子插入(默认左孩子为空)</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">BinNode&lt;T&gt;* BinNode&lt;T&gt;::InsAslc(T <span class="keyword">const</span>&amp; e)</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lc= <span class="keyword">new</span> BinNode(e,<span class="keyword">this</span>);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//把e当作当前节点的右孩子插入(默认you孩子为空)</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">BinNode&lt;T&gt;* BinNode&lt;T&gt;::InsAsrc(T <span class="keyword">const</span>&amp; e)</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.rc= <span class="keyword">new</span> BinNode(e,<span class="keyword">this</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h1><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//先序遍历</span></span><br><span class="line"><span class="comment">//递归实现</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">void</span> BinTree&lt;T&gt;::preOrder(BinNode&lt;T&gt;* x)</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">if</span>(!x)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;x-&gt;data;</span><br><span class="line">    preOrder(x-&gt;lc);</span><br><span class="line">    preOrder(x-&gt;rc);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>下面的是迭代实现</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BinTree&lt;T&gt;::preOrder(BinNode&lt;T&gt;*x)</span><br><span class="line">{</span><br><span class="line">    <span class="built_in">stack</span>&lt;BinNode&lt;T&gt;*&gt; s;</span><br><span class="line">    <span class="keyword">if</span>(x)</span><br><span class="line">        s.push(x);</span><br><span class="line">    <span class="keyword">while</span>(!s.empty())</span><br><span class="line">    {</span><br><span class="line">        BinNode* z= s.top();</span><br><span class="line">        s.pop();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;z-&gt;data;</span><br><span class="line">        <span class="keyword">if</span>(z-&gt;rc)s.push(z-&gt;rc);</span><br><span class="line">        <span class="keyword">if</span>(z-&gt;lc)s.push(z-&gt;lc);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h1><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//中序遍历</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">void</span> BinTree&lt;T&gt;::inOrder(BinNode&lt;T&gt;* x)</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">if</span>(!x)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    inOrder(x-&gt;lc);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;x-&gt;data;</span><br><span class="line">    inOrder(x-&gt;rc);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>下面的是迭代实现</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> BinTree&lt;T&gt;::inOrder(BinNode&lt;T&gt;* x)</span><br><span class="line">{</span><br><span class="line">    <span class="built_in">stack</span>&lt;BinNode&lt;T&gt;*&gt; s;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!s.empty()||x)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">while</span>(x)</span><br><span class="line">        {</span><br><span class="line">            s.push(x);</span><br><span class="line">            x= x-&gt;lc;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">while</span>(!s.empty())</span><br><span class="line">        {</span><br><span class="line">            x= s.top;</span><br><span class="line">            s.pop();</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;x-&gt;data;</span><br><span class="line">            <span class="keyword">if</span>(x-&gt;rc)</span><br><span class="line">                x= x-&gt;rc;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h1><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">void</span> BinTree&lt;T&gt;::levelOrder(BinNode&lt;T&gt;* x)</span><br><span class="line">{</span><br><span class="line">    <span class="built_in">queue</span>&lt;BinNode&lt;T&gt;* &gt; q;</span><br><span class="line">    q.push(x);</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())</span><br><span class="line">    {</span><br><span class="line">        BinNode&lt;T&gt;* z= q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;z-&gt;data;</span><br><span class="line">        <span class="keyword">if</span>(z-&gt;lc)</span><br><span class="line">            q.push(z-&gt;lc);</span><br><span class="line">        <span class="keyword">if</span>(z-&gt;rc)</span><br><span class="line">            q.push(z-&gt;rc);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p>　　遍历其实不难理解，尤其是递归算法。下面谈谈我对非递归，也就是迭代算法的认识。<br>以先序遍历为例，我们知道，先序遍历就是VLR的流程，所以第一个visit的必定是根节点；而又因为是非递归的方法，所以我们需要借助其他的数据结构来存储节点：这里主要有栈(LIFO)和队列(FIFO)。<br><br>　　区别如下 <img src="https://i.loli.net/2020/02/07/d2sJBWSPr8ZgFnt.png" alt="左边为栈,右边为队列"><br>图画的乱糟糟但确实有助于我理解，不懂的可以自己画画。<br><br>　　最后呢是用栈来存储选定了存储结构，接下来的事就比较简单了。首先把便利的根节点存入栈中，然后while判空为真就停止，while里取出栈顶元素，visit一下，然后pop。！！！！！接下来要把子女节点也加到栈中，因为栈的LIFO原则，所以先让右孩子进，然后是左孩子，如是循环即可。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>二叉树</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>我他妈的成了哈哈哈哈</title>
+    <url>/post/32246.html</url>
+    <content><![CDATA[<p>妈的,我服了<br><br>把<code>categories</code> 硬生生的拼成了<code>categaries</code><br><br>然后标签页怎么都打不开.<br><br>还好爷机智哈哈哈哈<br><a id="more"></a><br>有点小开心,学到了好多东西<br><br>今天hexo应该可以完工了,md搞了多少天啊<br><br>然后就要学py了<br><br>然后,然后,emmmm<br>数据结构在搞搞,<br><br>over~</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>hexo测试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>我的第好几篇文章</title>
+    <url>/post/51943.html</url>
+    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="第一章的第一节"><a href="#第一章的第一节" class="headerlink" title="第一章的第一节"></a>第一章的第一节</h3><p>233333.不知道写什么只是想测试一下</p>
+<h3 id="神奇的外链跳转"><a href="#神奇的外链跳转" class="headerlink" title="神奇的外链跳转"></a>神奇的外链跳转</h3><p>点击<a href="https://sex.com" target="_blank" rel="noopener">这里</a> 就能到贤者集中处哦</p>
+<a id="more"></a>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line">include&lt;iostream&gt;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line"> 	<span class="built_in">cout</span>&lt;&lt;<span class="string">"Hellooooooooooo World!"</span></span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h2 id="明天的小目标"><a href="#明天的小目标" class="headerlink" title="明天的小目标"></a>明天的小目标</h2><h3 id="实现博客所有外链-√"><a href="#实现博客所有外链-√" class="headerlink" title="实现博客所有外链(√)"></a>实现博客所有外链(√)</h3><h3 id="学会生成图片"><a href="#学会生成图片" class="headerlink" title="学会生成图片"></a>学会生成图片</h3><p><img src="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg" alt="嘿嘿"><br>诶嘿,毫无意义的插张图</p>
+<h3 id="社会主义核心价值观-√"><a href="#社会主义核心价值观-√" class="headerlink" title="社会主义核心价值观(√)"></a>社会主义核心价值观(√)</h3><h3 id="不蒜子-或者lean-不弄了"><a href="#不蒜子-或者lean-不弄了" class="headerlink" title="不蒜子(或者lean)(不弄了)"></a>不蒜子(或者lean)(不弄了)</h3><h3 id="文章发表更新记录-√"><a href="#文章发表更新记录-√" class="headerlink" title="文章发表更新记录(√)"></a>文章发表更新记录(√)</h3><h3 id="我jio得够了"><a href="#我jio得够了" class="headerlink" title="我jio得够了"></a>我jio得够了</h3><h2 id="哇再加一个"><a href="#哇再加一个" class="headerlink" title="哇再加一个"></a>哇再加一个</h2><p>刚刚发现目录都要隔开一行的,不然默认为正文文本了</p>
+<p>下面举个栗子(づ￣3￣)づ<br>形如</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">## 明天的小目标</span></span><br><span class="line"><span class="comment">### 实现博客所有外链</span></span><br><span class="line"><span class="comment">### 学会生成图片</span></span><br><span class="line"><span class="comment">### 社会主义核心价值观</span></span><br><span class="line"><span class="comment">### 不蒜子(或者lean)</span></span><br><span class="line"><span class="comment">### 文章发表更新记录</span></span><br><span class="line"><span class="comment">### 我jio得够了</span></span><br></pre></td></tr></tbody></table></figure>
+<p>是不行滴.必须用空格分隔开.</p>
+<p>好了好了.晚安安</p>
+<h2 id="我干-还有注意空格"><a href="#我干-还有注意空格" class="headerlink" title="我干,还有注意空格"></a>我干,还有注意空格</h2><h2 id="dnmd"><a href="#dnmd" class="headerlink" title="dnmd"></a>dnmd</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>hexo测试</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>我的</title>
+    <url>/post/4352.html</url>
+    <content><![CDATA[<p>##第一章</p>
+<p>内容</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>hexo测试</category>
+      </categories>
+  </entry>
+</search>

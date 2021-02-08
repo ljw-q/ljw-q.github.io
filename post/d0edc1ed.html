@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="google-site-verification" content="m3hJ0L1GWg5L4TGDuccifiqZjdFfOyoVMxnDxcq0q3I" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://klaus08.top').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":20,"offset":20,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"buttons","active":"disqus","storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Linux常用指令export 常用来临时修改、新增、删除环境变量。语法:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用命令">
+<meta property="og:url" content="https://klaus08.top/post/d0edc1ed.html">
+<meta property="og:site_name" content="klaus&#39; blog">
+<meta property="og:description" content="Linux常用指令export 常用来临时修改、新增、删除环境变量。语法:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/reARS6E.png">
+<meta property="og:image" content="https://klaus08.top/post/blog_pic/Linux_cmd/ps-l2.png">
+<meta property="og:image" content="https://klaus08.top/post/blog_pic/Linux_cmd/ps-l.png">
+<meta property="article:published_time" content="2020-02-25T15:10:39.000Z">
+<meta property="article:modified_time" content="2020-02-25T15:10:39.000Z">
+<meta property="article:author" content="xiao liu">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/reARS6E.png">
+
+<link rel="canonical" href="https://klaus08.top/post/d0edc1ed.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Linux常用命令 | klaus' blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="klaus' blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">klaus' blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">Recording learning and life</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/d0edc1ed.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
+      <meta itemprop="name" content="xiao liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="klaus' blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          Linux常用命令
+        </h2>
+
+        <div class="post-meta">
+		
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-25 23:10:39" itemprop="dateCreated datePublished" datetime="2020-02-25T23:10:39+08:00">2020-02-25</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Linux常用指令"><a href="#Linux常用指令" class="headerlink" title="Linux常用指令"></a>Linux常用指令</h1><h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><blockquote>
+<p>常用来<font color="red">临时</font>修改、新增、删除环境变量。<br><br>语法:<br><a id="more"></a></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export [变量名称]=[变量设置值]</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h2><blockquote>
+<p>显示当前工作目录</p>
+</blockquote>
+<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><blockquote>
+<p>切换目录<br>语法:<br></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd [目录名]</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>切换到上级目录:  <code>cd ..</code><br><br>切换到根目录:   <code>cd \</code></p>
+</blockquote>
+<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><blockquote>
+<p>用于显示目录内容，它的使用权限是所有用户。<br>语法:<br></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls [options] 文件名</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="ls-F"><a href="#ls-F" class="headerlink" title="ls -F"></a>ls -F</h3><blockquote>
+<p>在每一个文件的末尾加上一个字符说明该文件的类型，例如：<br></p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示目录&lt;br&gt;</span><br><span class="line">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示可执行文件&lt;br&gt;</span><br><span class="line">@&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示符号链接&lt;br&gt;</span><br><span class="line">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示管道文件&lt;br&gt;</span><br><span class="line">=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表示socket文件&lt;br&gt;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="ls-a-ls-–all"><a href="#ls-a-ls-–all" class="headerlink" title="ls-a(== ls –all)"></a>ls-a(== ls –all)</h3><blockquote>
+<p>列出所有的文件，包括以’ . ’开头的隐藏文件<br><br>刚刚测试了一下, 所有目录的文件中都有<code>. (当前目录)</code>以及<code>..(父目录)</code>,以便随时进行目录的返回</p>
+</blockquote>
+<h3 id="ls-l与ls-lh"><a href="#ls-l与ls-lh" class="headerlink" title="ls-l与ls -lh"></a>ls-l与ls -lh</h3><blockquote>
+<p>列出文件的详细信息，如创建者、创建时间、文件的读写权限等。<br><br>与ls -l不同的是<code>ls -lh</code>现实的文件大小是转化唯有单位的易读的数据, 而<code>ls -l</code>则直接显示字节数.<br>而ls -l得到的结果如下<br><img src="https://i.imgur.com/reARS6E.png" alt=""><br>上图中, 第一组数的第一位标识文件类型. 后九位(xwr-组成)分三组, 每组三位分别表示<code>文件所有者</code>, <code>所有者所在的组</code>以及<code>其他用户</code>对该文件的权限. (可读, 可写, 可执行)<br><br>如果不同字母表示权限, 还可以用0~7的数字标识每组的权限.<br><br>这样的话, 777 就对应于rwx, 000 对应于—.<br><br>这点后面命令要用到.</p>
+</blockquote>
+<h3 id="ls-t"><a href="#ls-t" class="headerlink" title="ls-t"></a>ls-t</h3><blockquote>
+<p>按时间进行文件的排序</p>
+</blockquote>
+<h3 id="ls-R"><a href="#ls-R" class="headerlink" title="ls-R"></a>ls-R</h3><blockquote>
+<p>递归地列出所有的子目录及子目录中的文件。 </p>
+</blockquote>
+<h3 id="ls-S"><a href="#ls-S" class="headerlink" title="ls-S"></a>ls-S</h3><blockquote>
+<p>以文件的大小进行降序排序</p>
+</blockquote>
+<h2 id="rm-或rmdir"><a href="#rm-或rmdir" class="headerlink" title="rm(或rmdir)"></a>rm(或rmdir)</h2><blockquote>
+<p>语法</p>
+<figure class="highlight plain"><figcaption><span>[options] [file name]```</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">### rm -r</span><br><span class="line">&gt;递归删除文件夹</span><br><span class="line">### rm -rf</span><br><span class="line">&gt;强制删除</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 切换root/切换用户</span><br><span class="line">&gt;方法一:&nbsp;``` su root </span><br></pre></td></tr></tbody></table></figure>
+<p>这样的话需要输入root密码, 很多人并没有设置过. 因为linux在安装时会自动生成一个默认密码.所以在使用前需要先重新设定密码:<br>执行<code>sudo passwd</code>,输入两次密码,enter就可以了.<br>方法二:<code>sudo -i</code><br>这时候可能要你输入密码, 只要输入你当前用户的登录密码就好了.<br></p>
+</blockquote>
+<blockquote>
+<p>异同: 相同之处很明显, 都可以以管理员身份操作.<br>而不同之处在于su仅仅取得root权限, 工作环境不变，而sudo是取得root的权限后进入root工作环境. 这个从英文命名上理解比较好</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">switch user</span><br></pre></td></tr></tbody></table></figure>
+<p>而sudo则是</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo</span><br><span class="line">super-user-do</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="chmod-change-mode"><a href="#chmod-change-mode" class="headerlink" title="chmod (change-mode)"></a>chmod (change-mode)</h2><blockquote>
+<p>语法:</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [options] [权限数值] [文件名]</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>options当然可有可无.<br><br>还可以<code>mkdir -m [权限数值] [file name]</code><br>这里说一下, 系统默认新建文件夹的权限是775, 新建文件的权限是664</p>
+</blockquote>
+<blockquote>
+<p>chmod 的操作是只针对所描述的对象的.<br>例如: 之前 a.txt的属性是777<br>chmod o=x a.txt后, 它的权限是771</p>
+</blockquote>
+<h2 id="chown-change-owner"><a href="#chown-change-owner" class="headerlink" title="chown(change-owner)"></a>chown(change-owner)</h2><p>更改用户群组</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown owner::group filelist</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h2><p>增加sudoer,</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser username sudo</span><br><span class="line">``` </span><br><span class="line">删除</span><br></pre></td></tr></tbody></table></figure>
+<p>sudo userdel username sudo</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## usermod(user-modify)</span><br><span class="line">设置用户相关</span><br><span class="line">更改用户shell的时候可用usermod -s, 前提是你当前用户有root权限</span><br><span class="line"></span><br><span class="line">## mv</span><br><span class="line">两个功能:</span><br><span class="line">1.重命名</span><br><span class="line">```mv [filename] [newname]</span><br></pre></td></tr></tbody></table></figure>
+<p>2.移动文件</p>
+<figure class="highlight plain"><figcaption><span>[file name] [new path]```</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在使用其移动功能时, 注意../的使用</span><br><span class="line"></span><br><span class="line">## cp</span><br><span class="line">复制文件</span><br></pre></td></tr></tbody></table></figure>
+<p>cp [file name] [new path]</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果要将一个子目录copy到另一个目录下时, 需要加上 -r 选项;&lt;br&gt;</span><br><span class="line">使用cp命令时, 如不特殊指定, 那么文件的更改时间是最新一次的改动时间, 而文件夹则不会改变</span><br><span class="line">&gt;这里关于```cp -r```举个栗子,  pic1所描述的系统是文件``` /dir1/dir2```, ```/dir1/test.txt```, 以及```/dir3```. </span><br><span class="line">&gt;![pic1](https://i.imgur.com/Q1tddNr.png)</span><br><span class="line">&gt;此时如果执行```cp /dir1/* /dir2```的话,只有```test.txt``` copy到了dir3</span><br><span class="line">&gt;![](https://i.imgur.com/lKnOwuV.png)</span><br><span class="line">&gt;而```cp -r /dir1/* /dir2```则会将dir1&lt;font color= red&gt;中&lt;/font&gt;的内容全都copy.</span><br><span class="line">&gt;而```cp /dir1 /dir2```则会直接提示操作失败, 因为这里cp的对象是整个/dir1文件夹. 而之前的cp操作对象是/dir1&lt;font color=red&gt;下&lt;/font&gt;的所有文件及目录, 所以即使不加 -r 也可以把非目录文件copy到对应目录下.</span><br><span class="line">&gt; </span><br><span class="line">&gt;Over~&lt;br&gt;</span><br><span class="line">&gt;</span><br><span class="line">## grep</span><br><span class="line">在指定文件中搜索特定的内容，并将含有这些内容的行输出.</span><br></pre></td></tr></tbody></table></figure>
+<p>grep [options] [关键字] [搜索目标]</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;font color=red&gt;**tips:**&lt;/font&gt;这里的搜索目标应该是普通文本.</span><br><span class="line"></span><br><span class="line">### grep -n</span><br><span class="line">显示搜索的关键字在文本中对应的行数</span><br><span class="line"></span><br><span class="line">### grep -v</span><br><span class="line">显示文本所有内容,除了[关键字]</span><br><span class="line"></span><br><span class="line">### grep -c</span><br><span class="line">显示关键字出现的次数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## find(默认递归)</span><br><span class="line">查找文件</span><br></pre></td></tr></tbody></table></figure>
+<p>find [path] [options] [file name]</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### find [path] -name</span><br><span class="line">后接指定的文件名，支持通配符</span><br><span class="line"></span><br><span class="line">### find [path] -user</span><br><span class="line">后接所要查找的文件的归属者（用户）</span><br><span class="line"></span><br><span class="line">### find [path] -size </span><br><span class="line">后接文件大小, 形如&lt;br&gt;</span><br><span class="line">```find . -size +4k```就是在当前路径下递归查找大于4k的文件</span><br><span class="line"></span><br><span class="line">### sed</span><br><span class="line">编辑文本, 显示指定行数的内容</span><br></pre></td></tr></tbody></table></figure>
+<p>sed -n ‘x,yp’ filename<br>//用以显示x,y行的内容</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 内存</span><br><span class="line"></span><br><span class="line">```free -m``` 查看内存</span><br><span class="line"></span><br><span class="line">```fdisk -l ``` 查看系统物理内存&lt;br&gt; </span><br><span class="line">查看硬盘和分区的详细信息（需要root或超级用户的权限）  </span><br><span class="line">            </span><br><span class="line">```df -h``` 查看磁盘分区的总容量、已用容量等信息</span><br><span class="line"></span><br><span class="line">```du -sh``` 查看磁盘文件已用容量，以指定目录下的子目录为单位，显示每个子目录内所有档案所占用的磁盘空间大小。</span><br><span class="line"></span><br><span class="line">```lsblk``` 查看硬盘和分区分布</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## head &amp; tail</span><br><span class="line">```head(tail) -**n** filelist</span><br></pre></td></tr></tbody></table></figure>
+<p>查看一个或多个文件的首(末)n行</p>
+<h2 id="ps-process-status"><a href="#ps-process-status" class="headerlink" title="ps(process-status)"></a>ps(process-status)</h2><p>查看执行ps命令的那个时刻的那些进程．</p>
+<p>如果想要动态的显示进程信息，就可以使用top命令。</p>
+<p>ps -l查看详细信息<br><img src="./blog_pic/Linux_cmd/ps-l2.png" alt="执行ps -l的类似效果图"><br><img src="./blog_pic/Linux_cmd/ps-l.png" alt="各字段的含义"><br>S的标识符 | 含义<br>— | —<br>D  | 不可中断<br>R(Runable) | 正在运行<br>S(Sleeping) | 正在休眠<br>T(trance) | 停止<br>Z(Zombie) | 僵尸进程</p>
+<h2 id="文件压缩"><a href="#文件压缩" class="headerlink" title="文件压缩"></a>文件压缩</h2><table>
+<thead>
+<tr>
+<th>压缩</th>
+<th>解压</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gzip</td>
+<td>gzip -d 或gunzip</td>
+</tr>
+<tr>
+<td>bzip2</td>
+<td>bzip2 -d</td>
+</tr>
+<tr>
+<td>tar -zcvf</td>
+<td>tar -zxvf (.gz)</td>
+</tr>
+<tr>
+<td>tar -jcvf</td>
+<td>tar -jxvf (.bz2)</td>
+</tr>
+<tr>
+<td>tar -c</td>
+<td>tar -x</td>
+</tr>
+<tr>
+<td>-k可以保留原文件压缩</td>
+<td></td>
+</tr>
+<tr>
+<td>- 解压后的文件最后更改日期是和原文件相同的, 和解压时间无关</td>
+<td></td>
+</tr>
+<tr>
+<td>- tar解压后原文件存在</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="vim小tips"><a href="#vim小tips" class="headerlink" title="vim小tips"></a>vim小tips</h1><ul>
+<li>x 也是剪切，使用后p命令可以粘贴出最近一次删除的内容。<br>目前接触到的x，d命令都是剪切，好像没有直接删除的，猜想删除就是在剪切的基础上实现的（类似于cp和mv的关系）；</li>
+</ul>
+<ul>
+<li>除:wq外，ZZ也可以实现保存并退出的功能。（具体区目前别没有查到）；</li>
+</ul>
+<ul>
+<li>:w是当前路径保存，后面还可以加上新路径， 实现“另存为”的功能；</li>
+</ul>
+<ul>
+<li>vim 可以连续打开多个文件：vim file1 file2，然后使用命令:bn和:bp进行切换。或者vim打开后，使用:open filename来打开另一个文件；</li>
+</ul>
+<ul>
+<li>移动光标时，<br>G按行移动：nG是到n行，G到末行，gg到首行；<br>w按单词移动（以空格为区分）：w到达下一个词首，e到达下个词尾；</li>
+</ul>
+<ul>
+<li>%进行括号匹配（当前光标必须在括号的一端上，否则无意义）；</li>
+</ul>
+<ul>
+<li>*和#，快速匹配全文中当前光标所在的单词，n是下一个,N上一个（对，类似于/pattern查找）；</li>
+</ul>
+<ul>
+<li>/key\c不区分大小写，key、KeY都可以被匹配<br>/key\C区分大小写；</li>
+</ul>
+<ul>
+<li><p>:s（substitute）命令用来查找和替换字符串。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:[range] s/before/after/tag</span><br></pre></td></tr></tbody></table></figure>
+<p>ranges填写查找范围．1,7 s/mian/main/g就是把mian替换为．</p>
+</li>
+<li><p>: set nu可产生编号</p>
+</li>
+</ul>
+<h1 id="更改shell"><a href="#更改shell" class="headerlink" title="更改shell"></a>更改shell</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/passwd</span><br><span class="line">或</span><br><span class="line">sudo usermod -s /bin/bash</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="增删su角色"><a href="#增删su角色" class="headerlink" title="增删su角色"></a>增删su角色</h1><p>增:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser username sudo</span><br><span class="line">``` </span><br><span class="line">删:</span><br></pre></td></tr></tbody></table></figure>
+<p>sudo deluser username sudo</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 增加用户</span><br></pre></td></tr></tbody></table></figure>
+<p>supo useradd [-g group] newuser  -m<br>或<br>adduser</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-g 组</span><br><span class="line"></span><br><span class="line">-m /home下生成newuser的家目录~</span><br><span class="line"># xdg-open</span><br><span class="line"> 以默认方式打开文件</span><br><span class="line"># swp 文件</span><br><span class="line">&gt;刚刚执行 ls -a 看到的, 网上查了一下, 就大概说一下&lt;br&gt;</span><br><span class="line">这个是在使用vim编辑文本然后非正常退出后产生的备份文件. 严格地说是在你一打开vim, 这额文件就产生了, 如果你正常退出, 它是不会保存的.&lt;br&gt;</span><br><span class="line">所以这个文件算是vim比较人性化的地方吧.</span><br><span class="line">具体恢复方法如下</span><br><span class="line">```vi -r [file name]</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="一些小知识"><a href="#一些小知识" class="headerlink" title="一些小知识"></a>一些小知识</h1><ul>
+<li><p>usr是Unix System Resource的简称, <font color="red">不是什么user</font></p>
+</li>
+<li><p>linux用户目录一般在 /home/下</p>
+</li>
+<li><p>R一般表示递归(目录下所有文件及子目录)   recursion</p>
+</li>
+<li><p>r一般表示逆序   reverse</p>
+</li>
+<li><p>ls -ld显示自身信息<br>ls -l(long)<br><br>ls -rt(r= reverse t = time)</p>
+</li>
+</ul>
+<blockquote>
+<p><font color="red," size="15"> 注意各种命令配合管道操作</font></p>
+</blockquote>
+<h1 id="有点想不通"><a href="#有点想不通" class="headerlink" title="有点想不通"></a>有点想不通</h1><p>mv * ../.<br>为is和没那么是移动到上一目录<br><br>明白了 ../代表的是父目录, 而../.就代表父目录里. 没什么好疑问的</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>xiao liu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://klaus08.top/post/d0edc1ed.html" title="Linux常用命令">https://klaus08.top/post/d0edc1ed.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/e67612e4.html" rel="prev" title="Web 初学(1)">
+      <i class="fa fa-chevron-left"></i> Web 初学(1)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/79549cdf.html" rel="next" title="Linux中inode的含义及理解">
+      Linux中inode的含义及理解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux常用指令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#export"><span class="nav-number">1.1.</span> <span class="nav-text">export</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pwd"><span class="nav-number">1.2.</span> <span class="nav-text">pwd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cd"><span class="nav-number">1.3.</span> <span class="nav-text">cd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls"><span class="nav-number">1.4.</span> <span class="nav-text">ls</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-F"><span class="nav-number">1.4.1.</span> <span class="nav-text">ls -F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-a-ls-–all"><span class="nav-number">1.4.2.</span> <span class="nav-text">ls-a(&#x3D;&#x3D; ls –all)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-l与ls-lh"><span class="nav-number">1.4.3.</span> <span class="nav-text">ls-l与ls -lh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-t"><span class="nav-number">1.4.4.</span> <span class="nav-text">ls-t</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-R"><span class="nav-number">1.4.5.</span> <span class="nav-text">ls-R</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-S"><span class="nav-number">1.4.6.</span> <span class="nav-text">ls-S</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm-或rmdir"><span class="nav-number">1.5.</span> <span class="nav-text">rm(或rmdir)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chmod-change-mode"><span class="nav-number">1.6.</span> <span class="nav-text">chmod (change-mode)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chown-change-owner"><span class="nav-number">1.7.</span> <span class="nav-text">chown(change-owner)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sudo"><span class="nav-number">1.8.</span> <span class="nav-text">sudo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps-process-status"><span class="nav-number">1.9.</span> <span class="nav-text">ps(process-status)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件压缩"><span class="nav-number">1.10.</span> <span class="nav-text">文件压缩</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim小tips"><span class="nav-number">2.</span> <span class="nav-text">vim小tips</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更改shell"><span class="nav-number">3.</span> <span class="nav-text">更改shell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增删su角色"><span class="nav-number">4.</span> <span class="nav-text">增删su角色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些小知识"><span class="nav-number">5.</span> <span class="nav-text">一些小知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#有点想不通"><span class="nav-number">6.</span> <span class="nav-text">有点想不通</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+	  
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="xiao liu"
+      src="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">xiao liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:scholarslept@gmail.com" title="E-Mail → mailto:scholarslept@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://sighttp.qq.com/authd?IDKEY=e9413421f0a21e27ed0121d39a8be9ce3ba13b3012fc248d" title="QQ → http:&#x2F;&#x2F;sighttp.qq.com&#x2F;authd?IDKEY&#x3D;e9413421f0a21e27ed0121d39a8be9ce3ba13b3012fc248d" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/qq_43773164" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_43773164" rel="noopener" target="_blank"><i class="fa fa-fw fa-location-arrow"></i>CSDN</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+	  
+
+<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+    <canvas width="220" height="250" id="resCanvas" style="width=100%">
+        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag">图论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%8D%E6%9E%84/" rel="tag">重构</a><span class="tag-list-count">1</span></li></ul>
+    </canvas>
+    </div>
+</div>
+
+
+    </div>
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+<img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png" style="display:inline-block">
+<a href="http://www.beian.miit.gov.cn/"  style="color:rgb(153,153,153)" target="_blank">陕ICP备20005108</a>
+</div>
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiao liu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">32k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">29 分钟</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-qq"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/love.js"></script>
+
