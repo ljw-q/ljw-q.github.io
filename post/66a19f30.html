@@ -50,12 +50,12 @@
   };
 </script>
 
-  <meta name="description" content="MySQL（二)联结外键，它是表中的一列，也是其他表的主键，定义里两个表之间的关系。 Q：如果数据存储在多个表中，怎样用单条SELECT语句检索出数据？ A：使用联结。简单地说，联结是一种机制，用来在一条SELECT语句中关联表，因此称之为联结。使用特殊的语法，可以联结多个表返回一组输出，联结在运行时关联表中正确的行。 注：联结并不实际存在于数据库中，只是一种表现形式。 如： 123456SELE">
+  <meta name="description" content="MySQL（二)联结外键，它是表中的一列，也是其他表的主键，定义里两个表之间的关系。 Q：如果数据存储在多个表中，怎样用单条SELECT语句检索出数据？ A：使用联结。简单地说，联结是一种机制，用来在一条SELECT语句中关联表，因此称之为联结。使用特殊的语法，可以联结多个表返回一组输出，联结在运行时关联表中正确的行。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;MySQL（二）&#39;">
+<meta property="og:title" content="MySQL（二）">
 <meta property="og:url" content="https://klaus08.top/post/66a19f30.html">
 <meta property="og:site_name" content="klaus&#39; blog">
-<meta property="og:description" content="MySQL（二)联结外键，它是表中的一列，也是其他表的主键，定义里两个表之间的关系。 Q：如果数据存储在多个表中，怎样用单条SELECT语句检索出数据？ A：使用联结。简单地说，联结是一种机制，用来在一条SELECT语句中关联表，因此称之为联结。使用特殊的语法，可以联结多个表返回一组输出，联结在运行时关联表中正确的行。 注：联结并不实际存在于数据库中，只是一种表现形式。 如： 123456SELE">
+<meta property="og:description" content="MySQL（二)联结外键，它是表中的一列，也是其他表的主键，定义里两个表之间的关系。 Q：如果数据存储在多个表中，怎样用单条SELECT语句检索出数据？ A：使用联结。简单地说，联结是一种机制，用来在一条SELECT语句中关联表，因此称之为联结。使用特殊的语法，可以联结多个表返回一组输出，联结在运行时关联表中正确的行。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/man-ljw/PicBed/raw/master/QQ%E6%88%AA%E5%9B%BE20210706164928.jpg">
 <meta property="og:image" content="https://gitee.com/man-ljw/PicBed/raw/master/QQ%E6%88%AA%E5%9B%BE20210706170055.jpg">
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title>'MySQL（二）' | klaus' blog</title>
+  <title>MySQL（二） | klaus' blog</title>
   
 
 
@@ -224,7 +224,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          'MySQL（二）'
+          MySQL（二）
         </h2>
 
         <div class="post-meta">
@@ -273,7 +273,7 @@
       
         <h1 id="MySQL（二"><a href="#MySQL（二" class="headerlink" title="MySQL（二)"></a>MySQL（二)</h1><h2 id="联结"><a href="#联结" class="headerlink" title="联结"></a>联结</h2><p><strong>外键</strong>，它是表中的一列，也是其他表的主键，定义里两个表之间的关系。</p>
 <p><font style="color:red" size="5">Q：如果数据存储在多个表中，怎样用单条SELECT语句检索出数据？</font></p>
-<p><font style="color:green" size="5">A：使用联结。简单地说，联结是一种机制，用来在一条SELECT语句中关联表，因此称之为联结。使用特殊的语法，可以联结多个表返回一组输出，联结在运行时关联表中正确的行。</font></p>
+<p><font style="color:green" size="5">A：使用联结。简单地说，联结是一种机制，用来在一条SELECT语句中关联表，因此称之为联结。使用特殊的语法，可以联结多个表返回一组输出，联结在运行时关联表中正确的行。</font> <a id="more"></a></p>
 <p><strong>注：联结并不实际存在于数据库中，只是一种表现形式。</strong></p>
 <p>如：</p>
 <figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> employees.first_name, jobs.job_title</span><br><span class="line"><span class="keyword">FROM</span> employees, jobs</span><br><span class="line"><span class="keyword">WHERE</span> employees.job_id = jobs.job_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- job_id作为employees的外键</span></span><br><span class="line"><span class="comment">-- 要查询的·名·和·工作职称·分别是两个表中的列</span></span><br></pre></td></tr></tbody></table></figure>
@@ -367,7 +367,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://klaus08.top/post/66a19f30.html" title="&#39;MySQL（二）&#39;">https://klaus08.top/post/66a19f30.html</a>
+    <a href="https://klaus08.top/post/66a19f30.html" title="MySQL（二）">https://klaus08.top/post/66a19f30.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
