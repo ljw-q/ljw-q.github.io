@@ -323,7 +323,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -342,167 +342,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <ol>
-<li><p>Collection接口</p>
-<p>​    1.1 Iterator</p>
-<p>​    1.2 Set集合</p>
-</li>
-<li><p>Map接口</p>
-</li>
-</ol>
-<p>   ​    </p>
-<h1 id="1-Collection接口"><a href="#1-Collection接口" class="headerlink" title="1.Collection接口"></a>1.Collection接口</h1><p>数组元素既可以是基本类型的值也可以是对象（对象的引用变量）；而集合里只能保存对象（对象的引用变量）。</p>
-<h2 id="Collection方法"><a href="#Collection方法" class="headerlink" title="Collection方法"></a>Collection方法</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//添加元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//移除元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cleat</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//清空集合中元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//判断集合中是否包含指定元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsAll</span><span class="params">(Collection c)</span></span>;</span><br><span class="line"><span class="comment">//判断集合中是否包含集合c中的全部元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//判断集合是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//集合中元素的个数</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainALL</span><span class="params">(Collection c)</span></span>;</span><br><span class="line"><span class="comment">//只保留和集合c中有的元素</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="1-1Iterator"><a href="#1-1Iterator" class="headerlink" title="1.1Iterator"></a>1.1Iterator</h2><p>Iterator接口方法，可以通过Collection.iterator()方法得到实现类。</p>
-<p>在遍历的过程中如果删除元素，会出现错误。原因是Iterator采用“快速失败机制”，一旦在迭代过程中检测到集合已经被修改，立即引发<strong>ConcurrentModificationException异常</strong>。</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//如果还有元素没有被遍历，返回true</span></span><br><span class="line"><span class="function">Object <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//返回下一个元素，如果有的话</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//删除上一次next()返回的元素</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.klaus.collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Collect_1</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Collection &lt;String&gt; c = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        c.add(<span class="string">"Hello"</span>);</span><br><span class="line">        c.add(<span class="string">"World"</span>);</span><br><span class="line">        c.add(<span class="string">"!"</span>);</span><br><span class="line"></span><br><span class="line">        Iterator&lt;String&gt; i = c.iterator();</span><br><span class="line">        <span class="keyword">while</span> (i.hasNext()){</span><br><span class="line">            System.out.print(i.next()+<span class="string">" "</span>);</span><br><span class="line">        }</span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"c.contains(\"Hello\"): "</span>+c.contains(<span class="string">"Hello"</span>));</span><br><span class="line">        System.out.println(<span class="string">"c.contains(\"Hell\"): "</span>+c.contains(<span class="string">"Hell"</span>));</span><br><span class="line">        c.remove(<span class="string">"Hello"</span>);</span><br><span class="line">        System.out.println(<span class="string">"c.contains(\"Hello\"): "</span>+c.contains(<span class="string">"Hello"</span>));       </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>运行结果如下：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hello World ! </span><br><span class="line">c.contains("Hello"): true</span><br><span class="line">c.contains("Hell"): false</span><br><span class="line">c.contains("Hello"): false</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p><strong>foreach</strong>访问更简洁</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String s:c){</span><br><span class="line">     System.out.print(s+<span class="string">" "</span>);</span><br><span class="line"> }</span><br><span class="line"> System.out.println(<span class="string">""</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="1-2-Set集合"><a href="#1-2-Set集合" class="headerlink" title="1.2 Set集合"></a>1.2 Set集合</h2><p><strong>无序、不重复。</strong></p>
-<p>Set和Collection相比没有提供任何额外的方法。使用也类似。</p>
-<h3 id="1-2-1-HashSet类"><a href="#1-2-1-HashSet类" class="headerlink" title="1.2.1 HashSet类"></a>1.2.1 HashSet类</h3><ul>
-<li><p>HashSet使用Hash算法来存储集合中的元素。</p>
-</li>
-<li><p>HashSet中元素顺序与添加顺序可能不一样。</p>
-</li>
-<li><p>hashCode()返回值是在HashSet中的索引。</p>
-</li>
-</ul>
-<p>添加元素时，HashSet会调用<strong>待添加对象</strong>的<code>hashCode()</code>方法得到对应的哈希值，然后由<strong>哈希值</strong>决定该对象在HashSet中的存储位置。</p>
-<p><font style="color:red" size="5">A.equals(B)返回true，则A.hashCode() == B.hashCode()。<br></font></p>
-<p>特殊情况：</p>
-<ol>
-<li><p>equals()比较返回true，但hashCode()不一样。</p>
-<p>此时HashSet会把两个对象根据不同的哈希值存储到对应位置，但与Set<strong>不重复</strong>的原则矛盾。</p>
-</li>
-<li><p>hashCode()相同，但equals()比较返回false。</p>
-<p>在同样的位置（由哈希值决定）通过链式结构把两个对象存储，但这样会导致性能下降。</p>
-</li>
-</ol>
-<h3 id="1-2-2LinkedHasgSet类"><a href="#1-2-2LinkedHasgSet类" class="headerlink" title="1.2.2LinkedHasgSet类"></a>1.2.2LinkedHasgSet类</h3><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+          <p>Collecction系：</p>
+<p><img src="https://gitee.com/man-ljw/PicBed/raw/master/Collections.png" alt=""></p>
+<p>Map系：</p>
+<p><img src="https://gitee.com/man-ljw/PicBed/raw/master/Map.png" alt=""></p>
+		  
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/7bd591b8.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/4509351.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
-      <meta itemprop="name" content="xiao liu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="klaus' blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/4509351.html" class="post-title-link" itemprop="url">Java集合</a>
-        </h2>
-
-        <div class="post-meta">
-		
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-08 22:15:58" itemprop="dateCreated datePublished" datetime="2021-07-08T22:15:58+08:00">2021-07-08</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
       
     </div>
 
@@ -1101,6 +953,91 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/226c5d31.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
+      <meta itemprop="name" content="xiao liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="klaus' blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/226c5d31.html" class="post-title-link" itemprop="url">MySQL（一）</a>
+        </h2>
+
+        <div class="post-meta">
+		
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-05 12:43:23" itemprop="dateCreated datePublished" datetime="2021-07-05T12:43:23+08:00">2021-07-05</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MySQL（一）"><a href="#MySQL（一）" class="headerlink" title="MySQL（一）"></a>MySQL（一）</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><strong>登录mysql</strong></p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql [-h 主机名 -P 端口号] -u root -p</span><br></pre></td></tr></tbody></table></figure>
+
+<p>MySQL中，每条命令以<code>;</code>作为结束符。</p>
+		  
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/226c5d31.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
@@ -1174,7 +1111,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1249,12 +1186,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">45k</span>
+    <span title="站点总字数">46k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">41 分钟</span>
+    <span title="站点阅读时长">42 分钟</span>
 </div>
 
         
