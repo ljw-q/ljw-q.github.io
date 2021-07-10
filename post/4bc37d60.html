@@ -50,24 +50,22 @@
   };
 </script>
 
-  <meta name="description" content="这几天在复习(学习)图论方面的知识，把网课上老师讲的，自己查的，零零散散做个汇总．">
+  <meta name="description" content="List集合List集合是一个有序、可重复的集合。每个元素按添加顺序设置索引，第一个添加的索引为0，依次递增。List通过顺序索引来访问元素。 List作为Collection的子接口，除了可以使用Collection的所有方法还多了根据索引操作元素的方法：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图论基础知识">
-<meta property="og:url" content="https://klaus08.top/post/54576.html">
+<meta property="og:title" content="Java集合（二）">
+<meta property="og:url" content="https://klaus08.top/post/4bc37d60.html">
 <meta property="og:site_name" content="klaus&#39; blog">
-<meta property="og:description" content="这几天在复习(学习)图论方面的知识，把网课上老师讲的，自己查的，零零散散做个汇总．">
+<meta property="og:description" content="List集合List集合是一个有序、可重复的集合。每个元素按添加顺序设置索引，第一个添加的索引为0，依次递增。List通过顺序索引来访问元素。 List作为Collection的子接口，除了可以使用Collection的所有方法还多了根据索引操作元素的方法：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/5gP53Lr.png">
-<meta property="og:image" content="https://i.imgur.com/8fiPQ06.png">
-<meta property="article:published_time" content="2020-02-12T05:39:06.000Z">
-<meta property="article:modified_time" content="2020-02-12T05:39:06.000Z">
+<meta property="article:published_time" content="2021-07-10T02:41:50.000Z">
+<meta property="article:modified_time" content="2021-07-10T02:41:50.000Z">
 <meta property="article:author" content="xiao liu">
-<meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="图">
+<meta property="article:tag" content="prograing">
+<meta property="article:tag" content=" life">
+<meta property="article:tag" content=" record">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/5gP53Lr.png">
 
-<link rel="canonical" href="https://klaus08.top/post/54576.html">
+<link rel="canonical" href="https://klaus08.top/post/4bc37d60.html">
 
 
 <script id="page-configurations">
@@ -79,7 +77,7 @@
   };
 </script>
 
-  <title>图论基础知识 | klaus' blog</title>
+  <title>Java集合（二） | klaus' blog</title>
   
 
 
@@ -212,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/54576.html">
+    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/4bc37d60.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
@@ -225,7 +223,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          图论基础知识
+          Java集合（二）
         </h2>
 
         <div class="post-meta">
@@ -237,7 +235,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-12 13:39:06" itemprop="dateCreated datePublished" datetime="2020-02-12T13:39:06+08:00">2020-02-12</time>
+              <time title="创建时间：2021-07-10 10:41:50" itemprop="dateCreated datePublished" datetime="2021-07-10T10:41:50+08:00">2021-07-10</time>
             </span>
 
           
@@ -253,14 +251,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>659</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -272,22 +270,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><font size="4">这几天在复习(学习)图论方面的知识，把网课上老师讲的，自己查的，零零散散做个汇总．</font><a id="more"></a></p>
-<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>G=(V;E)<br>n= |V|;  e= |E|</p>
-<p>顶点与边的关系.</p>
-<p>邻接关系：顶点~顶点，顶点和顶点的关系</p>
-<p>关联关系：顶点～边，边和组成边的顶点的关系</p>
-<p>线性表：互为直接前驱和直接后继的元素才能定义邻接关系<br><br>树：互为父子的节点才能被定义为邻接关系<br><br>线性表和树是特殊的图<br>图的要求更宽泛</p>
-<h2 id="有向图-amp-无向图"><a href="#有向图-amp-无向图" class="headerlink" title="有向图&amp;无向图"></a>有向图&amp;无向图</h2><p><strong>无向边(undirected graph)</strong>：构成边的顶点Ｕ和Ｖ无序，则<br>边（U，V）称为无向边</p>
-<p><strong>无向图（undigraph)</strong>：构成图的边全是无向边.(关系也是无向的)<br><br><img src="https://i.imgur.com/5gP53Lr.png" alt="无向图"></p>
-<p><strong>有向图(digraph)</strong>：构成图的各个边都是有向边.(关系也是有向的)<br><br><img src="https://i.imgur.com/8fiPQ06.png" alt="有向图"></p>
-<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p><strong>概念(path)</strong>：一系列的顶点按照邻接关系构成的序列.</p>
-<p><strong>简单路径(simple path)</strong>:一条不含重复节点的路径.</p>
-<p><strong>环路(circle)</strong>：起点和重点相同的路径/<br>简单环路(simple path)：除起点、终点外,一条不含重复节点的环路.</p>
-<h2 id="有向无环图-DAG"><a href="#有向无环图-DAG" class="headerlink" title="有向无环图(DAG)"></a>有向无环图(DAG)</h2><p><strong>概念</strong>：一个有向图中不包含任何环路.</p>
-<h2 id="欧拉图-Eulerian-graph-—–一笔画问题"><a href="#欧拉图-Eulerian-graph-—–一笔画问题" class="headerlink" title="欧拉图(Eulerian graph)—–一笔画问题"></a>欧拉图(Eulerian graph)—–一笔画问题</h2><p><strong>欧拉路径</strong>：通过图中所有边一次且仅一次行遍所有顶点的通路称为欧拉路径.<br><br><strong>欧拉回路</strong>：通过图中所有边一次且仅一次经过所有顶点的回路称为欧拉回路.<br></p>
-<p><strong>欧拉图</strong>：具有欧拉回路的图称为欧拉图.<br><br><strong>半欧拉图</strong>：具有欧拉通路的图称为半欧拉图.<br><br><strong>性质</strong>：(半)欧拉图中所有顶点的度数都是(两个奇数度顶点)偶数。<br></p>
-<h2 id="哈密尔顿图"><a href="#哈密尔顿图" class="headerlink" title="哈密尔顿图"></a>哈密尔顿图</h2><p><strong>哈密尔顿回路</strong>:通过图中所有顶一次且仅一次的回路为哈密尔顿回路.<br><br><strong>哈密尔顿图</strong>：具有哈密尔顿回路的图.<br></p>
+        <h1 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h1><p>List集合是一个<strong>有序、可重复</strong>的集合。每个元素按添加顺序设置索引，第一个添加的索引为0，依次递增。List通过顺序索引来访问元素。</p>
+<p>List作为Collection的子接口，除了可以使用Collection的所有方法还多了根据索引操作元素的方法：<a id="more"></a></p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, Object element)</span></span>;</span><br><span class="line"><span class="comment">//添加元素到指定下标处</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection c)</span></span>;</span><br><span class="line"><span class="comment">//把集合c中的全部元素以index为起始索引添加进List</span></span><br><span class="line"><span class="function">Object <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="comment">//获得index处的元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//获得o在List中第一出现的索引，不存在的话返回-1</span></span><br><span class="line"><span class="function">Object <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="comment">//删除并返回index位置的元素</span></span><br><span class="line"><span class="function">Object <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, Object o)</span></span>;</span><br><span class="line"><span class="comment">//将index位置的元素替换成o，并返回o</span></span><br><span class="line"><span class="function">List <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromList, <span class="keyword">int</span> toList)</span></span>;</span><br><span class="line"><span class="comment">//返回下标在[fromList, toList)的元素组成的子List集合</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>List判断相等的标准是：<strong>equals()返回true</strong>。</p>
+<h1 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h1><p>List除了iterator()（获得的迭代器只能向后迭代）外，还提供了listIterator()方法，返回一个ListIterator对象，ListIterator接口继承了Iterator接口，并增加了以下方法：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">hasPrevious</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//是否还有上一个元素</span></span><br><span class="line"><span class="function">Object <span class="title">Previous</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//返回上一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//插入一个元素</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>下面是ListIterator的示例。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.klaus.collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.ListIterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListTest</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"Hello"</span>);</span><br><span class="line">        list.add(<span class="string">"owo"</span>);</span><br><span class="line">        list.add(<span class="number">1</span>,<span class="string">"world"</span>);</span><br><span class="line"></span><br><span class="line">        ListIterator&lt;String&gt; listIterator = list.listIterator();</span><br><span class="line">        <span class="keyword">while</span> (listIterator.hasNext()){</span><br><span class="line">            System.out.println(listIterator.next());</span><br><span class="line">            listIterator.add(<span class="string">"---"</span>);</span><br><span class="line">        }</span><br><span class="line">        System.out.println(<span class="string">"反向迭代"</span>);</span><br><span class="line">        <span class="keyword">while</span> (listIterator.hasPrevious()){</span><br><span class="line">            System.out.println(listIterator.previous());</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出如下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br><span class="line">world</span><br><span class="line">owo</span><br><span class="line">反向迭代</span><br><span class="line">---</span><br><span class="line">owo</span><br><span class="line">---</span><br><span class="line">world</span><br><span class="line">---</span><br><span class="line">Hello</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="ArrayList和Vector"><a href="#ArrayList和Vector" class="headerlink" title="ArrayList和Vector"></a>ArrayList和Vector</h1><p>ArrayList和Vector作为List的实现类，完全支持List接口的所有方法。其内部封装了一个动态的、允许再分配的Object[]，ArrayList和Vector对象通过initialCapacity参数指定数组长度，当超过时会自动增加。</p>
+<p>在创建时如果不指定他们的大小，那么默认为<strong>10</strong>。</p>
+<p>此外，</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span></span>; <span class="comment">//将ArrayList和Vector的长度增加minCapacity</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">trimToSize</span><span class="params">()</span></span>;<span class="comment">//调整大小，使长度刚好等于当前元素个数</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><strong>注：</strong>ArrayList是<strong>线程不安全的</strong>，当有超过一个线程修改集合时，需要<strong>手动</strong>保证集合的同步性。</p>
+<pre><code>Vector是**线程安全的**，所以性能比ArrayList低。</code></pre><h2 id="Stack类"><a href="#Stack类" class="headerlink" title="Stack类"></a>Stack类</h2><p>Vector还提供了Stack子类，模拟栈的特点FILO。因为Stack继承了Vector，所以也是<strong>线程安全的</strong>。</p>
+<p>其进栈出栈的都是Object，所以取出后要进行类型转换。</p>
+<p>主要方法有：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Object <span class="title">peek</span><span class="params">()</span></span>; <span class="comment">//返回栈顶元素但并不弹出</span></span><br><span class="line"><span class="function">Object <span class="title">pop</span><span class="params">()</span></span>;<span class="comment">//弹出栈顶元素</span></span><br><span class="line"><span class="function">Object <span class="title">push</span><span class="params">(Object o)</span></span>;<span class="comment">//将o入栈</span></span><br></pre></td></tr></tbody></table></figure>
+
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -321,7 +330,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://klaus08.top/post/54576.html" title="图论基础知识">https://klaus08.top/post/54576.html</a>
+    <a href="https://klaus08.top/post/4bc37d60.html" title="Java集合（二）">https://klaus08.top/post/4bc37d60.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -333,10 +342,6 @@
 
 
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
-              <a href="/tags/%E5%9B%BE/" rel="tag"><i class="fa fa-tag"></i> 图</a>
-          </div>
 
         
 
@@ -344,13 +349,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/36741.html" rel="prev" title="列车调度">
-      <i class="fa fa-chevron-left"></i> 列车调度
+    <a href="/post/2c0ee3a9.html" rel="prev" title="JZ19 顺时针打印矩阵">
+      <i class="fa fa-chevron-left"></i> JZ19 顺时针打印矩阵
     </a></div>
-      <div class="post-nav-item">
-    <a href="/post/e67612e4.html" rel="next" title="Web 初学(1)">
-      Web 初学(1) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -410,7 +412,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#图"><span class="nav-number">1.</span> <span class="nav-text">图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础概念"><span class="nav-number">1.1.</span> <span class="nav-text">基础概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有向图-amp-无向图"><span class="nav-number">1.2.</span> <span class="nav-text">有向图&amp;无向图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径"><span class="nav-number">1.3.</span> <span class="nav-text">路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有向无环图-DAG"><span class="nav-number">1.4.</span> <span class="nav-text">有向无环图(DAG)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#欧拉图-Eulerian-graph-—–一笔画问题"><span class="nav-number">1.5.</span> <span class="nav-text">欧拉图(Eulerian graph)—–一笔画问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈密尔顿图"><span class="nav-number">1.6.</span> <span class="nav-text">哈密尔顿图</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#List集合"><span class="nav-number">1.</span> <span class="nav-text">List集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代器"><span class="nav-number">2.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList和Vector"><span class="nav-number">3.</span> <span class="nav-text">ArrayList和Vector</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack类"><span class="nav-number">3.1.</span> <span class="nav-text">Stack类</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

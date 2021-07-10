@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java集合（二）</title>
+    <url>/post/4bc37d60.html</url>
+    <content><![CDATA[<h1 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h1><p>List集合是一个<strong>有序、可重复</strong>的集合。每个元素按添加顺序设置索引，第一个添加的索引为0，依次递增。List通过顺序索引来访问元素。</p>
+<p>List作为Collection的子接口，除了可以使用Collection的所有方法还多了根据索引操作元素的方法：<a id="more"></a></p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, Object element)</span></span>;</span><br><span class="line"><span class="comment">//添加元素到指定下标处</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection c)</span></span>;</span><br><span class="line"><span class="comment">//把集合c中的全部元素以index为起始索引添加进List</span></span><br><span class="line"><span class="function">Object <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="comment">//获得index处的元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//获得o在List中第一出现的索引，不存在的话返回-1</span></span><br><span class="line"><span class="function">Object <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="comment">//删除并返回index位置的元素</span></span><br><span class="line"><span class="function">Object <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, Object o)</span></span>;</span><br><span class="line"><span class="comment">//将index位置的元素替换成o，并返回o</span></span><br><span class="line"><span class="function">List <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromList, <span class="keyword">int</span> toList)</span></span>;</span><br><span class="line"><span class="comment">//返回下标在[fromList, toList)的元素组成的子List集合</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>List判断相等的标准是：<strong>equals()返回true</strong>。</p>
+<h1 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h1><p>List除了iterator()（获得的迭代器只能向后迭代）外，还提供了listIterator()方法，返回一个ListIterator对象，ListIterator接口继承了Iterator接口，并增加了以下方法：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">hasPrevious</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//是否还有上一个元素</span></span><br><span class="line"><span class="function">Object <span class="title">Previous</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//返回上一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//插入一个元素</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>下面是ListIterator的示例。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.klaus.collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.ListIterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListTest</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"Hello"</span>);</span><br><span class="line">        list.add(<span class="string">"owo"</span>);</span><br><span class="line">        list.add(<span class="number">1</span>,<span class="string">"world"</span>);</span><br><span class="line"></span><br><span class="line">        ListIterator&lt;String&gt; listIterator = list.listIterator();</span><br><span class="line">        <span class="keyword">while</span> (listIterator.hasNext()){</span><br><span class="line">            System.out.println(listIterator.next());</span><br><span class="line">            listIterator.add(<span class="string">"---"</span>);</span><br><span class="line">        }</span><br><span class="line">        System.out.println(<span class="string">"反向迭代"</span>);</span><br><span class="line">        <span class="keyword">while</span> (listIterator.hasPrevious()){</span><br><span class="line">            System.out.println(listIterator.previous());</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出如下：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">Hello</span><br><span class="line">world</span><br><span class="line">owo</span><br><span class="line">反向迭代</span><br><span class="line">---</span><br><span class="line">owo</span><br><span class="line">---</span><br><span class="line">world</span><br><span class="line">---</span><br><span class="line">Hello</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="ArrayList和Vector"><a href="#ArrayList和Vector" class="headerlink" title="ArrayList和Vector"></a>ArrayList和Vector</h1><p>ArrayList和Vector作为List的实现类，完全支持List接口的所有方法。其内部封装了一个动态的、允许再分配的Object[]，ArrayList和Vector对象通过initialCapacity参数指定数组长度，当超过时会自动增加。</p>
+<p>在创建时如果不指定他们的大小，那么默认为<strong>10</strong>。</p>
+<p>此外，</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span></span>; <span class="comment">//将ArrayList和Vector的长度增加minCapacity</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">trimToSize</span><span class="params">()</span></span>;<span class="comment">//调整大小，使长度刚好等于当前元素个数</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><strong>注：</strong>ArrayList是<strong>线程不安全的</strong>，当有超过一个线程修改集合时，需要<strong>手动</strong>保证集合的同步性。</p>
+<pre><code>Vector是**线程安全的**，所以性能比ArrayList低。</code></pre><h2 id="Stack类"><a href="#Stack类" class="headerlink" title="Stack类"></a>Stack类</h2><p>Vector还提供了Stack子类，模拟栈的特点FILO。因为Stack继承了Vector，所以也是<strong>线程安全的</strong>。</p>
+<p>其进栈出栈的都是Object，所以取出后要进行类型转换。</p>
+<p>主要方法有：</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function">Object <span class="title">peek</span><span class="params">()</span></span>; <span class="comment">//返回栈顶元素但并不弹出</span></span><br><span class="line"><span class="function">Object <span class="title">pop</span><span class="params">()</span></span>;<span class="comment">//弹出栈顶元素</span></span><br><span class="line"><span class="function">Object <span class="title">push</span><span class="params">(Object o)</span></span>;<span class="comment">//将o入栈</span></span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+  </entry>
+  <entry>
     <title>JZ19 顺时针打印矩阵</title>
     <url>/post/2c0ee3a9.html</url>
     <content><![CDATA[<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下4 X 4矩阵：</p>
