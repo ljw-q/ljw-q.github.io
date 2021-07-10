@@ -50,23 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="控制结构语句主要内容 12345ifcase ifforwhile until">
+  <meta name="description" content="构造方法ArrayList共有三种构造方法： 1. 无参构造​        创建一个长度10的Object数组。 2.参数是int型 [0~2^31-1）​        若参数大于0，创建指定长度的Object[]； ​        若参数等于0，Object类型的空数组； ​        其他情况，抛出异常。 3.参数是Collectinon​        创建一个包含集合c所有元素的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell编程(二)">
-<meta property="og:url" content="https://klaus08.top/post/394153b8.html">
+<meta property="og:title" content="ArrayList补充">
+<meta property="og:url" content="https://klaus08.top/post/b4b62cca.html">
 <meta property="og:site_name" content="klaus&#39; blog">
-<meta property="og:description" content="控制结构语句主要内容 12345ifcase ifforwhile until">
+<meta property="og:description" content="构造方法ArrayList共有三种构造方法： 1. 无参构造​        创建一个长度10的Object数组。 2.参数是int型 [0~2^31-1）​        若参数大于0，创建指定长度的Object[]； ​        若参数等于0，Object类型的空数组； ​        其他情况，抛出异常。 3.参数是Collectinon​        创建一个包含集合c所有元素的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200323115342836.png">
-<meta property="article:published_time" content="2020-05-26T15:04:35.000Z">
-<meta property="article:modified_time" content="2020-05-26T15:04:35.000Z">
+<meta property="article:published_time" content="2021-07-10T04:55:51.000Z">
+<meta property="article:modified_time" content="2021-07-10T04:55:51.000Z">
 <meta property="article:author" content="xiao liu">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="shell">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200323115342836.png">
 
-<link rel="canonical" href="https://klaus08.top/post/394153b8.html">
+<link rel="canonical" href="https://klaus08.top/post/b4b62cca.html">
 
 
 <script id="page-configurations">
@@ -78,7 +75,7 @@
   };
 </script>
 
-  <title>shell编程(二) | klaus' blog</title>
+  <title>ArrayList补充 | klaus' blog</title>
   
 
 
@@ -211,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/394153b8.html">
+    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/b4b62cca.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
@@ -224,7 +221,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          shell编程(二)
+          ArrayList补充
         </h2>
 
         <div class="post-meta">
@@ -236,7 +233,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-05-26 23:04:35" itemprop="dateCreated datePublished" datetime="2020-05-26T23:04:35+08:00">2020-05-26</time>
+              <time title="创建时间：2021-07-10 12:55:51" itemprop="dateCreated datePublished" datetime="2021-07-10T12:55:51+08:00">2021-07-10</time>
             </span>
 
           
@@ -252,14 +249,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>883</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -271,61 +268,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="控制结构语句"><a href="#控制结构语句" class="headerlink" title="控制结构语句"></a>控制结构语句</h1><p>主要内容</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if</span><br><span class="line">case if</span><br><span class="line">for</span><br><span class="line">while </span><br><span class="line">until</span><br></pre></td></tr></tbody></table></figure>
-<a id="more"></a>
-<br>
+        <h1 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h1><p>ArrayList共有三种构造方法：</p>
+<h2 id="1-无参构造"><a href="#1-无参构造" class="headerlink" title="1. 无参构造"></a>1. 无参构造</h2><p>​        创建一个长度10的Object数组。</p>
+<h2 id="2-参数是int型-0-2-31-1）"><a href="#2-参数是int型-0-2-31-1）" class="headerlink" title="2.参数是int型 [0~2^31-1）"></a>2.参数是int型 [0~2^31-1）</h2><p>​        若参数大于0，创建指定长度的Object[]；</p>
+<p>​        若参数等于0，Object类型的<strong>空数组</strong>；</p>
+<p>​        其他情况，抛出异常。</p>
+<h2 id="3-参数是Collectinon"><a href="#3-参数是Collectinon" class="headerlink" title="3.参数是Collectinon"></a>3.参数是Collectinon</h2><p>​        创建一个包含集合c所有元素的List，元素集合和集合Iterator遍历得到的元素顺序一样。<a id="more"></a></p>
+<h1 id="void-trimToSize"><a href="#void-trimToSize" class="headerlink" title="void trimToSize()"></a>void trimToSize()</h1><p>若List中元素个数小于List长度，进行判断：</p>
+<p>元素个数为0，trim后返回空Object数组；</p>
+<p>否则的话通过<code>Arrays.copyOf(Object [], int size)</code>进行trim。</p>
+<h1 id="扩容函数"><a href="#扩容函数" class="headerlink" title="扩容函数"></a>扩容函数</h1><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//以下是ArrayList的部分源码</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>{</span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">    elementData[size++] = e;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityInternal</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>{</span><br><span class="line">    ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateCapacity</span><span class="params">(Object[] elementData, <span class="keyword">int</span> minCapacity)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {</span><br><span class="line">       <span class="keyword">return</span> Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> minCapacity;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureExplicitCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>{</span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)</span><br><span class="line">        grow(minCapacity);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>{</span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="keyword">int</span> oldCapacity = elementData.length;</span><br><span class="line">    <span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    <span class="comment">// minCapacity is usually close to size, so this is a win:</span></span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="if的基本用法"><a href="#if的基本用法" class="headerlink" title="if的基本用法"></a>if的基本用法</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">if a</span><br><span class="line">then </span><br><span class="line">	b</span><br><span class="line">fi</span><br><span class="line">------------</span><br><span class="line">if a</span><br><span class="line">then </span><br><span class="line">	b</span><br><span class="line">else</span><br><span class="line">	c</span><br><span class="line">fi</span><br><span class="line">-----------</span><br><span class="line">if a</span><br><span class="line">then</span><br><span class="line">	b</span><br><span class="line">elif a2</span><br><span class="line">then </span><br><span class="line">	b2</span><br><span class="line">else </span><br><span class="line">	c</span><br><span class="line">fi</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="shell编程中的判等"><a href="#shell编程中的判等" class="headerlink" title="shell编程中的判等"></a>shell编程中的判等</h2><p><font color="red">注意空格!!!!!</font><br> |      |判等| 不等| 为空(空为真)| 非空(非空为真)|<br> |—–| —– |——-|——-|—-|<br>|字符串  | str1 = str2 |str1 != str2| -z str|-n str|</p>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center">判等</th>
-<th>不等</th>
-<th>大于</th>
-<th>大于等于</th>
-<th>小于</th>
-<th>小于等于</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">算术</td>
-<td align="center">form1 -eq form2</td>
-<td>-ne</td>
-<td>-gt</td>
-<td>-ge</td>
-<td>-lt</td>
-<td>-le</td>
-</tr>
-<tr>
-<td align="center">(<strong>注:算术运算的后五种使用方法同第一个</strong>)</td>
-<td align="center"></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>这里添加两个if判断条件<br><img src="https://img-blog.csdnimg.cn/20200323115342836.png" alt="在这里插入图片描述"></p>
-<h2 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for varieble in argument-list</span><br><span class="line">do</span><br><span class="line">	command_list</span><br><span class="line">done</span><br></pre></td></tr></tbody></table></figure>
-<p>还有最经典的for循环!!</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">注意这里是两层括号</span></span><br><span class="line">for((num=1;num&lt;n;num++));do</span><br><span class="line">	command_list</span><br><span class="line">done</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="void-grow-int-minCapacity"><a href="#void-grow-int-minCapacity" class="headerlink" title="void grow(int minCapacity)"></a>void grow(int minCapacity)</h2><p>ArrayList扩容的核心函数。每次扩容后至少是原容量的1.5倍，若1.5倍容量仍不够，那么newCapacity直接设为minCapacity。最后如果newCapacity &gt; MaxArrraySize 的话，使用hugeCapacity(int )比较minCapacity和MAX_ARRAY_SIZE的大小，如果前者大，那么新容量就是Integer.Max_Value，否则就是MAX_ARRAY_SIZE。</p>
+<p>也就是说：ArrayList并非是无限大的，它最大可以扩容到2^31-1。</p>
+<p><strong>注：</strong>MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8，这里减8的原因是需要8bit存储元信息。</p>
+<h2 id="boolean-add-E-e"><a href="#boolean-add-E-e" class="headerlink" title="boolean add(E e)"></a>boolean add(E e)</h2><p>添加时先调用<code>ensureCapacityInternal(int minCapacity)</code>方法把数组容量增加1；</p>
+<p>然后将待添加的元素加入。</p>
+<h2 id="ensureCapacityInternal-int-minCapacity"><a href="#ensureCapacityInternal-int-minCapacity" class="headerlink" title="ensureCapacityInternal(int minCapacity)"></a>ensureCapacityInternal(int minCapacity)</h2><p>该函数调用利用ensureExplicitCapacity()函数得到最小扩容量。</p>
+<h2 id="calculateCapacity"><a href="#calculateCapacity" class="headerlink" title="calculateCapacity()"></a>calculateCapacity()</h2><figure class="highlight plain"><figcaption><span>elementData, int minCapacity)```计算最小空间：</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">若elementData为空，那么返回max(10, minCapacity)；否则返回minCapacity。</span><br><span class="line"></span><br><span class="line"># remove函数</span><br><span class="line"></span><br><span class="line">删除的**时间复杂度为 O(N)**。</span><br><span class="line"></span><br><span class="line">```JAVA</span><br><span class="line">public E remove(int index) {</span><br><span class="line">        rangeCheck(index);//检查index是否合法</span><br><span class="line"></span><br><span class="line">        modCount++;</span><br><span class="line">        E oldValue = elementData(index);//获取被删除的元素</span><br><span class="line"></span><br><span class="line">        int numMoved = size - index - 1;//删除一个元素后，后面要向前移动的元素的个数</span><br><span class="line">        if (numMoved &gt; 0)</span><br><span class="line">            System.arraycopy(elementData, index+1, elementData, index,</span><br><span class="line">                             numMoved);</span><br><span class="line">        elementData[--size] = null; // clear to let GC do its work</span><br><span class="line">	    //都向前移一位，所以最后以为置为null并将size-1</span><br><span class="line">        return oldValue;</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
 
-<hr>
-<p>du -sh filename 显示文件大小及名称<br>eval 二次扫描</p>
-<hr>
-<p>小tip:  在shell编程中,  如果给一个变量赋值 如 :  a=5;<br><br>那么echo a得到的就是5;<br>echo $a 得到的也是5;<br>区别是,  $a可以当作数字看待<br>所以输出的第一个是字符串的5,  第二个是数字5</p>
-<h2 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while expression</span><br><span class="line">do </span><br><span class="line">	command_list</span><br><span class="line">done</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="until"><a href="#until" class="headerlink" title="until"></a>until</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">until expression</span><br><span class="line">do </span><br><span class="line">	command_list</span><br><span class="line">done</span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="case"><a href="#case" class="headerlink" title="case"></a>case</h1><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">case variable in</span><br><span class="line">	pattern1)  command_list1</span><br><span class="line">		;;</span><br><span class="line">	pattern2)  command_list2</span><br><span class="line">		;;</span><br><span class="line">	pattern3)  command_list3</span><br><span class="line">		;;</span><br><span class="line">esac</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="简单计算"><a href="#简单计算" class="headerlink" title="简单计算"></a>简单计算</h2><p>在做计算时，如果是浮点数计算，一定要用scale指明保留小数位数.<br>使用<em>进行乘法计算时应注意避免歧义,  尽量使用    \\</em> ．</p>
-<h2 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h2><p>类似于C语言中的用法，continue用于结束当前次循环，break用于跳出循环.</p>
+<h2 id="fastRemove-int-index"><a href="#fastRemove-int-index" class="headerlink" title="fastRemove (int index)"></a>fastRemove (int index)</h2><p>用于remove(Obj o)，较于remove(int index)只少了对index合法性的检测，以及不返回被删除的元素。</p>
+<h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><p>ArrayList 基于数组实现，并且具有动态扩容特性，因此保存元素的数组不一定都会被使用，那么就没必要全部进行序列化。</p>
+<p>保存元素的数组 elementData 使用 transient 修饰，该关键字声明数组默认不会被序列化。</p>
+<p>序列化时需要使用 ObjectOutputStream 的 writeObject() 将对象转换为字节流并输出。而 writeObject() 方法在传入的对象存在 writeObject() 的时候会去反射调用该对象的 writeObject() 来实现序列化。反序列化使用的是 ObjectInputStream 的 readObject() 方法，原理类似。</p>
+<h1 id="Fail-Fast"><a href="#Fail-Fast" class="headerlink" title="Fail-Fast"></a>Fail-Fast</h1><p>modCount 用来记录 ArrayList 结构发生变化的次数。结构发生变化是指<strong>添加</strong>或者<strong>删除</strong>至少一个元素的所有操作，或者是<strong>调整</strong>内部数组的<strong>大小</strong>，仅仅只是设置元素的值不算结构发生变化。</p>
+<p>在进行序列化或者迭代等操作时，需要比较操作前后 modCount 是否改变，如果改变了需要抛出 ConcurrentModificationException。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -359,7 +326,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://klaus08.top/post/394153b8.html" title="shell编程(二)">https://klaus08.top/post/394153b8.html</a>
+    <a href="https://klaus08.top/post/b4b62cca.html" title="ArrayList补充">https://klaus08.top/post/b4b62cca.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -372,8 +339,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-              <a href="/tags/shell/" rel="tag"><i class="fa fa-tag"></i> shell</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           </div>
 
         
@@ -382,13 +348,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/e5954c2f.html" rel="prev" title="shell编程">
-      <i class="fa fa-chevron-left"></i> shell编程
+    <a href="/post/4bc37d60.html" rel="prev" title="Java集合（二）">
+      <i class="fa fa-chevron-left"></i> Java集合（二）
     </a></div>
-      <div class="post-nav-item">
-    <a href="/post/47b27393.html" rel="next" title="shell编程(三)">
-      shell编程(三) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -448,7 +411,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#控制结构语句"><span class="nav-number">1.</span> <span class="nav-text">控制结构语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if的基本用法"><span class="nav-number">1.1.</span> <span class="nav-text">if的基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell编程中的判等"><span class="nav-number">1.2.</span> <span class="nav-text">shell编程中的判等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for语句"><span class="nav-number">1.3.</span> <span class="nav-text">for语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while语句"><span class="nav-number">1.4.</span> <span class="nav-text">while语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#until"><span class="nav-number">1.5.</span> <span class="nav-text">until</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#case"><span class="nav-number">2.</span> <span class="nav-text">case</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单计算"><span class="nav-number">2.1.</span> <span class="nav-text">简单计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break和continue"><span class="nav-number">2.2.</span> <span class="nav-text">break和continue</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#构造方法"><span class="nav-number">1.</span> <span class="nav-text">构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-无参构造"><span class="nav-number">1.1.</span> <span class="nav-text">1. 无参构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-参数是int型-0-2-31-1）"><span class="nav-number">1.2.</span> <span class="nav-text">2.参数是int型 [0~2^31-1）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-参数是Collectinon"><span class="nav-number">1.3.</span> <span class="nav-text">3.参数是Collectinon</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#void-trimToSize"><span class="nav-number">2.</span> <span class="nav-text">void trimToSize()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩容函数"><span class="nav-number">3.</span> <span class="nav-text">扩容函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#void-grow-int-minCapacity"><span class="nav-number">3.1.</span> <span class="nav-text">void grow(int minCapacity)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boolean-add-E-e"><span class="nav-number">3.2.</span> <span class="nav-text">boolean add(E e)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ensureCapacityInternal-int-minCapacity"><span class="nav-number">3.3.</span> <span class="nav-text">ensureCapacityInternal(int minCapacity)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#calculateCapacity"><span class="nav-number">3.4.</span> <span class="nav-text">calculateCapacity()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fastRemove-int-index"><span class="nav-number">3.5.</span> <span class="nav-text">fastRemove (int index)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#序列化"><span class="nav-number">4.</span> <span class="nav-text">序列化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fail-Fast"><span class="nav-number">5.</span> <span class="nav-text">Fail-Fast</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
