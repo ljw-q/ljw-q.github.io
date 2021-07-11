@@ -6,15 +6,40 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://klaus08.top/"/>
-  <updated>2021-07-11T07:41:31.000Z</updated>
+  <updated>2021-07-11T09:01:30.000Z</updated>
   <id>https://klaus08.top/</id>
   
   <author>
-    <name>xiao liu</name>
+    <name>klaus08</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java集合（三）</title>
+    <link href="https://klaus08.top/post/6ddde32.html"/>
+    <id>https://klaus08.top/post/6ddde32.html</id>
+    <published>2021-07-11T09:01:30.000Z</published>
+    <updated>2021-07-11T09:01:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Queue集合"><a href="#Queue集合" class="headerlink" title="Queue集合"></a>Queue集合</h1><hr><p>Queue接口及其子系：</p><p><img src="https://gitee.com/man-ljw/PicBed/raw/master/QQ%E6%88%AA%E5%9B%BE20210711172706.jpg" alt=""></p><a id="more"></a><p><strong>常用方法：</strong></p><table><thead><tr><th align="center">函数</th><th align="center">功能</th></tr></thead><tbody><tr><td align="center"><code>void add(Object o)</code></td><td align="center">将指定元素添加到队尾，通过调用offer(Object o)，<font style="color: red">非空</font></td></tr><tr><td align="center"><code>Object element()</code></td><td align="center">获取队列头部元素，但不删除</td></tr><tr><td align="center"><code>boolean offer(Object)</code></td><td align="center">将指定元素添加到队尾。<br>容量有限时，此方法更好。</td></tr><tr><td align="center"><code>Object peek()</code></td><td align="center">获取头部元素，但不删除</td></tr><tr><td align="center"><code>Object poll()</code></td><td align="center">获取头部元素，<font style="color: red">并删除</font></td></tr><tr><td align="center"><code>Object remove()</code></td><td align="center">获取头部元素，<font style="color: red">并删除</font></td></tr></tbody></table><br><h2 id="PriorityQueue实现类"><a href="#PriorityQueue实现类" class="headerlink" title="PriorityQueue实现类"></a>PriorityQueue实现类</h2><hr><p>并不是绝对标准的队列实现：插入元素会进行<font style="color: red">排序</font>，队列中保存的顺序按照<strong>队列中元素的大小</strong>，所以<code>poll()</code>或者<code>peek()</code>得到的是最小元素。也就是说PriorityQueue并不遵循<strong>FIFO</strong>。</p><p><strong>不允许插入null元素。</strong></p><p>排序也有两种方法：自然排序和定制排序。（想到了TreeSet）</p><h3 id="自然排序"><a href="#自然排序" class="headerlink" title="自然排序"></a>自然排序</h3><p>插入到PriorityQueue的元素都必须实现了<strong>comparable</strong>接口。</p><h3 id="定制排序"><a href="#定制排序" class="headerlink" title="定制排序"></a>定制排序</h3><p>创建PriorityQueue时传入<strong>comparator</strong>对象。</p><br><h2 id="Deque接口"><a href="#Deque接口" class="headerlink" title="Deque接口"></a>Deque接口</h2><hr><p>Deque是Queue接口的子接口，代表一个<strong>双端队列</strong>。</p><p>默认长度是16，每次扩容<font style="color: red">2倍</font>。</p><h3 id="ArrayDeque实现类"><a href="#ArrayDeque实现类" class="headerlink" title="ArrayDeque实现类"></a>ArrayDeque实现类</h3><p>是一个基于数组实现的双端队列。</p><p><strong>特有方法：</strong></p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">pop</span><span class="params">()</span></span>;<span class="comment">//删除并返回头部元素，通过removeFirst函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">removeFirst</span><span class="params">()</span></span>;<span class="comment">//删除头部元素并返回</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">removeLast</span><span class="params">()</span></span>;<span class="comment">//删除尾部元素并返回</span></span><br></pre></td></tr></tbody></table></figure><p><strong>ArrayDeque</strong>的功能和Stack类似，但性能比Stack更优秀。</p><br><h2 id="LinkedList实现类"><a href="#LinkedList实现类" class="headerlink" title="LinkedList实现类"></a>LinkedList实现类</h2><hr><p>LinkedList是List接口的实现类，所i有可以通过索引访问。此外还实现了Deque接口，因此可以当作双端口队列来使用—&gt;”栈“。</p><p>对比前面的ArrayList，基于双向链表实现，他俩的区别就是数组和链表的区别：</p><p>ArrayList可以随机访问 ，但是插入删除的代价很高。</p><p>LinkedList可以轻松的完成插入删除的工作，但不支持随机访问。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Queue集合&quot;&gt;&lt;a href=&quot;#Queue集合&quot; class=&quot;headerlink&quot; title=&quot;Queue集合&quot;&gt;&lt;/a&gt;Queue集合&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;Queue接口及其子系：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://gitee.com/man-ljw/PicBed/raw/master/QQ%E6%88%AA%E5%9B%BE20210711172706.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://klaus08.top/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://klaus08.top/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>JZ21 栈的压入、弹出序列</title>
@@ -60,36 +85,6 @@
       
         &lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;前面只说了vector是线程安全的。下面是对其部分源码的解读。&lt;/p&gt;
 &lt;h2 id=&quot;构造函数&quot;&gt;&lt;a href=&quot;#构造函数&quot; class=&quot;heade
-      
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="https://klaus08.top/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://klaus08.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java集合（三）</title>
-    <link href="https://klaus08.top/post/6ddde32.html"/>
-    <id>https://klaus08.top/post/6ddde32.html</id>
-    <published>2021-07-11T04:47:45.000Z</published>
-    <updated>2021-07-11T04:47:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-        
       
     
     </summary>
