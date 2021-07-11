@@ -249,7 +249,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -282,7 +282,8 @@
 <p>输出如下：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br><span class="line">world</span><br><span class="line">owo</span><br><span class="line">反向迭代</span><br><span class="line">---</span><br><span class="line">owo</span><br><span class="line">---</span><br><span class="line">world</span><br><span class="line">---</span><br><span class="line">Hello</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="ArrayList和Vector"><a href="#ArrayList和Vector" class="headerlink" title="ArrayList和Vector"></a>ArrayList和Vector</h2><p>ArrayList和Vector作为List的实现类，完全支持List接口的所有方法。其内部封装了一个动态的、允许再分配的Object[]，ArrayList和Vector对象通过initialCapacity参数指定数组长度，当超过时会自动增加。</p>
+<h2 id="ArrayList和Vector"><a href="#ArrayList和Vector" class="headerlink" title="ArrayList和Vector"></a>ArrayList和Vector</h2><hr>
+<p>ArrayList和Vector作为List的实现类，完全支持List接口的所有方法。其内部封装了一个动态的、允许再分配的Object[]，ArrayList和Vector对象通过initialCapacity参数指定数组长度，当超过时会自动增加。</p>
 <p>在创建时如果不指定他们的大小，那么默认为<strong>10</strong>。</p>
 <p>此外，</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span></span>; <span class="comment">//将ArrayList和Vector的长度增加minCapacity</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">trimToSize</span><span class="params">()</span></span>;<span class="comment">//调整大小，使长度刚好等于当前元素个数</span></span><br></pre></td></tr></tbody></table></figure>
@@ -290,7 +291,23 @@
 
 
 <p><strong>注：</strong>ArrayList是<strong>线程不安全的</strong>，当有超过一个线程修改集合时，需要<strong>手动</strong>保证集合的同步性。</p>
-<pre><code>Vector是**线程安全的**，所以性能比ArrayList低。</code></pre><h2 id="Stack类"><a href="#Stack类" class="headerlink" title="Stack类"></a>Stack类</h2><p>Vector还提供了Stack子类，模拟栈的特点FILO。因为Stack继承了Vector，所以也是<strong>线程安全的</strong>。</p>
+<pre><code>Vector是**线程安全的**，所以性能比ArrayList低。</code></pre><h2 id="解决Vector线程不安全"><a href="#解决Vector线程不安全" class="headerlink" title="解决Vector线程不安全"></a>解决Vector线程不安全</h2><hr>
+<h3 id="Collections-synchronizedList"><a href="#Collections-synchronizedList" class="headerlink" title="Collections.synchronizedList()"></a>Collections.synchronizedList()</h3><p>​        使用<code>Collections.synchronizedList();</code>可以得到一个线程安全的 ArrayList。</p>
+<h3 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h3><p>使用concurrent包下的CopyOnWriteArrayList 类。</p>
+<p><strong>原因：读写分离</strong></p>
+<p>写操作在一个复制的数组上进行，读操作还是在原始数组中进行，读写分离，互不影响。</p>
+<p>写操作需要加锁，防止并发写入时导致写入数据丢失。</p>
+<p>写操作结束之后需要把原始数组指向新的复制数组。</p>
+<p><strong>适用场景</strong></p>
+<p>CopyOnWriteArrayList 在写操作的<strong>同时允许读操作</strong>，大大提高了读操作的性能，因此很适合<strong>读多写少</strong>的应用场景。</p>
+<p>但是 CopyOnWriteArrayList 有其缺陷：</p>
+<ul>
+<li>内存占用：在写操作时需要复制一个新的数组，使得内存占用为原来的两倍左右；</li>
+<li>数据不一致：读操作不能读取实时性的数据，因为部分写操作的数据还未同步到读数组中。</li>
+</ul>
+<p>所以 CopyOnWriteArrayList 不适合内存敏感以及对实时性要求很高的场景。</p>
+<h2 id="Stack类"><a href="#Stack类" class="headerlink" title="Stack类"></a>Stack类</h2><hr>
+<p>Vector还提供了Stack子类，模拟栈的特点FILO。因为Stack继承了Vector，所以也是<strong>线程安全的</strong>。</p>
 <p>其进栈出栈的都是Object，所以取出后要进行类型转换。</p>
 <p>主要方法有：</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Object <span class="title">peek</span><span class="params">()</span></span>; <span class="comment">//返回栈顶元素但并不弹出</span></span><br><span class="line"><span class="function">Object <span class="title">pop</span><span class="params">()</span></span>;<span class="comment">//弹出栈顶元素</span></span><br><span class="line"><span class="function">Object <span class="title">push</span><span class="params">(Object o)</span></span>;<span class="comment">//将o入栈</span></span><br></pre></td></tr></tbody></table></figure>
@@ -416,7 +433,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#List集合"><span class="nav-number">1.</span> <span class="nav-text">List集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器"><span class="nav-number">1.1.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList和Vector"><span class="nav-number">1.2.</span> <span class="nav-text">ArrayList和Vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack类"><span class="nav-number">1.3.</span> <span class="nav-text">Stack类</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#List集合"><span class="nav-number">1.</span> <span class="nav-text">List集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器"><span class="nav-number">1.1.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList和Vector"><span class="nav-number">1.2.</span> <span class="nav-text">ArrayList和Vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决Vector线程不安全"><span class="nav-number">1.3.</span> <span class="nav-text">解决Vector线程不安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collections-synchronizedList"><span class="nav-number">1.3.1.</span> <span class="nav-text">Collections.synchronizedList()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CopyOnWriteArrayList"><span class="nav-number">1.3.2.</span> <span class="nav-text">CopyOnWriteArrayList</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack类"><span class="nav-number">1.4.</span> <span class="nav-text">Stack类</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -433,7 +450,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -475,7 +492,7 @@
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud">
     <canvas width="220" height="250" id="resCanvas" style="width=100%">
-        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%91%E6%8C%87OFFER/" rel="tag">剑指OFFER</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">1</span></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%91%E6%8C%87OFFER/" rel="tag">剑指OFFER</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">1</span></li></ul>
     </canvas>
     </div>
 </div>
@@ -508,12 +525,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">55k</span>
+    <span title="站点总字数">58k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">50 分钟</span>
+    <span title="站点阅读时长">53 分钟</span>
 </div>
 
         
