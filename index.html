@@ -336,14 +336,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -359,6 +359,8 @@
 <p>每一个Map元素包括两个值，一个是key另一个是value，二者存在映射关系，也就是可以通过key索引得到唯一对应的value。所以Map中<strong>key不允许重复</strong>，key的相等与否通过<code>equals()</code>方法确定，key和value都是任何引用类型的数据。</p>
 <p>Map中的key在一起就组成了一个Set集合（无序、不重复），并且Map提供了keySet()方法，用于返回所有key组成的Set集合。</p>
 <p>Map和Set有很多相似的地方，如果把Map中存储的Key-Value对称一个变量，并且value是key的附庸，key在哪里valuse就在哪里的话，Map和Set就没有什么区别了。而如果把所有的value放在一起来看，Map又像是一个List（可重复，key看作索引）。</p>
+<br>
+
 <h2 id="提供的方法"><a href="#提供的方法" class="headerlink" title="提供的方法"></a>提供的方法</h2><table>
 <thead>
 <tr>
@@ -417,6 +419,8 @@
 </tbody></table>
 <p>Map中包含一个内部类：Entry，封装了key-value对。有以下三个方法：</p>
 <p>getKey(), getValue() 以及setValue()。</p>
+<br>
+
 <h2 id="HashMap和Hashtable"><a href="#HashMap和Hashtable" class="headerlink" title="HashMap和Hashtable"></a>HashMap和Hashtable</h2><p>二者都是Map的实现类，区别主要是：</p>
 <ol>
 <li>Hashtable是一个**线程安全的Map实现，而HashMap是线程不安全的；所以HashMap性能会高一点。</li>
@@ -425,6 +429,12 @@
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.klaus.maps;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapTest</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Map&lt;Integer,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        System.out.println(map.put(<span class="number">1</span>, <span class="string">"a"</span>)); <span class="comment">// null</span></span><br><span class="line">        System.out.println(map.put(<span class="number">2</span>, <span class="string">"b"</span>));<span class="comment">// null</span></span><br><span class="line">        System.out.println(map.put(<span class="number">1</span>, <span class="string">"x"</span>));<span class="comment">// a</span></span><br><span class="line"></span><br><span class="line">        System.out.println(map);<span class="comment">// {1=x, 2=b}</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>注释的内容是输出结果，正常添加是返回的都是null，而在添加失败时<font style="color:red">返回key已对应value</font>。</p>
+<h3 id="HashMap的迭代方法"><a href="#HashMap的迭代方法" class="headerlink" title="HashMap的迭代方法"></a>HashMap的迭代方法</h3><p>Map接口并没有获取Iterator的方法，并且Iterator只适用于Collection，所以说只能获取key的Set集合然后再调用iterator()方法获得迭代器。</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取迭代器</span></span><br><span class="line">Iterator&lt;String&gt; iterator = map.keySet().iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()){</span><br><span class="line">    System.out.println(map.get(iterator.next()));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="判等原则"><a href="#判等原则" class="headerlink" title="判等原则"></a>判等原则</h3><p>HashMap和Hashtable都是<font style="color:red">只根据equals()的返回结果来去确定</font></p>
+<p>自定义类做key的时候，如果重写equals()和hashCode()方法，就应该保证equals()的结果和hashCode()的结果是一致的，即：equals()返回true时，hashCode()的值应该相等。</p>
+<p>对比hashSet，判等不仅要求equals()返回true，还要hashCode()相等。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1325,7 +1335,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">61k</span>
+    <span title="站点总字数">62k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
