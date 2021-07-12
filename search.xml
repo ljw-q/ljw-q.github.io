@@ -1,6 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>==和equals()方法的区别</title>
+    <url>/post/7e168472.html</url>
+    <content><![CDATA[<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">    String a = <span class="string">"a"</span>;</span><br><span class="line">    String b = <span class="keyword">new</span> String(<span class="string">"a"</span>);</span><br><span class="line">    String c = <span class="keyword">new</span> String(<span class="string">"a"</span>);</span><br><span class="line">    String d =c;</span><br><span class="line"></span><br><span class="line">    System.out.println(a==b);<span class="comment">//false</span></span><br><span class="line">    System.out.println(a.equals(b));<span class="comment">//true</span></span><br><span class="line">    System.out.println(b==c);<span class="comment">//false</span></span><br><span class="line">    System.out.println(b.equals(c));<span class="comment">//true</span></span><br><span class="line">    System.out.println(c==d);<span class="comment">//true</span></span><br><span class="line">    System.out.println(c.equals(d));<span class="comment">//true</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>个人理解，==就是直接判断两个变量指示的值是否相等，对普通变量而言足够了，但是java中还有一种变量叫做<strong>引用变量</strong>，对一个String类型的引用变量b来说，a直接指向了“a”，而b指向的是new出来的String对象所在的<strong>地址</strong>，直接使用==比较就相当于拿”a”和一串内存地址作比较，所以a==b是false。而equals()方法则会根据地址，找到地址指向的内容，然后进行比较。</p>
+<p>然后直接的<code>String d =c;</code>是个浅拷贝。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合（四）</title>
+    <url>/post/b1f0c757.html</url>
+    <content><![CDATA[<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><hr>
+<p>每一个Map元素包括两个值，一个是key另一个是value，二者存在映射关系，也就是可以通过key索引得到唯一对应的value。所以Map中<strong>key不允许重复</strong>，key的相等与否通过<code>equals()</code>方法确定，key和value都是任何引用类型的数据。</p>
+<p>Map中的key在一起就组成了一个Set集合（无序、不重复），并且Map提供了keySet()方法，用于返回所有key组成的Set集合。</p>
+<p>Map和Set有很多相似的地方，如果把Map中存储的Key-Value对称一个变量，并且value是key的附庸，key在哪里valuse就在哪里的话，Map和Set就没有什么区别了。而如果把所有的value放在一起来看，Map又像是一个List（可重复，key看作索引）。</p>
+<h2 id="提供的方法"><a href="#提供的方法" class="headerlink" title="提供的方法"></a>提供的方法</h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">void  clear()</td>
+<td align="center">清空Map</td>
+</tr>
+<tr>
+<td align="center">booelan containsKey(Object key)</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">booelan containsValue(Object key)</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Set entrySet()</td>
+<td align="center">返回key-value对组成的Set集合；</td>
+</tr>
+<tr>
+<td align="center">Object get(Object key)</td>
+<td align="center">获取key对应的value，不存在则返回null</td>
+</tr>
+<tr>
+<td align="center">boolean isEmpty()</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Set keySet()</td>
+<td align="center">返回所有key组成的Set集合</td>
+</tr>
+<tr>
+<td align="center">Object put(Object key, Object value)</td>
+<td align="center">添加一对值，如果已有key相同的，覆盖</td>
+</tr>
+<tr>
+<td align="center">void putAll(Map m)</td>
+<td align="center">将m中的全部kv对复制到本map中</td>
+</tr>
+<tr>
+<td align="center">Object remove(Objecct key)</td>
+<td align="center">删除kv对，返回value，key不存在返回null</td>
+</tr>
+<tr>
+<td align="center">int size()</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Collection values()</td>
+<td align="center">返回该map中所有value组成的Collection</td>
+</tr>
+</tbody></table>
+<p>Map中包含一个内部类：Entry，封装了key-value对。有以下三个方法：</p>
+<p>getKey(), getValue() 以及setValue()。</p>
+<h2 id="HashMap和Hashtable"><a href="#HashMap和Hashtable" class="headerlink" title="HashMap和Hashtable"></a>HashMap和Hashtable</h2><p>二者都是Map的实现类，区别主要是：</p>
+<ol>
+<li>Hashtable是一个**线程安全的Map实现，而HashMap是线程不安全的；所以HashMap性能会高一点。</li>
+<li>Hashtable不允许使用null作为key或value，但HashMap允许。</li>
+</ol>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.klaus.maps;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapTest</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Map&lt;Integer,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        System.out.println(map.put(<span class="number">1</span>, <span class="string">"a"</span>)); <span class="comment">// null</span></span><br><span class="line">        System.out.println(map.put(<span class="number">2</span>, <span class="string">"b"</span>));<span class="comment">// null</span></span><br><span class="line">        System.out.println(map.put(<span class="number">1</span>, <span class="string">"x"</span>));<span class="comment">// a</span></span><br><span class="line"></span><br><span class="line">        System.out.println(map);<span class="comment">// {1=x, 2=b}</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>注释的内容是输出结果，正常添加是返回的都是null，而在添加失败时<font style="color:red">返回key已对应value</font>。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JZ29 最小的K个数</title>
     <url>/post/35b4acc4.html</url>
     <content><![CDATA[<p><a href="https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf?tpId=13&amp;&amp;tqId=11182&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">原题链接</a></p>
