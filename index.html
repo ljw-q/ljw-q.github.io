@@ -206,6 +206,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/6aa97155.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
+      <meta itemprop="name" content="klaus08">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="klaus' blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/6aa97155.html" class="post-title-link" itemprop="url">JZ64 滑动窗口的最大值</a>
+        </h2>
+
+        <div class="post-meta">
+		
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-13 08:58:50" itemprop="dateCreated datePublished" datetime="2021-07-13T08:58:50+08:00">2021-07-13</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>849</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://www.nowcoder.com/practice/1624bc35a45c42c0bc17d17fa0cba788?tpId=13&amp;tqId=11217&amp;tPage=1&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking&amp;from=cyc_github" target="_blank" rel="noopener">原题链接</a></p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。</p>
+<p>例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
+<p>窗口大于数组长度的时候，返回空。</p>
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[2,3,4,2,6,2,5,1],3</span><br><span class="line">返回值：[4,4,6,6,6,5]</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>最后的返回空是[]不是null。</p>
+<p>又要用到堆，可是我还没学😓</p>
+<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">maxInWindows</span><span class="params">(<span class="keyword">int</span> [] num, <span class="keyword">int</span> size)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> len = num.length;</span><br><span class="line">        <span class="keyword">if</span>(size&gt;len || len==<span class="number">0</span>||size ==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;Integer&gt;(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span>[] tmp = <span class="keyword">new</span> <span class="keyword">int</span>[size];<span class="comment">//存储窗口元素</span></span><br><span class="line">        </span><br><span class="line">        ArrayList&lt;Integer&gt; arr= <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">0</span>;i &lt; len+<span class="number">1</span> -size;i++){</span><br><span class="line">            <span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt; size;j++){</span><br><span class="line">                tmp[j] = num[i+j];</span><br><span class="line">                <span class="keyword">if</span>(tmp[j] &gt; max)</span><br><span class="line">                    max = tmp[j];</span><br><span class="line">            }</span><br><span class="line">            arr.add(max);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/6b3afdd4.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -241,7 +342,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>989</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -419,7 +520,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -439,104 +540,17 @@
 
       
           <h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><hr>
-<p>每一个Map元素包括两个值，一个是key另一个是value，二者存在映射关系，也就是可以通过key索引得到唯一对应的value。所以Map中<strong>key不允许重复</strong>，key的相等与否通过<code>equals()</code>方法确定，key和value都是任何引用类型的数据。</p>
-<p>Map中的key在一起就组成了一个Set集合（无序、不重复），并且Map提供了keySet()方法，用于返回所有key组成的Set集合。</p>
-<p>Map和Set有很多相似的地方，如果把Map中存储的Key-Value对称一个变量，并且value是key的附庸，key在哪里valuse就在哪里的话，Map和Set就没有什么区别了。而如果把所有的value放在一起来看，Map又像是一个List（可重复，key看作索引）。</p>
-<br>
-
-<h2 id="提供的方法"><a href="#提供的方法" class="headerlink" title="提供的方法"></a>提供的方法</h2><table>
-<thead>
-<tr>
-<th align="center">方法</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">void  clear()</td>
-<td align="center">清空Map</td>
-</tr>
-<tr>
-<td align="center">booelan containsKey(Object key)</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">booelan containsValue(Object key)</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Set entrySet()</td>
-<td align="center">返回key-value对组成的Set集合；</td>
-</tr>
-<tr>
-<td align="center">Object get(Object key)</td>
-<td align="center">获取key对应的value，不存在则返回null</td>
-</tr>
-<tr>
-<td align="center">boolean isEmpty()</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Set keySet()</td>
-<td align="center">返回所有key组成的Set集合</td>
-</tr>
-<tr>
-<td align="center">Object put(Object key, Object value)</td>
-<td align="center">添加一对值，如果已有key相同的，覆盖</td>
-</tr>
-<tr>
-<td align="center">void putAll(Map m)</td>
-<td align="center">将m中的全部kv对复制到本map中</td>
-</tr>
-<tr>
-<td align="center">Object remove(Objecct key)</td>
-<td align="center">删除kv对，返回value，key不存在返回null</td>
-</tr>
-<tr>
-<td align="center">int size()</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Collection values()</td>
-<td align="center">返回该map中所有value组成的Collection</td>
-</tr>
-</tbody></table>
-<p>Map中包含一个内部类：Entry，封装了key-value对。有以下三个方法：</p>
-<p>getKey(), getValue() 以及setValue()。</p>
-<br>
-
-<h2 id="HashMap和Hashtable"><a href="#HashMap和Hashtable" class="headerlink" title="HashMap和Hashtable"></a>HashMap和Hashtable</h2><p>二者都是Map的实现类，区别主要是：</p>
-<ol>
-<li>Hashtable是一个**线程安全的Map实现，而HashMap是线程不安全的；所以HashMap性能会高一点。</li>
-<li>Hashtable不允许使用null作为key或value，但HashMap允许。</li>
-</ol>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.klaus.maps;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapTest</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        Map&lt;Integer,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        System.out.println(map.put(<span class="number">1</span>, <span class="string">"a"</span>)); <span class="comment">// null</span></span><br><span class="line">        System.out.println(map.put(<span class="number">2</span>, <span class="string">"b"</span>));<span class="comment">// null</span></span><br><span class="line">        System.out.println(map.put(<span class="number">1</span>, <span class="string">"x"</span>));<span class="comment">// a</span></span><br><span class="line"></span><br><span class="line">        System.out.println(map);<span class="comment">// {1=x, 2=b}</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>注释的内容是输出结果，正常添加是返回的都是null，而在添加失败时<font style="color:red">返回key已对应value</font>。</p>
-<h3 id="HashMap的迭代方法"><a href="#HashMap的迭代方法" class="headerlink" title="HashMap的迭代方法"></a>HashMap的迭代方法</h3><p>Map接口并没有获取Iterator的方法，并且Iterator只适用于Collection，所以说只能获取key的Set集合然后再调用iterator()方法获得迭代器。</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取迭代器</span></span><br><span class="line">Iterator&lt;String&gt; iterator = map.keySet().iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()){</span><br><span class="line">    System.out.println(map.get(iterator.next()));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="判等原则"><a href="#判等原则" class="headerlink" title="判等原则"></a>判等原则</h3><p>HashMap和Hashtable都是<font style="color:red">只根据equals()的返回结果来去确定</font></p>
-<p>自定义类做key的时候，如果重写equals()和hashCode()方法，就应该保证equals()的结果和hashCode()的结果是一致的，即：equals()返回true时，hashCode()的值应该相等。</p>
-<p>对比hashSet，判等不仅要求equals()返回true，还要hashCode()相等。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<p>Map系：</p>
+<p><img src="https://gitee.com/man-ljw/PicBed/raw/master/Map.png" alt=""></p>
+		  
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/b1f0c757.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1100,89 +1114,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/5cb7c635.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
-      <meta itemprop="name" content="klaus08">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="klaus' blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/5cb7c635.html" class="post-title-link" itemprop="url">JZ34 第一个只出现一次的字符位置</a>
-        </h2>
-
-        <div class="post-meta">
-		
-			
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-10 18:14:30" itemprop="dateCreated datePublished" datetime="2021-07-10T18:14:30+08:00">2021-07-10</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>491</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://www.nowcoder.com/practice/1c82e8cf713b4bbeb2a5b31cf5b0417c?tpId=13&amp;&amp;tqId=11187&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">原题链接</a></p>
-<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>在一个字符串(0&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）.（从0开始计数）</p>
-		  
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/5cb7c635.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1256,7 +1187,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1298,7 +1229,7 @@
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud">
     <canvas width="220" height="250" id="resCanvas" style="width=100%">
-        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%91%E6%8C%87OFFER/" rel="tag">剑指OFFER</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">1</span></li></ul>
+        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%91%E6%8C%87OFFER/" rel="tag">剑指OFFER</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">1</span></li></ul>
     </canvas>
     </div>
 </div>
@@ -1331,12 +1262,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">63k</span>
+    <span title="站点总字数">65k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">57 分钟</span>
+    <span title="站点阅读时长">59 分钟</span>
 </div>
 
         
