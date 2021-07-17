@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java 集合（一）</title>
-    <url>/post/38cefa6b.html</url>
-    <content><![CDATA[<script>
+    <title>JZ56 删除链表中重复的结点</title>
+    <url>/post/67d6fc0b.html</url>
+    <content><![CDATA[<p><a href="https://www.nowcoder.com/practice/fc533c45b73a41b0b44ccba763f866ef?tpId=13&amp;tqId=11209&amp;tPage=1&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking&amp;from=cyc_github" target="_blank" rel="noopener">原题链接</a></p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。</p>
+<p>例如，</p>
+<p>链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5。<a id="more"></a></p>
+<br>
+
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">输入：{1,2,3,3,4,4,5}</span><br><span class="line">返回值：{1,2,5}</span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>乍一看以为很简单的，但是做的过程还是遇到以下都问题：</p>
+<ol>
+<li>去除重复结点时会保留最后一个重复结点</li>
+<li>更新链表后没办法保存，因为只创建一个cur进行操作，最后cur指向的是null。</li>
+</ol>
+<p>不过都已经得到了解决，主要思路就是创建一个附加头节点，然后再创建一个始终指向该节点的头节点，后面跟的都是不重复的结点，然后检测重复，如果重复，一直向下走到不相等的结点。</p>
+<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">deleteDuplication</span><span class="params">(ListNode pHead)</span> </span>{</span><br><span class="line"></span><br><span class="line">    ListNode res = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">    res.next = pHead;</span><br><span class="line">    ListNode pre = res, cur = pHead;</span><br><span class="line">    <span class="keyword">while</span> (cur!=<span class="keyword">null</span>){</span><br><span class="line">        <span class="keyword">if</span> (cur.next != <span class="keyword">null</span> &amp;&amp;cur.val == cur.next.val){</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            <span class="keyword">while</span> (cur.next!= <span class="keyword">null</span> &amp;&amp; cur.val ==cur.next.val)</span><br><span class="line">                cur = cur.next;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            res.next = cur;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">            res = cur;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> pre.next;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -22,6 +39,14 @@
             document.body.appendChild(img);
           });
       </script>]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>剑指OFFER</tag>
+        <tag>数组</tag>
+      </tags>
   </entry>
   <entry>
     <title>JZ3 从尾到头打印链表</title>
@@ -353,6 +378,8 @@
 <li><p>若2 * i + 1 &gt; n - 1，则 i 没有左孩子</p>
 </li>
 <li><p>若2 * i + 2 &lt; n - 1，则 i 没有右孩子</p>
+<a id="more"></a>
+
 </li>
 </ul>
 <h2 id="创建最小堆"><a href="#创建最小堆" class="headerlink" title="创建最小堆"></a>创建最小堆</h2><p>虽然堆是以数组形式存储，它的逻辑结构是树状的。</p>
