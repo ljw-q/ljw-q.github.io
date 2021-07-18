@@ -50,20 +50,22 @@
   };
 </script>
 
-  <meta name="description" content="List集合List集合是一个有序、可重复的集合。每个元素按添加顺序设置索引，第一个添加的索引为0，依次递增。List通过顺序索引来访问元素。 List作为Collection的子接口，除了可以使用Collection的所有方法还多了根据索引操作元素的方法：">
+  <meta name="description" content="原题链接 描述输入一个链表，输出一个链表，该输出链表包含原链表中从倒数第k个结点至尾节点的全部节点。 如果该链表长度小于k，请返回一个长度为 0 的链表。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java集合（二）">
-<meta property="og:url" content="https://klaus08.top/post/4bc37d60.html">
+<meta property="og:title" content="JZ14 链表中倒数最后k个结点">
+<meta property="og:url" content="https://klaus08.top/post/5492f898.html">
 <meta property="og:site_name" content="klaus&#39; blog">
-<meta property="og:description" content="List集合List集合是一个有序、可重复的集合。每个元素按添加顺序设置索引，第一个添加的索引为0，依次递增。List通过顺序索引来访问元素。 List作为Collection的子接口，除了可以使用Collection的所有方法还多了根据索引操作元素的方法：">
+<meta property="og:description" content="原题链接 描述输入一个链表，输出一个链表，该输出链表包含原链表中从倒数第k个结点至尾节点的全部节点。 如果该链表长度小于k，请返回一个长度为 0 的链表。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-10T02:41:50.000Z">
-<meta property="article:modified_time" content="2021-07-10T02:41:50.000Z">
+<meta property="article:published_time" content="2021-07-18T05:42:45.000Z">
+<meta property="article:modified_time" content="2021-07-18T05:42:45.000Z">
 <meta property="article:author" content="klaus08">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="剑指OFFER">
+<meta property="article:tag" content="数组">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://klaus08.top/post/4bc37d60.html">
+<link rel="canonical" href="https://klaus08.top/post/5492f898.html">
 
 
 <script id="page-configurations">
@@ -75,7 +77,7 @@
   };
 </script>
 
-  <title>Java集合（二） | klaus' blog</title>
+  <title>JZ14 链表中倒数最后k个结点 | klaus' blog</title>
   
 
 
@@ -208,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/4bc37d60.html">
+    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/5492f898.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
@@ -221,7 +223,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          Java集合（二）
+          JZ14 链表中倒数最后k个结点
         </h2>
 
         <div class="post-meta">
@@ -233,7 +235,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-07-10 10:41:50" itemprop="dateCreated datePublished" datetime="2021-07-10T10:41:50+08:00">2021-07-10</time>
+              <time title="创建时间：2021-07-18 13:42:45" itemprop="dateCreated datePublished" datetime="2021-07-18T13:42:45+08:00">2021-07-18</time>
             </span>
 
           
@@ -249,14 +251,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -268,49 +270,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h1><p>List集合是一个<strong>有序、可重复</strong>的集合。每个元素按添加顺序设置索引，第一个添加的索引为0，依次递增。List通过顺序索引来访问元素。</p>
-<p>List作为Collection的子接口，除了可以使用Collection的所有方法还多了根据索引操作元素的方法：<a id="more"></a></p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, Object element)</span></span>;</span><br><span class="line"><span class="comment">//添加元素到指定下标处</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection c)</span></span>;</span><br><span class="line"><span class="comment">//把集合c中的全部元素以index为起始索引添加进List</span></span><br><span class="line"><span class="function">Object <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="comment">//获得index处的元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//获得o在List中第一出现的索引，不存在的话返回-1</span></span><br><span class="line"><span class="function">Object <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="comment">//删除并返回index位置的元素</span></span><br><span class="line"><span class="function">Object <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, Object o)</span></span>;</span><br><span class="line"><span class="comment">//将index位置的元素替换成o，并返回o</span></span><br><span class="line"><span class="function">List <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromList, <span class="keyword">int</span> toList)</span></span>;</span><br><span class="line"><span class="comment">//返回下标在[fromList, toList)的元素组成的子List集合</span></span><br></pre></td></tr></tbody></table></figure>
+        <p><a href="https://www.nowcoder.com/practice/886370fe658f41b498d40fb34ae76ff9?tpId=13&amp;tqId=11167&amp;tab=answerKey&amp;from=cyc_github" target="_blank" rel="noopener">原题链接</a></p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>输入一个链表，输出一个链表，该输出链表包含原链表中从倒数第k个结点至尾节点的全部节点。</p>
+<p>如果该链表长度小于k，请返回一个长度为 0 的链表。<a id="more"></a></p>
+<br>
 
-<p>List判断相等的标准是：<strong>equals()返回true</strong>。</p>
-<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>List除了iterator()（获得的迭代器只能向后迭代）外，还提供了listIterator()方法，返回一个ListIterator对象，ListIterator接口继承了Iterator接口，并增加了以下方法：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">hasPrevious</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//是否还有上一个元素</span></span><br><span class="line"><span class="function">Object <span class="title">Previous</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//返回上一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//插入一个元素</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：{1,2,3,4,5},1</span><br><span class="line">返回值：{5}</span><br></pre></td></tr></tbody></table></figure>
 
-<p>下面是ListIterator的示例。</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.klaus.collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.ListIterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListTest</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"Hello"</span>);</span><br><span class="line">        list.add(<span class="string">"owo"</span>);</span><br><span class="line">        list.add(<span class="number">1</span>,<span class="string">"world"</span>);</span><br><span class="line"></span><br><span class="line">        ListIterator&lt;String&gt; listIterator = list.listIterator();</span><br><span class="line">        <span class="keyword">while</span> (listIterator.hasNext()){</span><br><span class="line">            System.out.println(listIterator.next());</span><br><span class="line">            listIterator.add(<span class="string">"---"</span>);</span><br><span class="line">        }</span><br><span class="line">        System.out.println(<span class="string">"反向迭代"</span>);</span><br><span class="line">        <span class="keyword">while</span> (listIterator.hasPrevious()){</span><br><span class="line">            System.out.println(listIterator.previous());</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<br>
 
-<p>输出如下：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br><span class="line">world</span><br><span class="line">owo</span><br><span class="line">反向迭代</span><br><span class="line">---</span><br><span class="line">owo</span><br><span class="line">---</span><br><span class="line">world</span><br><span class="line">---</span><br><span class="line">Hello</span><br></pre></td></tr></tbody></table></figure>
+<p>##思路</p>
+<ol>
+<li>遍历链表变量，存在数组中，然后按序创建链表。</li>
+<li>假设链表长度为n，求k个结点组成的链表，只要返回第（n - k + 1) 个结点后面的不动就好了。</li>
+<li>双指针，创建两个结点初始化都指向链表头结点，然后让第一个向后移 k 个结点，如果移动过程中指向null，说明该链表长度小于 k 直接返回null。第一个结点指向第k个时，两个新创建的结点再一起向后移动，直到先移动的结点为null，此时返回第二个结点。</li>
+</ol>
+<br>
 
-<h2 id="ArrayList和Vector"><a href="#ArrayList和Vector" class="headerlink" title="ArrayList和Vector"></a>ArrayList和Vector</h2><hr>
-<p>ArrayList和Vector作为List的实现类，完全支持List接口的所有方法。其内部封装了一个动态的、允许再分配的Object[]，ArrayList和Vector对象通过initialCapacity参数指定数组长度，当超过时会自动增加。</p>
-<p>在创建时如果不指定他们的大小，那么默认为<strong>10</strong>。</p>
-<p>此外，</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span></span>; <span class="comment">//将ArrayList和Vector的长度增加minCapacity</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">trimToSize</span><span class="params">()</span></span>;<span class="comment">//调整大小，使长度刚好等于当前元素个数</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><h3 id="解答一"><a href="#解答一" class="headerlink" title="解答一"></a>解答一</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">FindKthToTail</span> <span class="params">(ListNode pHead, <span class="keyword">int</span> k)</span> </span>{</span><br><span class="line"></span><br><span class="line">        ArrayList&lt;Integer&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        ListNode cur = pHead;</span><br><span class="line">        ListNode res = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        ListNode head = res;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span> ){</span><br><span class="line">            arrayList.add(cur.val);</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (k &gt; arrayList.size())</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">else</span> {</span><br><span class="line">            <span class="comment">// s = 5 - 3</span></span><br><span class="line">            <span class="keyword">int</span> s = arrayList.size() - k;</span><br><span class="line">            <span class="keyword">while</span> (s &lt; arrayList.size()){</span><br><span class="line">                res.next = <span class="keyword">new</span> ListNode(arrayList.get(s));</span><br><span class="line">                res = res.next;</span><br><span class="line">                s++;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> head.next;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
+<h3 id="解答二"><a href="#解答二" class="headerlink" title="解答二"></a>解答二</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">FindKthToTail</span> <span class="params">(ListNode pHead, <span class="keyword">int</span> k)</span> </span>{</span><br><span class="line"></span><br><span class="line">        ListNode cur = pHead; <span class="comment">//用于遍历链表统计长度</span></span><br><span class="line">        ListNode res = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);<span class="comment">//用于指向倒数第k个结点</span></span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span> ){</span><br><span class="line">            len++;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (k &lt;= <span class="number">0</span> || k&gt; len) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> index = len -k + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (index-- &gt; <span class="number">0</span>){</span><br><span class="line">            res.next = pHead;</span><br><span class="line">            pHead = pHead.next;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> res.next;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-
-<p><strong>注：</strong>ArrayList是<strong>线程不安全的</strong>，当有超过一个线程修改集合时，需要<strong>手动</strong>保证集合的同步性。</p>
-<pre><code>Vector是**线程安全的**，所以性能比ArrayList低。</code></pre><h2 id="解决Vector线程不安全"><a href="#解决Vector线程不安全" class="headerlink" title="解决Vector线程不安全"></a>解决Vector线程不安全</h2><hr>
-<h3 id="Collections-synchronizedList"><a href="#Collections-synchronizedList" class="headerlink" title="Collections.synchronizedList()"></a>Collections.synchronizedList()</h3><p>​        使用<code>Collections.synchronizedList();</code>可以得到一个线程安全的 ArrayList。</p>
-<h3 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h3><p>使用concurrent包下的CopyOnWriteArrayList 类。</p>
-<p><strong>原因：读写分离</strong></p>
-<p>写操作在一个复制的数组上进行，读操作还是在原始数组中进行，读写分离，互不影响。</p>
-<p>写操作需要加锁，防止并发写入时导致写入数据丢失。</p>
-<p>写操作结束之后需要把原始数组指向新的复制数组。</p>
-<p><strong>适用场景</strong></p>
-<p>CopyOnWriteArrayList 在写操作的<strong>同时允许读操作</strong>，大大提高了读操作的性能，因此很适合<strong>读多写少</strong>的应用场景。</p>
-<p>但是 CopyOnWriteArrayList 有其缺陷：</p>
-<ul>
-<li>内存占用：在写操作时需要复制一个新的数组，使得内存占用为原来的两倍左右；</li>
-<li>数据不一致：读操作不能读取实时性的数据，因为部分写操作的数据还未同步到读数组中。</li>
-</ul>
-<p>所以 CopyOnWriteArrayList 不适合内存敏感以及对实时性要求很高的场景。</p>
-<h2 id="Stack类"><a href="#Stack类" class="headerlink" title="Stack类"></a>Stack类</h2><hr>
-<p>Vector还提供了Stack子类，模拟栈的特点FILO。因为Stack继承了Vector，所以也是<strong>线程安全的</strong>。</p>
-<p>其进栈出栈的都是Object，所以取出后要进行类型转换。</p>
-<p>主要方法有：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Object <span class="title">peek</span><span class="params">()</span></span>; <span class="comment">//返回栈顶元素但并不弹出</span></span><br><span class="line"><span class="function">Object <span class="title">pop</span><span class="params">()</span></span>;<span class="comment">//弹出栈顶元素</span></span><br><span class="line"><span class="function">Object <span class="title">push</span><span class="params">(Object o)</span></span>;<span class="comment">//将o入栈</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="解答三"><a href="#解答三" class="headerlink" title="解答三"></a>解答三</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ListNode <span class="title">FindKthToTail</span><span class="params">(ListNode pHead, <span class="keyword">int</span> k)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (pHead == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode start = pHead, end = pHead;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (k-- &gt; <span class="number">0</span>) {</span><br><span class="line">            <span class="keyword">if</span> (start == <span class="keyword">null</span> )</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            start = start.next;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (start!= <span class="keyword">null</span>){</span><br><span class="line">            start = start.next;</span><br><span class="line">            end = end.next;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> end;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <script>
         document.querySelectorAll('.github-emoji')
@@ -345,7 +326,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://klaus08.top/post/4bc37d60.html" title="Java集合（二）">https://klaus08.top/post/4bc37d60.html</a>
+    <a href="https://klaus08.top/post/5492f898.html" title="JZ14 链表中倒数最后k个结点">https://klaus08.top/post/5492f898.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -358,7 +339,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+              <a href="/tags/%E5%89%91%E6%8C%87OFFER/" rel="tag"><i class="fa fa-tag"></i> 剑指OFFER</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/" rel="tag"><i class="fa fa-tag"></i> 数组</a>
           </div>
 
         
@@ -367,13 +350,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/2c0ee3a9.html" rel="prev" title="JZ19 顺时针打印矩阵">
-      <i class="fa fa-chevron-left"></i> JZ19 顺时针打印矩阵
+    <a href="/post/67d6fc0b.html" rel="prev" title="JZ56 删除链表中重复的结点">
+      <i class="fa fa-chevron-left"></i> JZ56 删除链表中重复的结点
     </a></div>
-      <div class="post-nav-item">
-    <a href="/post/b4b62cca.html" rel="next" title="ArrayList补充">
-      ArrayList补充 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -433,7 +413,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#List集合"><span class="nav-number">1.</span> <span class="nav-text">List集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器"><span class="nav-number">1.1.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList和Vector"><span class="nav-number">1.2.</span> <span class="nav-text">ArrayList和Vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决Vector线程不安全"><span class="nav-number">1.3.</span> <span class="nav-text">解决Vector线程不安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collections-synchronizedList"><span class="nav-number">1.3.1.</span> <span class="nav-text">Collections.synchronizedList()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CopyOnWriteArrayList"><span class="nav-number">1.3.2.</span> <span class="nav-text">CopyOnWriteArrayList</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack类"><span class="nav-number">1.4.</span> <span class="nav-text">Stack类</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#描述"><span class="nav-number">1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例1"><span class="nav-number">2.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解答"><span class="nav-number">3.</span> <span class="nav-text">解答</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解答一"><span class="nav-number">3.1.</span> <span class="nav-text">解答一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答二"><span class="nav-number">3.2.</span> <span class="nav-text">解答二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答三"><span class="nav-number">3.3.</span> <span class="nav-text">解答三</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
