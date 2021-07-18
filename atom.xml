@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://klaus08.top/"/>
-  <updated>2021-07-18T05:42:45.000Z</updated>
+  <updated>2021-07-18T12:35:45.000Z</updated>
   <id>https://klaus08.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JZ55 链表中环的入口结点</title>
+    <link href="https://klaus08.top/post/eead6742.html"/>
+    <id>https://klaus08.top/post/eead6742.html</id>
+    <published>2021-07-18T12:35:45.000Z</published>
+    <updated>2021-07-18T12:35:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.nowcoder.com/practice/253d2c59ec3e4bc68da16833f79a38e4?tpId=13&amp;tqId=11208&amp;tPage=1&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking&amp;from=cyc_github" target="_blank" rel="noopener">题目描述</a></p><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，返回null。 <a id="more"></a></p><h3 id="输入描述："><a href="#输入描述：" class="headerlink" title="输入描述："></a>输入描述：</h3><p>输入分为2段，第一段是入环前的链表部分，第二段是链表环的部分，后台将这2个会组装成一个有环或者无环单链表</p><h3 id="返回值描述："><a href="#返回值描述：" class="headerlink" title="返回值描述："></a>返回值描述：</h3><p>返回链表的环的入口结点即可。而我们后台程序会打印这个节点</p><h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：{1,2},{3,4,5}</span><br><span class="line">返回值：3</span><br><span class="line">说明：返回环形链表入口节点，我们后台会打印该环形链表入口节点，即3</span><br></pre></td></tr></tbody></table></figure><h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：{1},{}</span><br><span class="line">返回值："null"</span><br><span class="line">说明：没有环，返回null，后台打印"null"</span><br></pre></td></tr></tbody></table></figure><h2 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h2><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：{},{2}</span><br><span class="line">返回值：2</span><br><span class="line">说明：只有环形链表节点2，返回节点2，后台打印2</span><br></pre></td></tr></tbody></table></figure><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>1.遍历链表，使用HashSet存储，如果在添加某个结点失败，说明该结点是环的入口。</p><p>2.快慢指针。快慢指针先指向头节点，然后快指针每次走两步，慢指针每次走一步，这样他俩一定会在环中的某一结点相遇。相遇后，慢指针不动，快指针指向头结点，此时慢指针和快指针距离环入口结点的<strong>距离相等</strong>，所以让快慢指针同时前进一步直到他们再次相遇，此时相遇的结点就是入口节点。</p><h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><h3 id="解答一"><a href="#解答一" class="headerlink" title="解答一"></a>解答一</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span> </span>{</span><br><span class="line">    HashSet&lt;ListNode&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">while</span> (pHead != <span class="keyword">null</span>){</span><br><span class="line">        <span class="keyword">boolean</span> res = set.add(pHead);</span><br><span class="line">        <span class="keyword">if</span> (res == <span class="keyword">false</span>){</span><br><span class="line">            <span class="keyword">return</span> pHead;</span><br><span class="line">        }</span><br><span class="line">        pHead = pHead.next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> pHead;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><h3 id="解答二"><a href="#解答二" class="headerlink" title="解答二"></a>解答二</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (pHead == <span class="keyword">null</span> || pHead.next == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    ListNode fast = pHead, slow = pHead;</span><br><span class="line">    <span class="keyword">do</span> {</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">    }<span class="keyword">while</span> (fast != slow);</span><br><span class="line"></span><br><span class="line">    fast = pHead;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (fast != slow){</span><br><span class="line">        fast = fast.next;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> fast;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://www.nowcoder.com/practice/253d2c59ec3e4bc68da16833f79a38e4?tpId=13&amp;amp;tqId=11208&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=/ta/coding-interviews&amp;amp;qru=/ta/coding-interviews/question-ranking&amp;amp;from=cyc_github&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目描述&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h2&gt;&lt;p&gt;给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，返回null。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://klaus08.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="数据结构" scheme="https://klaus08.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="剑指OFFER" scheme="https://klaus08.top/tags/%E5%89%91%E6%8C%87OFFER/"/>
+    
+      <category term="数组" scheme="https://klaus08.top/tags/%E6%95%B0%E7%BB%84/"/>
+    
+  </entry>
   
   <entry>
     <title>JZ14 链表中倒数最后k个结点</title>
@@ -542,34 +570,6 @@
     
       &lt;p&gt;&lt;a href=&quot;https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=13&amp;amp;&amp;amp;tqId=11158&amp;amp;rp=1&amp;amp;ru=/ta/coding-interviews&amp;amp;qru=/ta/coding-interviews/question-ranking&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原题链接&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h2&gt;&lt;p&gt;用两个栈来实现一个队列，分别完成在队列尾部插入整数(push)和在队列头部删除整数(pop)的功能。 队列中的元素为int类型。保证操作合法，即保证pop操作时队列内已有元素。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="https://klaus08.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="https://klaus08.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="剑指OFFER" scheme="https://klaus08.top/tags/%E5%89%91%E6%8C%87OFFER/"/>
-    
-      <category term="数组" scheme="https://klaus08.top/tags/%E6%95%B0%E7%BB%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JZ34 第一个只出现一次的字符位置</title>
-    <link href="https://klaus08.top/post/5cb7c635.html"/>
-    <id>https://klaus08.top/post/5cb7c635.html</id>
-    <published>2021-07-10T10:14:30.000Z</published>
-    <updated>2021-07-10T10:14:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.nowcoder.com/practice/1c82e8cf713b4bbeb2a5b31cf5b0417c?tpId=13&amp;&amp;tqId=11187&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking" target="_blank" rel="noopener">原题链接</a></p><h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>在一个字符串(0&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）.（从0开始计数）<a id="more"></a></p><h1 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入："google"</span><br><span class="line">返回值：4</span><br></pre></td></tr></tbody></table></figure><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>还没有学到map，所以用数组模拟，str中的字符做key，数组中的值做value，一边遍历后统计字符，然后再根据str中字符的顺序依次遍历，value为1的就是要的结果。当时这里没想明白，总是想用数组下标进行遍历，但这样就没办法满足题设中<code>第一个</code>的要求，卡了很久。</p><h1 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h1><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">FirstNotRepeatingChar</span><span class="params">(String str)</span> </span>{</span><br><span class="line">    <span class="keyword">int</span>[] map = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str.length();i++)</span><br><span class="line">        ++map[str.charAt(i)];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;str.length(); ++i) {<span class="comment">//这里是没想到的，直接用字符串进行遍历！！</span></span><br><span class="line">        <span class="keyword">if</span> (map[str.charAt(i)] == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://www.nowcoder.com/practice/1c82e8cf713b4bbeb2a5b31cf5b0417c?tpId=13&amp;amp;&amp;amp;tqId=11187&amp;amp;rp=1&amp;amp;ru=/ta/coding-interviews&amp;amp;qru=/ta/coding-interviews/question-ranking&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原题链接&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h1&gt;&lt;p&gt;在一个字符串(0&amp;lt;=字符串长度&amp;lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）.（从0开始计数）&lt;/p&gt;
     
     </summary>
     

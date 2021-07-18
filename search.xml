@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JZ55 链表中环的入口结点</title>
+    <url>/post/eead6742.html</url>
+    <content><![CDATA[<p><a href="https://www.nowcoder.com/practice/253d2c59ec3e4bc68da16833f79a38e4?tpId=13&amp;tqId=11208&amp;tPage=1&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking&amp;from=cyc_github" target="_blank" rel="noopener">题目描述</a></p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，返回null。 <a id="more"></a></p>
+<h3 id="输入描述："><a href="#输入描述：" class="headerlink" title="输入描述："></a>输入描述：</h3><p>输入分为2段，第一段是入环前的链表部分，第二段是链表环的部分，后台将这2个会组装成一个有环或者无环单链表</p>
+<h3 id="返回值描述："><a href="#返回值描述：" class="headerlink" title="返回值描述："></a>返回值描述：</h3><p>返回链表的环的入口结点即可。而我们后台程序会打印这个节点</p>
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">输入：{1,2},{3,4,5}</span><br><span class="line">返回值：3</span><br><span class="line">说明：返回环形链表入口节点，我们后台会打印该环形链表入口节点，即3</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">输入：{1},{}</span><br><span class="line">返回值："null"</span><br><span class="line">说明：没有环，返回null，后台打印"null"</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h2><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">输入：{},{2}</span><br><span class="line">返回值：2</span><br><span class="line">说明：只有环形链表节点2，返回节点2，后台打印2</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>1.遍历链表，使用HashSet存储，如果在添加某个结点失败，说明该结点是环的入口。</p>
+<p>2.快慢指针。快慢指针先指向头节点，然后快指针每次走两步，慢指针每次走一步，这样他俩一定会在环中的某一结点相遇。相遇后，慢指针不动，快指针指向头结点，此时慢指针和快指针距离环入口结点的<strong>距离相等</strong>，所以让快慢指针同时前进一步直到他们再次相遇，此时相遇的结点就是入口节点。</p>
+<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><h3 id="解答一"><a href="#解答一" class="headerlink" title="解答一"></a>解答一</h3><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span> </span>{</span><br><span class="line">    HashSet&lt;ListNode&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">while</span> (pHead != <span class="keyword">null</span>){</span><br><span class="line">        <span class="keyword">boolean</span> res = set.add(pHead);</span><br><span class="line">        <span class="keyword">if</span> (res == <span class="keyword">false</span>){</span><br><span class="line">            <span class="keyword">return</span> pHead;</span><br><span class="line">        }</span><br><span class="line">        pHead = pHead.next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> pHead;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="解答二"><a href="#解答二" class="headerlink" title="解答二"></a>解答二</h3><figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (pHead == <span class="keyword">null</span> || pHead.next == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    ListNode fast = pHead, slow = pHead;</span><br><span class="line">    <span class="keyword">do</span> {</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">    }<span class="keyword">while</span> (fast != slow);</span><br><span class="line"></span><br><span class="line">    fast = pHead;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (fast != slow){</span><br><span class="line">        fast = fast.next;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> fast;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>剑指OFFER</tag>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JZ14 链表中倒数最后k个结点</title>
     <url>/post/5492f898.html</url>
     <content><![CDATA[<p><a href="https://www.nowcoder.com/practice/886370fe658f41b498d40fb34ae76ff9?tpId=13&amp;tqId=11167&amp;tab=answerKey&amp;from=cyc_github" target="_blank" rel="noopener">原题链接</a></p>
