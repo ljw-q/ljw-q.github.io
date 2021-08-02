@@ -50,12 +50,12 @@
   };
 </script>
 
-  <meta name="description" content="属性名和字段名不一致的问题数据库字段名如下：  POJO 对象属性如下： 123private int id;private String name;private String password;   当进行 select * 操作时，结果如下： 12345678910111213141516password为空，没有和数据库中的pwd字段匹配起来。&lt;br&#x2F;&gt;## 解决方法一SQL语">
+  <meta name="description" content="属性名和字段名不一致的问题数据库字段名如下：  POJO 对象属性如下： 123private int id;private String name;private String password;   当进行 select * 操作时，结果如下： 12345678910111213141516password为空，没有和数据库中的pwd字段匹配起来。&lt;br&#x2F;&gt;## 解决方法一SQ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MyBatis中ResultMap">
 <meta property="og:url" content="https://klaus08.top/post/7a052001.html">
 <meta property="og:site_name" content="klaus&#39; blog">
-<meta property="og:description" content="属性名和字段名不一致的问题数据库字段名如下：  POJO 对象属性如下： 123private int id;private String name;private String password;   当进行 select * 操作时，结果如下： 12345678910111213141516password为空，没有和数据库中的pwd字段匹配起来。&lt;br&#x2F;&gt;## 解决方法一SQL语">
+<meta property="og:description" content="属性名和字段名不一致的问题数据库字段名如下：  POJO 对象属性如下： 123private int id;private String name;private String password;   当进行 select * 操作时，结果如下： 12345678910111213141516password为空，没有和数据库中的pwd字段匹配起来。&lt;br&#x2F;&gt;## 解决方法一SQ">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/man-ljw/PicBed/raw/master/image-20210725220842862.png">
 <meta property="article:published_time" content="2021-07-25T13:45:36.000Z">
@@ -271,7 +271,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="属性名和字段名不一致的问题"><a href="#属性名和字段名不一致的问题" class="headerlink" title="属性名和字段名不一致的问题"></a>属性名和字段名不一致的问题</h1><p>数据库字段名如下：</p>
+        <a id="more"></a>
+
+<h1 id="属性名和字段名不一致的问题"><a href="#属性名和字段名不一致的问题" class="headerlink" title="属性名和字段名不一致的问题"></a>属性名和字段名不一致的问题</h1><p>数据库字段名如下：</p>
 <p><img src="https://gitee.com/man-ljw/PicBed/raw/master/image-20210725220842862.png" alt=""></p>
 <p>POJO 对象属性如下：</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> String password;</span><br></pre></td></tr></tbody></table></figure>
