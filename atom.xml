@@ -30,8 +30,6 @@
       &lt;p&gt;&lt;a href=&quot;https://www.nowcoder.com/practice/a861533d45854474ac791d90e447bafd?tpId=13&amp;amp;tqId=11176&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=/ta/coding-interviews&amp;amp;qru=/ta/coding-interviews/question-ranking&amp;amp;from=cyc_github&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原题链接&lt;/a&gt;&lt;/p&gt;
 &lt;br&gt;
 
-
-
 &lt;h2 id=&quot;描述&quot;&gt;&lt;a href=&quot;#描述&quot; class=&quot;headerlink&quot; title=&quot;描述&quot;&gt;&lt;/a&gt;描述&lt;/h2&gt;&lt;p&gt;输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则返回true,否则返回false。假设输入的数组的任意两个数字都互不相同。==（ps：我们约定空树不是二叉搜索树）==&lt;/p&gt;
     
     </summary>
@@ -210,17 +208,17 @@
     <published>2021-07-28T03:19:51.000Z</published>
     <updated>2021-07-28T03:19:51.000Z</updated>
     
-    <content type="html"><![CDATA[<p>#</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    <content type="html"><![CDATA[<script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;#&lt;/p&gt;
-&lt;script&gt;
+        &lt;script&gt;
         document.querySelectorAll(&#39;.github-emoji&#39;)
           .forEach(el =&gt; {
             if (!el.dataset.src) { return; }
+        
       
     
     </summary>
