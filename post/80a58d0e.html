@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="google-site-verification" content="m3hJ0L1GWg5L4TGDuccifiqZjdFfOyoVMxnDxcq0q3I" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://klaus08.top').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":20,"offset":20,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"default"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"buttons","active":"disqus","storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="管理事务处理事物的四个特性： Atomic: 一个事务要么全部提交成功，要么全部失败回滚，不能只执行其中的一部分操作。 *Consistency: *一个事务在执行之前和执行之后，数据库都必须处于一致性状态。  *Isolation: * 在并发环境中，并发的事务时相互隔离的，一个事务的执行不能不被其他事务干扰。 *During: *一旦事务提交，那么它对数据库中的对应数据的状态的变更就会永久保存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mySQL（六）">
+<meta property="og:url" content="https://klaus08.top/post/80a58d0e.html">
+<meta property="og:site_name" content="klaus&#39; blog">
+<meta property="og:description" content="管理事务处理事物的四个特性： Atomic: 一个事务要么全部提交成功，要么全部失败回滚，不能只执行其中的一部分操作。 *Consistency: *一个事务在执行之前和执行之后，数据库都必须处于一致性状态。  *Isolation: * 在并发环境中，并发的事务时相互隔离的，一个事务的执行不能不被其他事务干扰。 *During: *一旦事务提交，那么它对数据库中的对应数据的状态的变更就会永久保存">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/man-ljw/PicBed/raw/master/QQ%E6%88%AA%E5%9B%BE20210708094316.jpg">
+<meta property="og:image" content="https://gitee.com/man-ljw/PicBed/raw/master/QQ%E6%88%AA%E5%9B%BE20210708094437.jpg">
+<meta property="article:published_time" content="2021-07-08T02:26:47.000Z">
+<meta property="article:modified_time" content="2021-07-08T02:26:47.000Z">
+<meta property="article:author" content="klaus08">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/man-ljw/PicBed/raw/master/QQ%E6%88%AA%E5%9B%BE20210708094316.jpg">
+
+<link rel="canonical" href="https://klaus08.top/post/80a58d0e.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>mySQL（六） | klaus' blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="klaus' blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">klaus' blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">焦虑源于行动的匮乏</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://klaus08.top/post/80a58d0e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
+      <meta itemprop="name" content="klaus08">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="klaus' blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          mySQL（六）
+        </h2>
+
+        <div class="post-meta">
+		
+			
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-08 10:26:47" itemprop="dateCreated datePublished" datetime="2021-07-08T10:26:47+08:00">2021-07-08</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="管理事务处理"><a href="#管理事务处理" class="headerlink" title="管理事务处理"></a>管理事务处理</h1><p>事物的四个特性：</p>
+<p><strong>Atomic:</strong> 一个事务要么全部提交成功，要么全部失败回滚，不能只执行其中的一部分操作。</p>
+<p>*<em>Consistency: *</em>一个事务在执行之前和执行之后，数据库都必须处于一致性状态。 </p>
+<p>*<em>Isolation: *</em> 在并发环境中，并发的事务时相互隔离的，一个事务的执行不能不被其他事务干扰。</p>
+<p>*<em>During: *</em>一旦事务提交，那么它对数据库中的对应数据的状态的变更就会永久保存到数据库中。</p>
+<a id="more"></a>
+
+<p>并非所有引擎都支持事务处理：MyISAM和InnoDB是两种最常用的引擎，而前者不支持明确的事务处理管理，后者支持。</p>
+<p><strong>事务（transaction）</strong>指一组SQL语句；</p>
+<p><strong>回退（rollback）</strong>指撤销指定SQL语句的过程；</p>
+<p><strong>提交（commit）</strong>指将未存储的SQL语句结果写入数据库表；</p>
+<p><strong>保留点（savepoint）</strong>指事务处理中设置的临时占位符（placeholder），你可以对它发布回退（与回退整个事务处理不同）。</p>
+<h2 id="事务开始"><a href="#事务开始" class="headerlink" title="事务开始"></a>事务开始</h2><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">START</span> <span class="keyword">TRANSACTION</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="使用ROLLBACK"><a href="#使用ROLLBACK" class="headerlink" title="使用ROLLBACK"></a>使用ROLLBACK</h2><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> orderitems; <span class="comment">--先查询数据，都在</span></span><br><span class="line"><span class="keyword">START</span> <span class="keyword">TRANSACTION</span>;<span class="comment">-- 开始事务</span></span><br><span class="line"><span class="keyword">DELETE</span>  <span class="keyword">FROM</span> orderitems;<span class="comment">--删除表中数据</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> orderitems;<span class="comment">--查询是否删除</span></span><br><span class="line"><span class="keyword">ROLLBACK</span>;<span class="comment">--回滚</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> orderitems;<span class="comment">--删除的数据又重新出现</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="使用COMMIT"><a href="#使用COMMIT" class="headerlink" title="使用COMMIT"></a>使用COMMIT</h2><p>一般的MySQL语句都是直接针对数据库表执行和编写的，会自动提交，也叫做隐含提交。</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> AUTOCOMMIT = <span class="number">0</span>; <span class="comment">-- 禁止自动提交</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>但是在事务处理中，提交不会隐含地进行，必须使用<strong>COMMIT</strong>语句进行明确的提交。</p>
+<p>COMMIT可以保证：在SQL语句不出错时才真正执行操作，否则错误语句会被自动撤销。</p>
+<p>当COMMIT或ROLLBACK执行后，事务会自动关闭。</p>
+<h2 id="使用保存点"><a href="#使用保存点" class="headerlink" title="使用保存点"></a>使用保存点</h2><p>只使用ROLLBACK和COMMIT的话明显不够人性化，一旦出错就会回滚到最开始的状态。</p>
+<p>为了支持回退部分事务处理，必须能在事务处理块中合适的位置放置占位符，这些占位符被叫做保存点。</p>
+<h3 id="创建保存点"><a href="#创建保存点" class="headerlink" title="创建保存点"></a>创建保存点</h3><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SAVEPOINT</span> 保存点名;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>shi’y使用保存点</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ROLLBACK</span> <span class="keyword">TO</span> 保存点名;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h1><p><strong>字符集</strong>是字母和符号的集合；</p>
+<p><strong>编码</strong>是某个字符集成员的内部表示；</p>
+<p><strong>校对</strong>规定字符如何比较的指令。</p>
+<p>通过<code>SHOW CHARACTER SET;</code>查看数据库可用的数据集。</p>
+<h1 id="安全管理"><a href="#安全管理" class="headerlink" title="安全管理"></a>安全管理</h1><p>MySQL中用户信息都存储在mysql数据库中的user表中。可使用以下指令查看：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USE</span> mysql;</span><br><span class="line">CELECCT USER FROM USER;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> 用户名</span><br><span class="line"><span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'口令'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="用户重命名"><a href="#用户重命名" class="headerlink" title="用户重命名"></a>用户重命名</h2><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RENAME</span> <span class="keyword">USER</span> 原名 <span class="keyword">TO</span> 新名</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h2><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> UESR 用户名;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h2><p>在设置权限时，要求账号用户必须存在，但涉及的对象却没有这个要求。</p>
+<p>这样可以：给未来的表设置权限、某表被删除后再出现时对它的权限依然存在。</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 授予权限</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">INSERT</span> / <span class="keyword">DELETE</span> / <span class="keyword">UPDATE</span> / <span class="keyword">SELECT</span> <span class="keyword">ON</span> 数据库.表名 <span class="keyword">TO</span> 用户名;</span><br><span class="line"><span class="comment">-- 授予多个权限可以简化</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">INSERT</span>, <span class="keyword">ALTER</span>,<span class="keyword">UPDATE</span> <span class="keyword">ON</span> 数据库名.表名 <span class="keyword">TO</span>  用户名;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 取消权限</span></span><br><span class="line"><span class="comment">-- 被废除的权限必须存在</span></span><br><span class="line"><span class="keyword">REVOKE</span> <span class="keyword">INSERT</span> / <span class="keyword">DELETE</span> / <span class="keyword">UPDATE</span> / <span class="keyword">SELECT</span> <span class="keyword">ON</span> 数据库.表名 <span class="keyword">FROM</span> 用户名;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>可授予、废除的权限如下：</p>
+<p><img src="https://gitee.com/man-ljw/PicBed/raw/master/QQ%E6%88%AA%E5%9B%BE20210708094316.jpg" alt=""></p>
+<p><img src="https://gitee.com/man-ljw/PicBed/raw/master/QQ%E6%88%AA%E5%9B%BE20210708094437.jpg" alt=""></p>
+<h2 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h2><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">PASSWORD</span> FRO 用户名 = <span class="keyword">PASSWORD</span>(<span class="string">'新密码'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h1 id="数据库备份"><a href="#数据库备份" class="headerlink" title="数据库备份"></a>数据库备份</h1><p>由于数据库数据经常是打开的，所以不能使用一般的文件转存方法，不过有以下几种解决方法：</p>
+<ol>
+<li>使用命令行实用程序mysqldump转储数据库所有内容。</li>
+<li>可用命令行实用程序mysqlhotcopy从一个数据库复制所有数据（MyISAM，Innodb支持）。</li>
+<li>使用MySQL的BACKUP TABLE或SELECT INTO OUTFILE转储所有数据到某个外部文件。</li>
+</ol>
+<p><strong>注：</strong>为了保证所有数据被写到磁盘（包括索引数据），可能需要在进行备份前使用<strong>FLUSH TABLES</strong>语句。</p>
+<h1 id="MySQL日志"><a href="#MySQL日志" class="headerlink" title="MySQL日志"></a>MySQL日志</h1><ul>
+<li>错误日志，位于Data目录下，通常命名时[主机名].err。</li>
+<li>查询日志，位于Data目录下，通常命名时[主机名].log。</li>
+<li>二进制日志。位于data目录下，通常命名为hostname-bin，它记录更新过数据（或者可能更新过数据）的所有语句。</li>
+</ul>
+<h1 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h1><p>使用<code>用SHOW PROCESSLIST</code>查看活动进程，并可以使用KILL+PID杀死进程（需要root）。</p>
+<ul>
+<li>一般来说，存储过程执行得比一条一条地执行其中的各条MySQL语句快。</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>klaus08
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://klaus08.top/post/80a58d0e.html" title="mySQL（六）">https://klaus08.top/post/80a58d0e.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/28cfbe0f.html" rel="prev" title="MySQL（五）">
+      <i class="fa fa-chevron-left"></i> MySQL（五）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/39ccbee0.html" rel="next" title="JZ50 数组中重复的数字">
+      JZ50 数组中重复的数字 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#管理事务处理"><span class="nav-number">1.</span> <span class="nav-text">管理事务处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务开始"><span class="nav-number">1.1.</span> <span class="nav-text">事务开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用ROLLBACK"><span class="nav-number">1.2.</span> <span class="nav-text">使用ROLLBACK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用COMMIT"><span class="nav-number">1.3.</span> <span class="nav-text">使用COMMIT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用保存点"><span class="nav-number">1.4.</span> <span class="nav-text">使用保存点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建保存点"><span class="nav-number">1.4.1.</span> <span class="nav-text">创建保存点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符集"><span class="nav-number">2.</span> <span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安全管理"><span class="nav-number">3.</span> <span class="nav-text">安全管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建用户"><span class="nav-number">3.1.</span> <span class="nav-text">创建用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户重命名"><span class="nav-number">3.2.</span> <span class="nav-text">用户重命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除用户"><span class="nav-number">3.3.</span> <span class="nav-text">删除用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置权限"><span class="nav-number">3.4.</span> <span class="nav-text">设置权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改密码"><span class="nav-number">3.5.</span> <span class="nav-text">更改密码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库备份"><span class="nav-number">4.</span> <span class="nav-text">数据库备份</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL日志"><span class="nav-number">5.</span> <span class="nav-text">MySQL日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性能"><span class="nav-number">6.</span> <span class="nav-text">性能</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+	  
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="klaus08"
+      src="https://i.loli.net/2020/01/18/HhpXAC5akQ4Fxcy.jpg#/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">klaus08</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:scholarslept@gmail.com" title="E-Mail → mailto:scholarslept@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://sighttp.qq.com/authd?IDKEY=e9413421f0a21e27ed0121d39a8be9ce3ba13b3012fc248d" title="QQ → http:&#x2F;&#x2F;sighttp.qq.com&#x2F;authd?IDKEY&#x3D;e9413421f0a21e27ed0121d39a8be9ce3ba13b3012fc248d" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/qq_43773164" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_43773164" rel="noopener" target="_blank"><i class="fa fa-fw fa-location-arrow"></i>CSDN</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+	  
+
+<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+    <canvas width="220" height="250" id="resCanvas" style="width=100%">
+        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyBatis/" rel="tag">MyBatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSM/" rel="tag">SSM</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%91%E6%8C%87OFFER/" rel="tag">剑指OFFER</a><span class="tag-list-count">30</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="tag">线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%8D%E6%9E%84/" rel="tag">重构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a><span class="tag-list-count">7</span></li></ul>
+    </canvas>
+    </div>
+</div>
+
+
+    </div>
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+
+</div>
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">klaus08</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">151k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:17</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-qq"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/love.js"></script>
+
